@@ -3,7 +3,7 @@
 
     
     <url>
-     <loc>/</loc>
+     <loc>/index.html</loc>
      <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -11,7 +11,7 @@
 
     
     <url>
-     <loc>/about/</loc>
+     <loc>/about/index.html</loc>
      <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -19,7 +19,7 @@
 
     
     <url>
-     <loc>/prereqs/</loc>
+     <loc>/prereqs/index.html</loc>
      <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -27,7 +27,7 @@
 
     
     <url>
-     <loc>/readings/</loc>
+     <loc>/readings/index.html</loc>
      <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -36,7 +36,7 @@
     
         
     <url>
-     <loc>/lec1/</loc>
+     <loc>/lec1/index.html</loc>
      <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -46,7 +46,7 @@
     
         
     <url>
-     <loc>/lab1/</loc>
+     <loc>/lab1/index.html</loc>
      <lastmod>2017-08-11</lastmod>
      <changefreq>daily</changefreq>
     </url>
