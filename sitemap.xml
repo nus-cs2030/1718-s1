@@ -19,6 +19,14 @@
 
     
     <url>
+     <loc>/schedule/index.html</loc>
+     <lastmod>2017-08-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>/prereqs/index.html</loc>
      <lastmod>2017-08-14</lastmod>
      <changefreq>daily</changefreq>
@@ -65,6 +73,16 @@
         
     <url>
      <loc>/lab1/index.html</loc>
+     <lastmod>2017-08-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/jdk/index.html</loc>
      <lastmod>2017-08-14</lastmod>
      <changefreq>daily</changefreq>
     </url>

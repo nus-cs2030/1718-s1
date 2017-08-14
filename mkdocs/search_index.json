@@ -56,6 +56,16 @@
             "title": "Textbook"
         },
         {
+            "location": "/schedule/index.html",
+            "text": "Class Schedule and Slides\n\n\n\n\n\n\n\n\nWeek\n\n\nDate\n\n\nTopics\n\n\nNotes\n\n\nSlides\n\n\n\n\n\n\n\n\n\n\n1\n\n\n2017-08-14\n\n\nAbstraction and Encapsulation\n\n\nNotes\n\n\nSlides\n\n\n\n\n\n\n2\n\n\n2017-08-21\n\n\n\n\n\n\n\n\n\n\n\n\n3\n\n\n2017-08-28\n\n\n\n\n\n\n\n\n\n\n\n\n4\n\n\n2017-09-04\n\n\n\n\n\n\n\n\n\n\n\n\n5\n\n\n2017-09-11\n\n\n\n\n\n\n\n\n\n\n\n\n6\n\n\n2017-09-18\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2017-09-25\n\n\nBreak\n\n\n\n\n\n\n\n\n\n\n7\n\n\n2017-10-02\n\n\nMidterm\n\n\n\n\n\n\n\n\n\n\n8\n\n\n2017-10-09\n\n\n\n\n\n\n\n\n\n\n\n\n9\n\n\n2017-10-16\n\n\n\n\n\n\n\n\n\n\n\n\n10\n\n\n2017-10-23\n\n\n\n\n\n\n\n\n\n\n\n\n11\n\n\n2017-10-30\n\n\n\n\n\n\n\n\n\n\n\n\n12\n\n\n2017-11-06\n\n\n\n\n\n\n\n\n\n\n\n\n13\n\n\n2017-11-13",
+            "title": "Schedule"
+        },
+        {
+            "location": "/schedule/index.html#class-schedule-and-slides",
+            "text": "Week  Date  Topics  Notes  Slides      1  2017-08-14  Abstraction and Encapsulation  Notes  Slides    2  2017-08-21       3  2017-08-28       4  2017-09-04       5  2017-09-11       6  2017-09-18        2017-09-25  Break      7  2017-10-02  Midterm      8  2017-10-09       9  2017-10-16       10  2017-10-23       11  2017-10-30       12  2017-11-06       13  2017-11-13",
+            "title": "Class Schedule and Slides"
+        },
+        {
             "location": "/prereqs/index.html",
             "text": "Assumed Prior Knowledge\n\n\nCS2030 has the prerequisite of CS1010 or its equivalent.  There are, however, several versions of CS1010, and some students are waived from doing CS1010 due to prior programming knowledge.  This document here outlines the prior knowledge that the instructors assume the students have before entering CS2030.\n\n\nBasic computational problem solving and programming skills\n\n\nHere are some learning outcomes that students should attained after taking CS1010.  Students should be familiar with:\n\n\n\n\nthe computational thinking process of formulating a problem and coming up with a solution,\n\n\nfundamental programming concepts, including variables, assignments, conditions, branches, loops, expressions, functions, recursions, and structures\n\n\nhow to program a given solution in a programming language\n\n\ndifferent classes of programming errors (logical errors, syntax errors, run-time errors)\n\n\ncommon debugging techniques and strategies\n\n\ngood programming practices (comments, naming convention, indentation, modular code)\n\n\nsimple data structures (e.g., arrays)\n\n\nwriting test cases to check correctness of own program\n\n\nhow a program is executed and represented in a computing device (at a high level)\n\n\nthe compilation process (at a high level)\n\n\nthe concept of reusability and the use of standard/3\nrd\n party software\n\n\nbubble sort, insertion sort, linear search, and binary search\n\n\n\n\nStudents who take CS2030 are assumed to have sufficient knowledge of the above.  If there are specific components that you are not familiar with, please pick up the notes from CS1010 and self-learn.\n\n\nUNIX command line\n\n\nWe will use the \nsunfire\n computing server for this module.  As such, you are expected to be comfortable with using CLI (command line interface) and the basic UNIX commands, in a text window without fancy windows and mouse, and the concept of \nssh\n-ing into a remote host and work remotely.\n\n\nIf you are not familiar with this concept, take a look at the \nslides from the CS1010/CS1020 workshop\n.\n\n\nSource code editors\n\n\nYou are expected to be familiar with one or more source code editors.  Note that source code editor is not the same as text editor (e.g., Notepad).  A source code editor automatically highlights syntax, indents the code, matches parenthesis, supports autocompletion and code folding, and integrates with the software development process (such as revision control).\n\n\nCS1010 started (or would have started) you off with \nvim\n.  Many good source code editors exists, such as \nAtom\n, \nVS Code\n, and of course \nemacs\n1\n!\n\n\nFor your career, you should pick one and master it.  If you want to learn \nvim\n, the command \nvimtutor\n is a good place to start.  There are also many tutorials, webcasts, games, etc, online to help you learn \nvim\n.  Just google.\n\n\nDeveloper's Friendly OS\n\n\nYour life through the computing modules would be much much better if you are using a developer's friendly operating system on your personal computer.  \n\n\n\n\n\n\nIf you uses Linux or macOS, you are all set.  For macOS users, \nbrew\n is highly recommended.\n\n\n\n\n\n\nIf you use Windows 10, you should definitely install the Ubuntu Bash Shell.  There are many excellent tutorials online (such as \nthis one\n).\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nI can't mention \nvim\n without mentioning \nemacs\n\u00a0\n\u21a9",
             "title": "Prerequisites"
@@ -254,6 +264,46 @@
             "location": "/lab1/index.html#coming-soon",
             "text": "Nothing to see here (yet).  :  :  :  :  :  :  :  :  :  :",
             "title": "Coming Soon"
+        },
+        {
+            "location": "/jdk/index.html",
+            "text": "Java: Install/Compile/Run\n\n\nJava Development Kit (JDK)\n\n\nThe Java Development Kit, or JDK, is a development environment for building Java applications.  The environment provides a virtual machine to execute compiled Java code (JVM), a collection of classes and libraries, and a set of tools to support development (including a compiler (\njavac\n), a debugger (\njdb\n), an interactive shell (\njshell\n)) etc.\n\n\nThere are several variations of JDK available.  For instance, \nOpenJDK\n is a free and open source version of JDK.  \nGNU\n offers a compiler in Java (\ngcj\n) and Java core libraries in Gnu classpath.\nEclipse offers its own version of Java compiler\n1\n.  These variations are mostly the same, but for the purpose of this module, we will use the \nofficial Oracle version\n.\n\n\nThere are different editions of Java.  The main ones are Java SE (standard edition), Java EE (enterprise edition), and Java ME (micro edition).  We will be using \nJava SE\n.\n\n\nThe latest version of Java SE is Java 8 (equivalent to version 1.8).\nThis is also the earliest version of Java that will work with this module, as many concepts we will cover are only introduced in Java 8.  \n\n\nTo use \njshell\n, however, you need Java 9, which you can \ndownload and install from here\n.\n\n\nInstalling JDK 9\n\n\nThere are multiple ways to setup JDK on various OS.  The following seems to be the simplest possible way to get started.\n\n\nOn macOS\n\n\nDownload the \n.dmg\n file corresponding to JDK 9 from \nhttp://jdk.java.net/9/\n and double click the \n.dmg\n file.  Follow instruction from there.\n\n\nFor a 6-step description of the above, see \nthe installation instruction from Oracle.\n\n\nOn Ubuntu / Linux Mint / Debian\n\n\nWe are going to use \napt\n, a package management program, in Linux to install JDK.  Run the following in your terminal:\n\n\n1\n2\n3\nsudo add-apt-repository ppa:webupd8team/java\nsudo apt-get update\nsudo apt-get install oracle-java9-installer\n\n\n\n\n\n\nLine 1 above adds a special package repository (also known as Personal Package Archive (PPA)) to \napt\n.  Line 2 instructs \napt\n to download the list of packages available from all repositories configured.  One of this packages should be \noracle-java9-installer\n.  Line 3 installs the \noracle-java9-installer\n.  Note that this install the installer, not Java 9.  After the installer is installed, the installer is executed.  You will be asked questions about license agreements, and then the installer proceeds to download and install Java 9.\n\n\nFor a more detailed instructions, see \nthe guide from the maintainer of the PPA, webupd8.org\n. \n\n\nOn Windows 10\n\n\nFollow the \ninstructions to install Bash on Ubuntu on Windows\n, then install as per the instructions for Ubuntu above.\n\n\nCompiling\n\n\nComing soon.\n\n\n\n\n\n\n\n\n\n\nSee: \nWhat is the difference between javac and the Eclipse compiler?\n\u00a0\n\u21a9",
+            "title": "Java"
+        },
+        {
+            "location": "/jdk/index.html#java-installcompilerun",
+            "text": "",
+            "title": "Java: Install/Compile/Run"
+        },
+        {
+            "location": "/jdk/index.html#java-development-kit-jdk",
+            "text": "The Java Development Kit, or JDK, is a development environment for building Java applications.  The environment provides a virtual machine to execute compiled Java code (JVM), a collection of classes and libraries, and a set of tools to support development (including a compiler ( javac ), a debugger ( jdb ), an interactive shell ( jshell )) etc.  There are several variations of JDK available.  For instance,  OpenJDK  is a free and open source version of JDK.   GNU  offers a compiler in Java ( gcj ) and Java core libraries in Gnu classpath.\nEclipse offers its own version of Java compiler 1 .  These variations are mostly the same, but for the purpose of this module, we will use the  official Oracle version .  There are different editions of Java.  The main ones are Java SE (standard edition), Java EE (enterprise edition), and Java ME (micro edition).  We will be using  Java SE .  The latest version of Java SE is Java 8 (equivalent to version 1.8).\nThis is also the earliest version of Java that will work with this module, as many concepts we will cover are only introduced in Java 8.    To use  jshell , however, you need Java 9, which you can  download and install from here .",
+            "title": "Java Development Kit (JDK)"
+        },
+        {
+            "location": "/jdk/index.html#installing-jdk-9",
+            "text": "There are multiple ways to setup JDK on various OS.  The following seems to be the simplest possible way to get started.",
+            "title": "Installing JDK 9"
+        },
+        {
+            "location": "/jdk/index.html#on-macos",
+            "text": "Download the  .dmg  file corresponding to JDK 9 from  http://jdk.java.net/9/  and double click the  .dmg  file.  Follow instruction from there.  For a 6-step description of the above, see  the installation instruction from Oracle.",
+            "title": "On macOS"
+        },
+        {
+            "location": "/jdk/index.html#on-ubuntu-linux-mint-debian",
+            "text": "We are going to use  apt , a package management program, in Linux to install JDK.  Run the following in your terminal:  1\n2\n3 sudo add-apt-repository ppa:webupd8team/java\nsudo apt-get update\nsudo apt-get install oracle-java9-installer   Line 1 above adds a special package repository (also known as Personal Package Archive (PPA)) to  apt .  Line 2 instructs  apt  to download the list of packages available from all repositories configured.  One of this packages should be  oracle-java9-installer .  Line 3 installs the  oracle-java9-installer .  Note that this install the installer, not Java 9.  After the installer is installed, the installer is executed.  You will be asked questions about license agreements, and then the installer proceeds to download and install Java 9.  For a more detailed instructions, see  the guide from the maintainer of the PPA, webupd8.org .",
+            "title": "On Ubuntu / Linux Mint / Debian"
+        },
+        {
+            "location": "/jdk/index.html#on-windows-10",
+            "text": "Follow the  instructions to install Bash on Ubuntu on Windows , then install as per the instructions for Ubuntu above.",
+            "title": "On Windows 10"
+        },
+        {
+            "location": "/jdk/index.html#compiling",
+            "text": "Coming soon.      See:  What is the difference between javac and the Eclipse compiler? \u00a0 \u21a9",
+            "title": "Compiling"
         }
     ]
 }

@@ -16,7 +16,7 @@
     
     
       
-        <title>Readings - CS2030 Programming Methodology II</title>
+        <title>Java - CS2030 Programming Methodology II</title>
       
     
     
@@ -78,8 +78,12 @@
           
             
               
+                <span class="md-header-nav__parent">
+                  Software/Tools
+                </span>
+              
             
-            Readings
+            Java
           
         </span>
       </div>
@@ -232,47 +236,11 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Readings
-      </label>
-    
-    <a href="index.html" title="Readings" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../readings/index.html" title="Readings" class="md-nav__link">
       Readings
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#for-1st-year-students" title="For 1st Year Students" class="md-nav__link">
-    For 1st Year Students
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
     
@@ -400,10 +368,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10" checked>
     
     <label class="md-nav__link" for="nav-10">
       Software/Tools
@@ -419,11 +389,88 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../jdk/index.html" title="Java" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Java
+      </label>
+    
+    <a href="index.html" title="Java" class="md-nav__link md-nav__link--active">
       Java
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#java-development-kit-jdk" title="Java Development Kit (JDK)" class="md-nav__link">
+    Java Development Kit (JDK)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-jdk-9" title="Installing JDK 9" class="md-nav__link">
+    Installing JDK 9
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-macos" title="On macOS" class="md-nav__link">
+    On macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-ubuntu-linux-mint-debian" title="On Ubuntu / Linux Mint / Debian" class="md-nav__link">
+    On Ubuntu / Linux Mint / Debian
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-windows-10" title="On Windows 10" class="md-nav__link">
+    On Windows 10
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiling" title="Compiling" class="md-nav__link">
+    Compiling
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -453,8 +500,49 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#for-1st-year-students" title="For 1st Year Students" class="md-nav__link">
-    For 1st Year Students
+  <a href="#java-development-kit-jdk" title="Java Development Kit (JDK)" class="md-nav__link">
+    Java Development Kit (JDK)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installing-jdk-9" title="Installing JDK 9" class="md-nav__link">
+    Installing JDK 9
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#on-macos" title="On macOS" class="md-nav__link">
+    On macOS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-ubuntu-linux-mint-debian" title="On Ubuntu / Linux Mint / Debian" class="md-nav__link">
+    On Ubuntu / Linux Mint / Debian
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#on-windows-10" title="On Windows 10" class="md-nav__link">
+    On Windows 10
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compiling" title="Compiling" class="md-nav__link">
+    Compiling
   </a>
   
 </li>
@@ -473,26 +561,47 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/nus-cs2030/1718-s1/edit/master/docs/readings.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/nus-cs2030/1718-s1/edit/master/docs/jdk.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="readings">Readings</h1>
-<p>Here is a collection of readings related to CS2030 or otherwise.</p>
-<h2 id="for-1st-year-students">For 1<sup>st</sup> Year Students</h2>
-<ul>
-<li>
-<p><a href="https://docs.google.com/document/d/1FbCWcnnajHWk594dKmN35b_we50WZf_-cwxqg-cYaRY/edit?pli=1">Notes to Computer Science Freshmen, From the Future</a>: <em>Early into the AY12/13 academic year, Prof Tay Yong Chiang organized a supper for Computer Science freshmen at Tembusu College. The bunch of seniors who were gathered there put together a document for NUS computing freshmen. This is that document.</em></p>
+                <h1 id="java-installcompilerun">Java: Install/Compile/Run</h1>
+<h2 id="java-development-kit-jdk">Java Development Kit (JDK)</h2>
+<p>The Java Development Kit, or JDK, is a development environment for building Java applications.  The environment provides a virtual machine to execute compiled Java code (JVM), a collection of classes and libraries, and a set of tools to support development (including a compiler (<code class="codehilite">javac</code>), a debugger (<code class="codehilite">jdb</code>), an interactive shell (<code class="codehilite">jshell</code>)) etc.</p>
+<p>There are several variations of JDK available.  For instance, <a href="http://openjdk.java.net">OpenJDK</a> is a free and open source version of JDK.  <a href="http://www.gnu.org">GNU</a> offers a compiler in Java (<a href="https://en.wikipedia.org/wiki/GNU_Compiler_for_Java"><code class="codehilite">gcj</code></a>) and Java core libraries in Gnu classpath.
+Eclipse offers its own version of Java compiler<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>.  These variations are mostly the same, but for the purpose of this module, we will use the <a href="http://www.oracle.com/technetwork/java/index.html">official Oracle version</a>.</p>
+<p>There are different editions of Java.  The main ones are Java SE (standard edition), Java EE (enterprise edition), and Java ME (micro edition).  We will be using <a href="http://www.oracle.com/technetwork/java/javase/overview/index.html">Java SE</a>.</p>
+<p>The latest version of Java SE is Java 8 (equivalent to version 1.8).
+This is also the earliest version of Java that will work with this module, as many concepts we will cover are only introduced in Java 8.  </p>
+<p>To use <code class="codehilite">jshell</code>, however, you need Java 9, which you can <a href="http://jdk.java.net/9/">download and install from here</a>.</p>
+<h2 id="installing-jdk-9">Installing JDK 9</h2>
+<p>There are multiple ways to setup JDK on various OS.  The following seems to be the simplest possible way to get started.</p>
+<h3 id="on-macos">On macOS</h3>
+<p>Download the <code class="codehilite"><span class="na">.dmg</span></code> file corresponding to JDK 9 from <a href="http://jdk.java.net/9/">http://jdk.java.net/9/</a> and double click the <code class="codehilite"><span class="na">.dmg</span></code> file.  Follow instruction from there.</p>
+<p>For a 6-step description of the above, see <a href="https://docs.oracle.com/javase/9/install/installation-jdk-and-jre-macos.htm#JSJIG-GUID-F575EB4A-70D3-4AB4-A20E-DBE95171AB5F">the installation instruction from Oracle.</a></p>
+<h3 id="on-ubuntu-linux-mint-debian">On Ubuntu / Linux Mint / Debian</h3>
+<p>We are going to use <code class="codehilite">apt</code>, a package management program, in Linux to install JDK.  Run the following in your terminal:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+sudo apt-get install oracle-java9-installer
+</pre></div>
+</td></tr></table>
+
+<p>Line 1 above adds a special package repository (also known as Personal Package Archive (PPA)) to <code class="codehilite">apt</code>.  Line 2 instructs <code class="codehilite">apt</code> to download the list of packages available from all repositories configured.  One of this packages should be <code class="codehilite">oracle-java9-installer</code>.  Line 3 installs the <code class="codehilite">oracle-java9-installer</code>.  Note that this install the installer, not Java 9.  After the installer is installed, the installer is executed.  You will be asked questions about license agreements, and then the installer proceeds to download and install Java 9.</p>
+<p>For a more detailed instructions, see <a href="http://www.webupd8.org/2015/02/install-oracle-java-9-in-ubuntu-linux.html">the guide from the maintainer of the PPA, webupd8.org</a>. </p>
+<h3 id="on-windows-10">On Windows 10</h3>
+<p>Follow the <a href="https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/">instructions to install Bash on Ubuntu on Windows</a>, then install as per the instructions for Ubuntu above.</p>
+<h2 id="compiling">Compiling</h2>
+<p>Coming soon.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>See: <a href="https://stackoverflow.com/questions/3061654/what-is-the-difference-between-javac-and-the-eclipse-compiler">What is the difference between javac and the Eclipse compiler?</a>&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-<li>
-<p><a href="http://people.irisa.fr/Martin.Quinson/Teaching/how-not-to-code.pdf">How Not to Go About a Programming Assignment, by Agustin Cernuda del Rio</a>: <em>Computer programming students invariably fall into more than one bad habit. It can be extremely difficult to eradicate them (and many lecturers and professional programmers keep succumbing to them time and again)..</em></p>
-</li>
-<li>
-<p><a href="http://www.comp.nus.edu.sg/~leonghw/Courses/cattywampus.html">Best Teacher I Ever Had, by David Owen</a>: <em>Mr. Whitson taught sixth-grade science. On the first day of class, he gave us a lecture about a creature called the cattywampus, ..</em></p>
-</li>
-<li>
-<p><a href="http://www.comp.nus.edu.sg/cug/plagiarism">Academic Honesty</a>: <em>All students share the responsibility for upholding the academic standards and reputation of the University. Academic honesty is a prerequisite condition in the pursuit and acquisition of knowledge..</em></p>
-</li>
-</ul>
+</ol>
+</div>
                 
                   
                 
@@ -511,7 +620,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../prereqs/index.html" title="Prerequisites" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../lab1/index.html" title="1" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -520,25 +629,11 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Prerequisites
+                1
               </span>
             </div>
           </a>
         
-        
-          <a href="../policies/index.html" title="Policies" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Policies
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
         
       </nav>
     </div>
