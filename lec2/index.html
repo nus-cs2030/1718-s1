@@ -594,11 +594,11 @@
 <h2 id="learning-objectives">Learning Objectives</h2>
 <p>After this lecture, students should:</p>
 <ul>
-<li>be understand that Java is a type safe language, in contrast to C</li>
+<li>understand that Java is a type-safe language, in contrast to C</li>
 <li>be familiar with Java variable and primitive types</li>
 <li>understand the concepts of object-oriented programming, including interface, polymorphism, late binding, inheritance, method overriding and method overloading, and their purposes of introducing them as a method of programming.</li>
 <li>know the purpose and usage of Java keywords <code class="codehilite">implements</code>, <code class="codehilite">extends</code>, <code class="codehilite">super</code>, <code class="codehilite">instanceof</code>, and <code class="codehilite">@Override</code></li>
-<li>understand Java concepts of array, enhanced for loop, method signature, <code class="codehilite">Object</code> class, and object equality. </li>
+<li>understand Java concepts of arrays, enhanced <code class="codehilite">for</code> loop, method signature, <code class="codehilite">Object</code> class, and object equality. </li>
 </ul>
 <h2 id="type-safety">Type Safety</h2>
 <p>Recall that the <em>type</em> of a variable tells the compiler how to interpret the bits that represent the value of a variable and how to manipulate the variable.  The compiler also uses the type to decide how much memory is allocated for each variable.  </p>
@@ -617,7 +617,7 @@
 </td></tr></table>
 
 <p>In Line 4, we treat the address to a string as integer.  This generates a compiler's warning.</p>
-<p>In C, you can <em>type cast</em> a variable from one type into another, i.e., force the compiler to treat variable of one type as another type.  The compiler would listen and do that for you.  The following code would print out gibberish and would compile perfectly without error.</p>
+<p>In C, you can <em>type cast</em> a variable from one type into another, i.e., force the compiler to treat a variable of one type as another type.  The compiler would listen and do that for you.  The following code would print out gibberish and would compile perfectly without error.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -630,19 +630,19 @@
 </pre></div>
 </td></tr></table>
 
-<p>Such flexibility and loose rules for type compatibility could be useful, if you know what you are doing, but for most programmers, it could be a major source of unintentional bugs, especially if one does not pay attention to compiler's warning or one forces the warning to go away without full understanding what is going on.</p>
-<p>Java is very strict when it comes to type checking, and is one of the <em>type safe</em> languages. Java ensures that basic operations (such as <code class="codehilite">+</code>, <code class="codehilite">-</code>, etc) and method calls apply to values in a way that makes sense.  If you try to pull the same trick as above, you will receive an error:</p>
+<p>Such flexibility and loose rules for type compatibility could be useful, if you know what you are doing, but for most programmers, it could be a major source of unintentional bugs, especially if one does not pay attention to compiler's warning or one forces the warning to go away without fully understanding what is going on.</p>
+<p>Java is very strict when it comes to type checking, and is one of the <em>type-safe</em> languages. Java ensures that basic operations (such as <code class="codehilite">+</code>, <code class="codehilite">-</code>, etc) and method calls apply to values in a way that makes sense.  If you try to pull the same trick as above, you will receive an error:</p>
 <script type="text/javascript" src="https://asciinema.org/a/133995.js" id="asciicast-133995" async></script>
 
 <div class="admonition note">
 <p class="admonition-title">Java Primitive Data Types</p>
-<p>Java supports eight <em>primitive</em> data types: <code class="codehilite">byte</code>, <code class="codehilite">short</code>, <code class="codehilite">int</code>, <code class="codehilite">long</code>, <code class="codehilite">float</code>, <code class="codehilite">double</code>, <code class="codehilite">boolean</code> and <code class="codehilite">char</code>.  If you are familiar with C, these data types should not be foreign to you.  One important difference is that, <code class="codehilite">char</code> stores 16-bit Unicode character, not 8-bit character like in C.  Java uses <code class="codehilite">byte</code> for that.  The other notable difference is that Java defines <code class="codehilite">true</code> and <code class="codehilite">false</code> as possible value to a <code class="codehilite">boolean</code>, unlike C which uses <code class="codehilite">0</code> for false and non-<code class="codehilite">0</code> for true.  </p>
+<p>Java supports eight <em>primitive</em> data types: <code class="codehilite">byte</code>, <code class="codehilite">short</code>, <code class="codehilite">int</code>, <code class="codehilite">long</code>, <code class="codehilite">float</code>, <code class="codehilite">double</code>, <code class="codehilite">boolean</code> and <code class="codehilite">char</code>.  If you are familiar with C, these data types should not be foreign to you.  One important difference is that a <code class="codehilite">char</code> variable stores a 16-bit Unicode character, not an 8-bit character like in C.  Java uses <code class="codehilite">byte</code> for that.  The other notable difference is that Java defines <code class="codehilite">true</code> and <code class="codehilite">false</code> as possible value to a <code class="codehilite">boolean</code>, unlike C which uses <code class="codehilite">0</code> for false and non-<code class="codehilite">0</code> for true.  </p>
 <p>You can read all about Java <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/variables.html">variables</a> and <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html">primitive data types</a> in Oracle's Java Tutorial.</p>
 </div>
 <h2 id="enforcing-abstraction-barrier-with-interface">Enforcing Abstraction Barrier with Interface</h2>
-<p>Recall the concept of encapsulation. When we develop a large piece of software, it is important to hide the details about data representation and implementation, and only exposes certain <code class="codehilite">public</code> methods for the users to use.  We imagine that there is an abstraction barrier between the code that implement the internals of a class (called the <em>implementer</em>) , and the code that uses the class (called the <em>user</em>) to achieve a higher level task.</p>
+<p>Recall the concept of encapsulation. When we develop a large piece of software, it is important to hide the details about data representation and implementation, and only exposes certain <code class="codehilite">public</code> methods for the users to use.  We imagine that there is an abstraction barrier between the code that implements the internals of a class (called the <em>implementer</em>) and the code that uses the class (called the <em>user</em>) to achieve a higher level task.</p>
 <p>We have seen that we use <code class="codehilite">private</code> to enforce data hiding -- to hide certain fields and methods from outside of the barrier.  Now, we are going to see how we enforce that the right set of methods are defined, implemented, and used on both sides of the barrier.</p>
-<p>The mechanism to do this is through defining an <em>interface</em> (aka a <em>protocol</em> as it is called in Objective-C or Swift).  An interface is kind of like a contract between the implementer of a class and the user of a class.  If a class promises to implement an interface, then we are guarantee that the methods defined in the interface is implemented in the class as it is promised.  Otherwise, the code would not compile.</p>
+<p>The mechanism to do this is through defining an <em>interface</em> (aka a <em>protocol</em> as it is called in Objective-C or Swift).  An interface is kinda like a contract between the implementer of a class and the user of a class.  If a class promises to implement an interface, then we are guaranteed that the methods defined in the interface are implemented in the class as it is promised.  Otherwise, the code would not compile.</p>
 <p>In Java, we can define an interface using <code class="codehilite">interface</code> keyword:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -718,10 +718,10 @@
 </pre></div>
 </td></tr></table>
 
-<p>This is very similar to the code you saw in Lecture 1 and Exercise 1, except that in Line 2, we say that <code class="codehilite"><span class="kr">class</span> <span class="nx">Circle</span> <span class="kr">implements</span> <span class="nx">GeometricShape</span></code>.  This line informs the compiler that the programmer intends to implement all the methods included in the interface <code class="codehilite">GeometricShape</code> exactly as declared (in terms of names, number of arguments, types of arguments, returned type, and access modifier).  The rest of the class is the same, except that we renamed <code class="codehilite">getCircumference</code> with <code class="codehilite">getPerimeter</code>, which is more general and apply to all shapes.  You will also see that we added <em>annotations</em> to our code by adding the line <code class="codehilite">@Override</code> before methods in <code class="codehilite">Circle</code> that implements the methods declared in <code class="codehilite">GeometricShape</code>.  This annotation is optional, but it informs our intention to the compiler and helps make the intention of the programmer clearer to others who read the code.</p>
+<p>This is very similar to the code you saw in Lecture 1 and Exercise 1, except that in Line 2, we say that <code class="codehilite"><span class="kr">class</span> <span class="nx">Circle</span> <span class="kr">implements</span> <span class="nx">GeometricShape</span></code>.  This line informs the compiler that the programmer intends to implement all the methods included in the interface <code class="codehilite">GeometricShape</code> exactly as declared (in terms of names, the number of arguments, the types of arguments, returned type, and access modifier).  The rest of the class is the same, except that we renamed <code class="codehilite">getCircumference</code> with <code class="codehilite">getPerimeter</code>, which is more general and apply to all shapes.  You will also see that we added <em>annotations</em> to our code by adding the line <code class="codehilite">@Override</code> before methods in <code class="codehilite">Circle</code> that implements the methods declared in <code class="codehilite">GeometricShape</code>.  This annotation is optional, but it informs our intention to the compiler and helps make the intention of the programmer clearer to others who read the code.</p>
 <div class="admonition note">
 <p class="admonition-title">Java Annotation</p>
-<p>Annotations are metadata we add that is not part of the code.  Annotation do not affect execution.  They are useful to compilers and other software tools, as well as humans who read the code.  While we can similarly make the code more human friendly with comments, annotation is structured and so can be easily parsed by software.  <code class="codehilite">@Override</code> is probably going to be the only annotation useful for us in this class.</p>
+<p>Annotations are metadata we add that is not part of the code.  Annotation does not affect execution.  They are useful to compilers and other software tools, as well as humans who read the code.  While we can similarly make the code more human-friendly with comments, an annotation is structured and so can be easily parsed by software.  <code class="codehilite">@Override</code> is probably going to be the only annotation useful for us in this class.</p>
 </div>
 <p>Note that we can have other methods (such as <code class="codehilite">moveTo</code>) in the class beyond what is promised in the interface the class implements.</p>
 <p>A class can implement more than one interfaces.  For instance, let's say that we have another interface called <code class="codehilite">Printable</code>[^1] with a single method defined:</p>
@@ -733,7 +733,7 @@
 </pre></div>
 </td></tr></table>
 
-<p>The implementer of <code class="codehilite">Circle</code> wants to informs the users that the method <code class="codehilite">void print()</code> is implemented, it can do the following:</p>
+<p>The implementer of <code class="codehilite">Circle</code> wants to inform the users that the method <code class="codehilite">void print()</code> is implemented, it can do the following:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -775,9 +775,9 @@
 </td></tr></table>
 
 <p>and the code still compiles!</p>
-<p>Not all programming languages that support OO supports interface.  Javascript and Python, for instance, does not support similar concepts.</p>
+<p>Not all programming languages that support classes support interface.  Javascript and Python, for instance, does not support similar concepts.</p>
 <h2 id="interface-as-types">Interface as Types</h2>
-<p>In Java, interface is a type.  What this means is that:</p>
+<p>In Java, an interface is a type.  What this means is that:</p>
 <ul>
 <li>We can declare a variable with an interface type, such as:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="n">GeometricShape</span> <span class="n">circle</span><span class="o">;</span>
@@ -832,7 +832,7 @@ jump to Line 5-7, which is a <code class="codehilite">for</code> loop.  Line 5 d
 </div>
 <p>The magic happens in Line 6:</p>
 <ul>
-<li>First, since we now that any objects in the array has the type <code class="codehilite">Printable</code>, this means that they must implement the <code class="codehilite">Printable</code> interface and support the method <code class="codehilite">print()</code>.  </li>
+<li>First, since we now that any object in the array has the type <code class="codehilite">Printable</code>, this means that they must implement the <code class="codehilite">Printable</code> interface and support the method <code class="codehilite">print()</code>.  </li>
 <li>Second, we do not know, and we do not <em>need</em> to know which class an object is an instance of.</li>
 <li>Third, we can actually have objects of completely unrelated classes in the same array. We can have objects of type <code class="codehilite">Circle</code>, and objects of type <code class="codehilite">Point</code>.  We can have objects of type <code class="codehilite">Factory</code>, or objects of type <code class="codehilite">Student</code>, or objects of type <code class="codehilite">Cushion</code>.  As long as the objects implement the <code class="codehilite">Printable</code> interface, we can put them into the same array.</li>
 <li>Forth, at <em>run time</em>, Java looks at <code class="codehilite">obj</code>, and determines its class, and invoke the right implementation of <code class="codehilite">print()</code> corresponding to the <code class="codehilite">obj</code>.  That is, if <code class="codehilite">obj</code> is an instance of a class <code class="codehilite">Circle</code>, then it will call <code class="codehilite">print()</code> method of <code class="codehilite">Circle</code>; if <code class="codehilite">obj</code> is an instance of a class <code class="codehilite">Point</code>, then it will call <code class="codehilite">print()</code> method of <code class="codehilite">Point</code>, and so on.</li>
@@ -860,7 +860,7 @@ together in an array, you need to do something like the following pseudocode:
            <span class="o">:</span>
 </pre></div>
 </td></tr></table></p>
-<p>Not only is the code verbose and ugly, if you want define a new compound data type that supports printing, you need to remember to come to this place and add in a new condition and call the corresponding print function.</p>
+<p>Not only is the code verbose and ugly, if you want to define a new compound data type that supports printing, you need to remember to come to this place and add in a new condition and call the corresponding print function.</p>
 <p>In OO languages, you can have methods named <code class="codehilite">print()</code> implemented differently in different classes.  When we compile the code above, the compiler will have no way to know which implementation will be called.  The bindings of <code class="codehilite">print()</code> to the actual set of instructions will only be done at run time, after <code class="codehilite">obj</code> is instantiated from a class.  This is known as <em>dynamic binding</em>, or <em>late binding</em>, or <em>dynamic dispatch</em>.</p>
 <p><img alt="Screenshot" src="../figures/object-representation-jvm/object-representation-jvm.003.png" /></p>
 <p>If you understand how an object is represented internally, this is not so magical after all.  Referring to the figure above, the array <code class="codehilite">objectsToPrint[]</code> contains an array of references to objects, the first one is a <code class="codehilite">Circle</code> object, and the next two are <code class="codehilite">Point</code> objects.  When <code class="codehilite">obj.print()</code> is invoked, Java refers to the method table, which points to either the method table for <code class="codehilite">Circle</code> or for <code class="codehilite">Point</code>, based on the class the object is an instance of.</p>
@@ -977,7 +977,7 @@ together in an array, you need to do something like the following pseudocode:
 <p>and for other shapes.</p>
 <p>Great!  We now have colorful shapes.  The code above, however, is not <em>good</em> code, even though it is <em>correct</em>.  Consider what would need to be done if say, we decided to support border styles (dotted border, solid border, dashed border, etc).  We would have to edit every single class that supports colors and borders.!</p>
 <p>One principle that we can follow is the <em>abstraction principle</em>, which says "Each significant piece of functionality in a program should be implemented in just one place in the source code. Where similar functions are carried out by distinct pieces of code, it is generally beneficial to combine them into one by abstracting out the varying parts."<sup id="fnref:4"><a class="footnote-ref" href="#fn:4" rel="footnote">3</a></sup></p>
-<p>Following the principle, we want to implement these styles-related fields and methods in just one place.  But where?</p>
+<p>Following the principle, we want to implement these style-related fields and methods in just one place.  But where?</p>
 <h2 id="inheritance">Inheritance</h2>
 <p>The OO-way to do this is to create a <em>parent class</em>, and put all common fields and methods into the parent.  A parent class is defined just like a normal class.  For instance:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -1045,7 +1045,7 @@ together in an array, you need to do something like the following pseudocode:
 </pre></div>
 </td></tr></table></p>
 <p>This mechanism for a class to inherit the properties and behavior from a parent is called <em>Inheritance</em>, and is the forth and final basic OO principles we cover<sup id="fnref:5"><a class="footnote-ref" href="#fn:5" rel="footnote">4</a></sup>.</p>
-<p>With inheritance, we do not have to repeat the declaration of fields <code class="codehilite">fillColor</code>, <code class="codehilite">borderColor</code>, <code class="codehilite">borderThickness</code> and the associated methods in them.  This software engineering principle is also know as the DRY principle -- "<em>don't repeat yourself</em>" principle.  We are going to see DRY again and again in future lectures.</p>
+<p>With inheritance, we do not have to repeat the declaration of fields <code class="codehilite">fillColor</code>, <code class="codehilite">borderColor</code>, <code class="codehilite">borderThickness</code> and the associated methods in them.  This software engineering principle is also known as the DRY principle -- "<em>don't repeat yourself</em>" principle.  We are going to see DRY again and again in future lectures.</p>
 <p>We also call the <code class="codehilite">PaintedShape</code> the superclass (or base class) of <code class="codehilite">PaintedCircle</code> and <code class="codehilite">PaintedSquare</code>, and call <code class="codehilite">PaintedCircle</code> and <code class="codehilite">PaintedSquare</code> the subclass (or derived class)<sup id="fnref:6"><a class="footnote-ref" href="#fn:6" rel="footnote">5</a></sup> of <code class="codehilite">PaintedShape</code>.</p>
 <p>A <code class="codehilite">PaintedCircle</code> object can now call <code class="codehilite">fillWith()</code> even if the method <code class="codehilite">fillWith()</code> is not defined in <code class="codehilite">PaintedCircle</code> -- it is defined in <code class="codehilite">PaintedCircle</code>'s parent <code class="codehilite">PaintedShape</code>.  </p>
 <p>Now consider the constructor for <code class="codehilite">PaintedCircle</code>.   We need to initialize the geometric shape as well as the painting style.  But, we define the fields <code class="codehilite">fillColor</code>, etc <code class="codehilite">private</code>, and subclasses have no access to <code class="codehilite">private</code> fields in the parent.  We need to call the constructor of the parent to initialize these private fields.  The way to do this is to use the <code class="codehilite">super</code> keyword, like such:</p>
@@ -1061,7 +1061,7 @@ together in an array, you need to do something like the following pseudocode:
 </pre></div>
 </td></tr></table>
 
-<p>You can see that the constructor for <code class="codehilite">PaintedCircle</code> now takes in five parameters.  You can imagine that as the class get more sophisticated with more fields, we need to pass in more parameters to the class to initialize the fields.  It is not uncommon to provide alternative constructors with fewer parameters, and assign some <em>default</em> values to the fields.</p>
+<p>You can see that the constructor for <code class="codehilite">PaintedCircle</code> now takes in five parameters.  You can imagine that as the class get more sophisticated with more fields, we need to pass in more parameters to the class to initialize the fields.  It is not uncommon to provide alternative constructors with fewer parameters and assign some <em>default</em> values to the fields.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1090,7 +1090,7 @@ together in an array, you need to do something like the following pseudocode:
 </pre></div>
 </td></tr></table>
 
-<p>Two methods in a class can have the same name and still co-exist peacefully together.  This is called <em>overloading</em>.  When a method is called, we look at the <em>signature</em> of the method, which consists of (i) the name of the method, (ii) the number, order, and type of the arguments, to determine which method is called.  To be precise, the first sentence of this paragraph should read: Two methods in a class can have the same name and still co-exist peacefully together, as long as they have different signature.  Note that the return type is not part of the method signature, so you cannot have two methods with the same name and same arguments but different return type.  </p>
+<p>Two methods in a class can have the same name and still co-exist peacefully together.  This is called <em>overloading</em>.  When a method is called, we look at the <em>signature</em> of the method, which consists of (i) the name of the method, (ii) the number, order, and type of the arguments, to determine which method is called.  To be precise, the first sentence of this paragraph should read: Two methods in a class can have the same name and still co-exist peacefully together, as long as they have different signatures.  Note that the return type is not part of the method signature, so you cannot have two methods with the same name and same arguments but different return type.  </p>
 <p>Even though the example above shows overloading of the constructor, we can overload other methods as well.</p>
 <h2 id="java-object-class">Java <code class="codehilite">Object</code> class</h2>
 <p>In Java, every class inherits from the <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html">class <code class="codehilite">Object</code></a> implicitly.  The <code class="codehilite">Object</code> class defines many useful methods that are common to all objects.  The two useful ones are :</p>
@@ -1111,7 +1111,7 @@ together in an array, you need to do something like the following pseudocode:
 
 <p>When you check <code class="codehilite">circles[0].equals(circles[1])</code>, however, it returns <code class="codehilite">false</code>, because even though <code class="codehilite">circles[0]</code> and <code class="codehilite">circles[1]</code> are semantically the same, they refer to the two different objects.  Calling <code class="codehilite">circles[1].equals(circles[2])</code> returns <code class="codehilite">true</code>, as they are referring to the same object.  </p>
 <p><img alt="Screenshot" src="../figures/object-representation-jvm/object-representation-jvm.004.png" /></p>
-<p>What if you needs a method that compare if two circles are semantically the same?  You can implement your own method, say <code class="codehilite">isTheSameCircle(Circle c)</code>.  But, the <code class="codehilite">equals()</code> method is universal (all classes inherits this method) and is used by other classes for equality tests.  So, in most cases, we can implement a method called <code class="codehilite">equals()</code> with the same signature with the semantic that we want<sup id="fnref:8"><a class="footnote-ref" href="#fn:8" rel="footnote">7</a></sup>.</p>
+<p>What if you need a method that compares if two circles are semantically the same?  You can implement your own method, say <code class="codehilite">isTheSameCircle(Circle c)</code>.  But, the <code class="codehilite">equals()</code> method is universal (all classes inherits this method) and is used by other classes for equality tests.  So, in most cases, we can implement a method called <code class="codehilite">equals()</code> with the same signature with the semantic that we want<sup id="fnref:8"><a class="footnote-ref" href="#fn:8" rel="footnote">7</a></sup>.</p>
 <p>That's right.  Even though we cannot have two methods with the same signature in the same class, we can have two methods with the same signature, one in the superclass (or the superclass's superclass, and so on), one in the subclass.  The method in the subclass will override the method in the superclass.  For example,</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -1139,9 +1139,9 @@ together in an array, you need to do something like the following pseudocode:
 
 <p>Line 7 above compares if the two center points are equals, and the two radius values are equals.  So, we compare if the two circles are semantically the same.  The rest of this code requires some explanation:</p>
 <ul>
-<li>Line 3 uses the same <code class="codehilite">@Override</code> annotation that we seen before -- we are telling the compilers that we are overriding a method in the superclass.</li>
-<li>Line 4 declares the method <code class="codehilite">equals</code>, and note that it has to have exactly the same signature as the <code class="codehilite">equals()</code> method we are overriding.  Even though we meant to compare two <code class="codehilite">Circle</code> objects, we cannot declare it as <code class="codehilite">public boolean equals(Circle circle)</code>, since the signature is different and the compiler would complain with an error.</li>
-<li>Since <code class="codehilite">obj</code> is of an <code class="codehilite">Object</code> type, we can actually passed in any objects to compare with a <code class="codehilite">Circle</code>.  Line 5 checks if the comparison makes sense, by checking if <code class="codehilite">obj</code> is instantiated from a <code class="codehilite">Circle</code> class, using the <code class="codehilite">instanceof</code> keyword.  If <code class="codehilite">obj</code> is not even a <code class="codehilite">Circle</code> object, then we simply return <code class="codehilite">false</code>.</li>
+<li>Line 3 uses the same <code class="codehilite">@Override</code> annotation that we have seen before -- we are telling the compilers that we are overriding a method in the superclass.</li>
+<li>Line 4 declares the method <code class="codehilite">equals</code>, and note that it has to have exactly the same signature as the <code class="codehilite">equals()</code> method we are overriding.  Even though we meant to compare two <code class="codehilite">Circle</code> objects, we cannot declare it as <code class="codehilite">public boolean equals(Circle circle)</code>, since the signature is different and the compiler would complain.</li>
+<li>Since <code class="codehilite">obj</code> is of an <code class="codehilite">Object</code> type, we can actually pass in any object to compare with a <code class="codehilite">Circle</code>.  Line 5 checks if the comparison makes sense, by checking if <code class="codehilite">obj</code> is instantiated from a <code class="codehilite">Circle</code> class, using the <code class="codehilite">instanceof</code> keyword.  If <code class="codehilite">obj</code> is not even a <code class="codehilite">Circle</code> object, then we simply return <code class="codehilite">false</code>.</li>
 <li>If <code class="codehilite">obj</code> is an instance of <code class="codehilite">Circle</code>, we assign <code class="codehilite">obj</code> to a variable of type <code class="codehilite">Circle</code>, and compare as in Line 7.</li>
 </ul>
 <p>For the code above to work, we have to override the <code class="codehilite">equals</code> method of <code class="codehilite">Point</code> as well.  That is left as an exercise.</p>
