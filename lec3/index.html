@@ -375,6 +375,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#after-note" title="After Note" class="md-nav__link">
+    After Note
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -555,6 +562,13 @@
         <li class="md-nav__item">
   <a href="#abstract-class-and-interface-with-default-methods" title="Abstract Class and Interface with Default Methods" class="md-nav__link">
     Abstract Class and Interface with Default Methods
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#after-note" title="After Note" class="md-nav__link">
+    After Note
   </a>
   
 </li>
@@ -755,23 +769,27 @@ These methods will be made available in the <code class="codehilite">Circle</cod
 13
 14
 15</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Point</span> <span class="o">{</span>
-    <span class="kt">double</span> <span class="n">x</span><span class="o">;</span>
-    <span class="kt">double</span> <span class="n">y</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="kt">double</span> <span class="n">x</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="kt">double</span> <span class="n">y</span><span class="o">;</span>
       <span class="o">:</span>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">Circle</span> <span class="kd">extends</span> <span class="n">Point</span> <span class="o">{</span>
-    <span class="kt">double</span> <span class="n">radius</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="kt">double</span> <span class="n">radius</span><span class="o">;</span>
       <span class="o">:</span>
 <span class="o">}</span>
 
 <span class="kd">class</span> <span class="nc">Cylinder</span> <span class="kd">extends</span> <span class="n">Circle</span> <span class="o">{</span>
-    <span class="kt">double</span> <span class="n">height</span><span class="o">;</span>
+    <span class="kd">protected</span> <span class="kt">double</span> <span class="n">height</span><span class="o">;</span>
       <span class="o">:</span>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table>
 
+<div class="admonition note">
+<p class="admonition-title">Protected fields</p>
+<p>The example above have been changed after the class to clarify the access modifier appropriate for this example.  See After Note below for details.</p>
+</div>
 <p><code class="codehilite">Circle</code> implemented like the above would have the center coordinate inherited from the parent (so it has three fields, x, y, and radius), and <code class="codehilite">Cylinder</code> would have the fields corresponding to a circle, which is its base, and the height.  So, we are <em>reusing</em> the fields and the code related to initializing and manipulating the fields.</p>
 <p>When we start to consider methods encapsulated with each object, things start to get less intuitive.  What does <code class="codehilite">getPerimeter()</code> and <code class="codehilite">getArea()</code> of <code class="codehilite">Cylinder</code> means?  How about <code class="codehilite">distanceTo</code> between a <code class="codehilite">Cylinder</code> and a <code class="codehilite">Point</code>?   What is the meaning of a <code class="codehilite">Circle</code> containing a <code class="codehilite">Cylinder</code>?</p>
 <p>The inheritance hierarchy above actually models the HAS-A relationship: A circle has a center (which is a point), a cylinder has a base which is a circle.  Therefore, a better way to capture the relationship between the three types of objects is through <em>composition</em>:</p>
@@ -1039,6 +1057,28 @@ What should the developer who develops <code class="codehilite">Square</code> do
 where <code class="codehilite">cover</code> is a new method with default implementation, denoted with keyword <code class="codehilite">default</code>.</li>
 </ul>
 <p>At this point in CS2030, let's not worry about when to use abstract class or default methods in interfaces, but just be aware that they exists and understand what they mean when you come across them.  After you gain some experience writing OO programs, we will revisit these concepts so that you can better appreciate their differences and usage.</p>
+<h2 id="after-note">After Note</h2>
+<p>There are a couple of points to clarify with regards to Lecture 3.</p>
+<ul>
+<li>
+<p>When we override <code class="codehilite">equals()</code> of <code class="codehilite">Object</code> in <code class="codehilite">Circle</code>, I said "
+<em>The method table will update the entry for <code class="codehilite">equals()</code> to point to the implementation provided by the <code class="codehilite">Circle</code> class, instead of the <code class="codehilite">Object</code> class.</em>"
+and in the figure, I showed that the code for <code class="codehilite">Circle</code>'s customized <code class="codehilite">equals</code> replacing the <code class="codehilite">equals</code> for <code class="codehilite">Object</code>.  What I should have added, is that, the original implementation of <code class="codehilite">equals</code> from <code class="codehilite">Object</code> is not completely gone.  Methods from the immediate parent that have been overriden can still be called, with <code class="codehilite">super</code> keyword.  Here is a useful example from <code class="codehilite">Point</code>'s <code class="codehilite">toString()</code>:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">toString</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot; (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+which prefix the string representation of Point with the class and reference address.</p>
+</li>
+<li>
+<p>In the example where we inherit <code class="codehilite">Cylinder</code> from <code class="codehilite">Circle</code>, and <code class="codehilite">Circle</code> from <code class="codehilite">Point</code>, what should the access modifier of the fields, <code class="codehilite">x</code>,<code class="codehilite">y</code>, and <code class="codehilite">radius</code> be?   If they are declared <code class="codehilite">private</code>, then <code class="codehilite">Circle</code> has no access to <code class="codehilite">x</code> and <code class="codehilite">y</code>; <code class="codehilite">Cylinder</code> has no access to <code class="codehilite">x</code>,<code class="codehilite">y</code>, and <code class="codehilite">radius</code>.  If they are declared <code class="codehilite">public</code>, then they are accessible by everyone, breaking the abstraction barrier!  Fortunately, Java has just the right access modifier for this situation: <code class="codehilite">x</code>, <code class="codehilite">y</code>, and <code class="codehilite">radius</code> should be declared as <code class="codehilite">protected</code>.  A <code class="codehilite">protected</code> field is less restrictive than <code class="codehilite">public</code>, and is accessible by subclass but is not accessible by the whole world. </p>
+</li>
+</ul>
                 
                   
                 

@@ -482,6 +482,26 @@
     Compiling
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java-source-files" title="Java source files" class="md-nav__link">
+    Java source files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-class-files" title="Java class files" class="md-nav__link">
+    Java class files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -583,6 +603,26 @@
     Compiling
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#java-source-files" title="Java source files" class="md-nav__link">
+    Java source files
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java-class-files" title="Java class files" class="md-nav__link">
+    Java class files
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -627,13 +667,58 @@ sudo apt-get install oracle-java9-installer
 </td></tr></table>
 
 <p>Line 1 above adds a special package repository (also known as Personal Package Archive (PPA)) to <code class="codehilite">apt</code>.  Line 2 instructs <code class="codehilite">apt</code> to download the list of packages available from all repositories configured.  One of this packages should be <code class="codehilite">oracle-java9-installer</code>.  Line 3 installs the <code class="codehilite">oracle-java9-installer</code>.  Note that this install the installer, not Java 9.  After the installer is installed, the installer is executed.  You will be asked questions about license agreements, and then the installer proceeds to download and install Java 9.</p>
-<p>For a more detailed instructions, see <a href="http://www.webupd8.org/2015/02/install-oracle-java-9-in-ubuntu-linux.html">the guide from the maintainer of the PPA, webupd8.org</a>. </p>
+<p>For a more detailed instructions, see <a href="http://www.webupd8.org/2015/02/install-oracle-java-9-in-ubuntu-linux.html">the guide from the maintainer of the PPA, webupd8.org</a>.</p>
 <h3 id="on-windows-10">On Windows 10</h3>
 <p>Follow the <a href="https://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/">instructions to install Bash on Ubuntu on Windows</a>, then install as per the instructions for Ubuntu above.</p>
 <h3 id="other-methods">Other Methods</h3>
 <p>Oracle publishes an <a href="https://docs.oracle.com/javase/9/install/toc.htm">installation guide</a> for JDK 9, including installing it on native Windows (not through Ubuntu emulator).  I find it much more troublesome and complicated.  Unfortunately, if you are using an earlier version of Windows, you will have to follow these instructions.</p>
 <h2 id="compiling">Compiling</h2>
-<p>Coming soon.</p>
+<p>Now that you've installed Java on your machine, here's an example of how you can compile and run some Java code.</p>
+<h3 id="java-source-files">Java source files</h3>
+<p>Create a new Java source file and put it in a new folder (e.g. <code class="codehilite">CS2030</code>).</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">HelloWorld</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Hello, world!&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>By convention, the file should be named <code class="codehilite">HelloWorld.java</code>, following the <em>UpperCamelCase</em> name of the class. At this point, our <code class="codehilite">CS2030</code> folder only contains that one file.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>CS2030 $ ls
+HelloWorld.java
+</pre></div>
+</td></tr></table>
+
+<h3 id="java-class-files">Java class files</h3>
+<p>We can go ahead and compile our Java program by running the <code class="codehilite">javac HelloWorld.java</code> command. This creates the corresponding Java class file, <code class="codehilite">HelloWorld.class</code>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>CS2030 $ javac HelloWorld.java
+CS2030 $ ls
+HelloWorld.class HelloWorld.java
+</pre></div>
+</td></tr></table>
+
+<p>We can now execute it with <code class="codehilite">java HelloWorld</code>. Remember to omit the <code class="codehilite"><span class="na">.class</span></code> extension when doing this!</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>CS2030 $ javac HelloWorld.java
+CS2030 $ java HelloWorld
+Hello, world!
+</pre></div>
+</td></tr></table>
+
+<p>Success! 🎉</p>
+<div class="admonition note">
+<p class="admonition-title">What actually happens under the hood? Is Java an interpreted or compiled language?</p>
+<p>This can get a little mind-boggling at first, but this <a href="https://stackoverflow.com/questions/1326071/is-java-a-compiled-or-an-interpreted-programming-language/36394113#36394113">diagram</a> summarizes it quite well.</p>
+</div>
 <div class="footnote">
 <hr />
 <ol>
