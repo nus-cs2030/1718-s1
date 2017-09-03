@@ -931,16 +931,16 @@ After the method returns, the stack frame for that method is destroyed.</p>
   <span class="n">numOfPoints</span> <span class="o">=</span> <span class="n">scanner</span><span class="o">.</span><span class="na">nextInt</span><span class="o">();</span>
 <span class="o">}</span>
 <span class="k">catch</span> <span class="o">(</span><span class="n">FileNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="err">“</span><span class="n">Unable</span> <span class="n">to</span> <span class="n">open</span> <span class="s">&quot; + filename + &quot;</span> <span class="s">&quot; + e);</span>
-<span class="s">}</span>
-<span class="s">catch (InputMismatchException e) {</span>
-<span class="s">    System.err.println(&quot;</span><span class="n">Unable</span> <span class="n">to</span> <span class="n">scan</span> <span class="k">for</span> <span class="n">an</span> <span class="n">integer</span><span class="s">&quot;);</span>
-<span class="s">}</span>
-<span class="s">catch (NoSuchElementException e) {</span>
-<span class="s">    System.err.println(&quot;</span><span class="n">No</span> <span class="n">input</span> <span class="n">found</span><span class="err">&quot;</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Unable to open &quot;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">catch</span> <span class="o">(</span><span class="n">InputMismatchException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Unable to scan for an integer&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">catch</span> <span class="o">(</span><span class="n">NoSuchElementException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;No input found&quot;</span><span class="o">);</span>
 <span class="o">}</span>
 <span class="k">finally</span> <span class="o">{</span>
-  <span class="k">if</span> <span class="o">(</span><span class="n">scanner</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">);</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">scanner</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
     <span class="n">scanner</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>
 <span class="o">}</span>
 </pre></div>
