@@ -748,18 +748,20 @@
                 
                 <h1 id="lecture-4-memory-exception-and-generics">Lecture 4: Memory, Exception and Generics</h1>
 <h2 id="learning-outcomes">Learning Outcomes</h2>
-<p>After this class, students should:
-- be understand when memory are allocated/deallocated from heap vs. from stack
-- understand the concept of call stack in JVM
-- understand how Java call by reference and call by value
-- know about the keywords <code class="codehilite">null</code>, <code class="codehilite">try</code>, <code class="codehilite">catch</code>, <code class="codehilite">finally</code>, <code class="codehilite">throw</code>, and <code class="codehilite">throws</code>.
-- appreciate why exceptions is useful way of handling errors
-- aware of the differences between errors, unchecked exception, and checked exception in Java
-- be able to trace through the control flow of <code class="codehilite">try</code>/<code class="codehilite">catch</code>/<code class="codehilite">finally</code> block
-- how to generate an exception and create a new exception
-- not commit bad practices when using exceptions
-- apprecaite why generics is helpful
-- be able to create generic class with type parameter, and instantiate parameterized type by passing in type arguments.</p>
+<p>After this class, students should:</p>
+<ul>
+<li>be understand when memory are allocated/deallocated from heap vs. from stack</li>
+<li>understand the concept of call stack in JVM</li>
+<li>understand how Java call by reference and call by value</li>
+<li>know about the keywords <code class="codehilite">null</code>, <code class="codehilite">try</code>, <code class="codehilite">catch</code>, <code class="codehilite">finally</code>, <code class="codehilite">throw</code>, and <code class="codehilite">throws</code>.</li>
+<li>appreciate why exceptions is useful way of handling errors</li>
+<li>aware of the differences between errors, unchecked exception, and checked exception in Java</li>
+<li>be able to trace through the control flow of <code class="codehilite">try</code>/<code class="codehilite">catch</code>/<code class="codehilite">finally</code> block</li>
+<li>how to generate an exception and create a new exception</li>
+<li>not commit bad practices when using exceptions</li>
+<li>apprecaite why generics is helpful</li>
+<li>be able to create generic class with type parameter, and instantiate parameterized type by passing in type arguments.</li>
+</ul>
 <h2 id="where-are-objects-and-variables-stored">Where are Objects and Variables Stored?</h2>
 <p>First, let's look at where Java stores the objects and variables when a program is executed.  There are two memory regions, a heap and a stack<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>.  The <em>heap</em> is where all objects are allocated, while the <em>stack</em> is where all variables (including primitive types and object references) are allocated.</p>
 <p>Considers the following two lines of code.
