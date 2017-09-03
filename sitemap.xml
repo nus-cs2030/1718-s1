@@ -4,7 +4,7 @@
     
     <url>
      <loc>/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,7 +12,7 @@
     
     <url>
      <loc>/about/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -20,7 +20,7 @@
     
     <url>
      <loc>/schedule/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,7 +28,7 @@
     
     <url>
      <loc>/prereqs/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -36,7 +36,7 @@
     
     <url>
      <loc>/readings/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -44,7 +44,7 @@
     
     <url>
      <loc>/policies/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -53,19 +53,25 @@
         
     <url>
      <loc>/lec1/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/lec2/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/lec3/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/lec4/index.html</loc>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -75,19 +81,19 @@
         
     <url>
      <loc>/exercise1/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/exercise2/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/exercise3/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -97,7 +103,7 @@
         
     <url>
      <loc>/lab1/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -107,13 +113,13 @@
         
     <url>
      <loc>/jdk/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/unix/index.html</loc>
-     <lastmod>2017-09-01</lastmod>
+     <lastmod>2017-09-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
