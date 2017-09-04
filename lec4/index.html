@@ -517,6 +517,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../exercise4/index.html" title="4. Exceptions" class="md-nav__link">
+      4. Exceptions
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -998,8 +1010,7 @@ After the method returns, the stack frame for that method is destroyed.</p>
 <p>A checked exception must be either caught or thrown to calling function, except <code class="codehilite">main</code>, which has no calling function to throw to.  If the main() does not catch an checked exception, the running program exits, and the exception is revealed to the user -- this is generally considered as bad programming.</p>
 <p>The two other exceptions from the examples above <code class="codehilite">InputMismatchException</code> and <code class="codehilite">NoSuchElementException</code> are subclasses of <code class="codehilite">RuntimeException</code>, and therefore are unchecked.</p>
 <h3 id="generating-exception">Generating Exception</h3>
-<p>If you find that none of the <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html">exceptions provided by Java</a> meet your needs, you can create your own exceptions, by simply inheriting from one of the existing ones.</p>
-<p>For instance, the Circle constructor in Lab 1 requires the distance <span>\(d\)</span> between two input points to be <span>\(0 &lt; d \le 2r\)</span>.  If the condition is violated, you are asked to return an invalid circle.  Another way is to throw an unchecked exception <code class="codehilite">IllegalArgumentException</code> if one of the above two conditions is met.  </p>
+<p>The Circle constructor in Lab 1 requires the distance <span>\(d\)</span> between two input points to be <span>\(0 &lt; d \le 2r\)</span>.  If the condition is violated, you are asked to return an invalid circle.  Another way is to throw an unchecked exception <code class="codehilite">IllegalArgumentException</code> if one of the above two conditions is met.  </p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1017,7 +1028,8 @@ After the method returns, the stack frame for that method is destroyed.</p>
 </td></tr></table>
 
 <p>Note that difference between <code class="codehilite">throw</code> and <code class="codehilite">throws</code>: the former is to generate an exception, the latter to specify that the exception(s) thrown by a method.</p>
-<p>It is possible to create your own exception, by inheriting from existing classes.  But, you should only do so if there is a good reason, for instance, to provide additional useful information to the exception handler.</p>
+<p>If you find that none of the <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/Exception.html">exceptions provided by Java</a> meet your needs, you can create your own exceptions, by simply inheriting from one of the existing ones.
+But, you should only do so if there is a good reason, for instance, to provide additional useful information to the exception handler.</p>
 <h3 id="overriding-method-that-throws-exceptions">Overriding Method that Throws Exceptions</h3>
 <p>When you override a method that throws a checked exception, the overriding method must throw only the same, or a more specific checked exception, than the overridden method.  This rule enforces the Liskov Substitution Principle.  The caller of the overridden method cannot expect any new checked exception than what has already been "promised" in the method specification.</p>
 <h3 id="good-practices-for-exception-handling">Good Practices for Exception Handling</h3>
