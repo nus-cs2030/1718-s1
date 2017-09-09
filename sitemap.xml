@@ -122,6 +122,12 @@
     </url>
         
     <url>
+     <loc>/lab01-comments/index.html</loc>
+     <lastmod>2017-09-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/lab2/index.html</loc>
      <lastmod>2017-09-09</lastmod>
      <changefreq>daily</changefreq>
