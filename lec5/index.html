@@ -803,96 +803,42 @@
 <li>Understand there are differences between the collection classes and know when to use which one</li>
 </ul>
 <h2 id="wrapper-classes">Wrapper Classes</h2>
-<p>Let's consider how to swap two integers:</p>
+<div class="admonition note">
+<p class="admonition-title">Earlier Version of This Note</p>
+<p>An earlier version of this note includes a discussion on passing-by-reference and motiving the use of wrapper class through swapping, which is wrong.  Please ignore that.</p>
+</div>
+<p>Recall the generic class <code class="codehilite">Queue&lt;E&gt;</code> which we talked in <a href="../lec4/index.html">Lecture 4</a>.  We can declare a <code class="codehilite">Queue</code> of <code class="codehilite">Point</code>, a <code class="codehilite">Queue</code> of <code class="codehilite">Circle</code>, etc, but we cannot create a <code class="codehilite">Queue</code> of <code class="codehilite">int</code> or a <code class="codehilite">Queue</code> of <code class="codehilite">boolean</code>.  We can only pass in a class name to the type parameter <code class="codehilite">E</code>, not a primitive type.  So, to create a queue of integers, we cannot use <code class="codehilite">Queue&lt;int&gt;</code> -- we have to use <code class="codehilite">Queue&lt;Integer&gt;</code>.</p>
+<p>Java provides a set of wrapper class:  one for each primitive type: <code class="codehilite">Boolean</code>, <code class="codehilite">Byte</code>, <code class="codehilite">Character</code>, <code class="codehilite">Integer</code>, <code class="codehilite">Double</code>, <code class="codehilite">Long</code>, <code class="codehilite">Float</code>, and <code class="codehilite">Short</code>.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Swapper</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="kt">int</span> <span class="n">x</span><span class="o">,</span> <span class="kt">int</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kt">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">iq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="mi">10</span><span class="o">);</span>
+<span class="n">cq</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">4</span><span class="o">));</span>
+<span class="n">cq</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">8</span><span class="o">));</span>
+<span class="n">cq</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="mi">15</span><span class="o">));</span>
 </pre></div>
 </td></tr></table>
 
-<p>The above code is a classic example of the <code class="codehilite">swap</code> method.  It does not work in Java.  Recall that Java uses pass-by-value for primitive types -- changing x and y only changes the local copies of the variables on the call stack of <code class="codehilite">swap</code>, not the variables belonging to the caller.</p>
-<p>We should use pass-by-reference.  In Java, since all objects are passed by reference, we need to pass in an object that represents an integer.  Java provides a set of wrapper class:  one for each primitive type: <code class="codehilite">Boolean</code>, <code class="codehilite">Byte</code>, <code class="codehilite">Character</code>, <code class="codehilite">Integer</code>, <code class="codehilite">Double</code>, <code class="codehilite">Long</code>, <code class="codehilite">Float</code>, and <code class="codehilite">Short</code>.  So, we could write the <code class="codehilite">swap</code> method as:</p>
+<p>Java 5 introduces something called <em>autoboxing</em> and <em>unboxing</em>, which creates the wrapper objects automatically (autoboxing) and retrieves its value (unboxing) automatically.  With autoboxing and unboxing, we can just write:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Swapper</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">swap</span><span class="o">(</span><span class="n">Integer</span> <span class="n">x</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">y</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">Integer</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">x</span><span class="o">;</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="o">;</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">temp</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">iq</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Queue</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;(</span><span class="mi">10</span><span class="o">);</span>
+<span class="n">cq</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>
+<span class="n">cq</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>
+<span class="n">cq</span><span class="o">.</span><span class="na">enqueue</span><span class="o">(</span><span class="mi">15</span><span class="o">);</span>
 </pre></div>
 </td></tr></table>
 
-<p>The above would successfully swap the two integers.</p>
-<p>An old fashion way (before Java 5) of calling the <code class="codehilite">swap</code> method to swap two <code class="codehilite">int</code> values is:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-<span class="n">Integer</span> <span class="n">wrapX</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="n">x</span><span class="o">);</span>
-<span class="n">Integer</span> <span class="n">wrapY</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Integer</span><span class="o">(</span><span class="n">y</span><span class="o">);</span>
-<span class="n">Swapper</span><span class="o">.</span><span class="na">swap</span><span class="o">(</span><span class="n">wrapX</span><span class="o">,</span> <span class="n">wrapY</span><span class="o">);</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">wrapX</span><span class="o">.</span><span class="na">intValue</span><span class="o">();</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">wrapY</span><span class="o">.</span><span class="na">intValue</span><span class="o">();</span>
-</pre></div>
-</td></tr></table>
-
-<p>Tedious to write.  Not very easy to read.</p>
-<p>Java 5 introduces something called <em>autoboxing</em> and <em>unboxing</em>, which creates the wrapper objects automatically (autoboxing) and retrieves its value (unboxing) automatically.  With autoboxing and unboxing, we can just write:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-<span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-<span class="n">Swapper</span><span class="o">.</span><span class="na">swap</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
-</pre></div>
-</td></tr></table></p>
-<p>Note that <code class="codehilite">swap</code> expects two <code class="codehilite">Integer</code> objects, but we pass in two <code class="codehilite">int</code>.  This would cause the <code class="codehilite">int</code> variable to automatically be boxed (i.e., be wrapped in Integer object) and put onto the call stack of <code class="codehilite">swap</code>.  After <code class="codehilite">swap</code> is done executing, before we clear the call stacks, the values are unboxed and copied to the calling method.</p>
-<p>The wrapper class around primitive types is useful in another way.  Recall the generic class <code class="codehilite">Queue&lt;E&gt;</code> which we talked in <a href="../lec4/index.html">Lecture 4</a>.  We can declare a <code class="codehilite">Queue</code> of <code class="codehilite">Point</code>, a <code class="codehilite">Queue</code> of <code class="codehilite">Circle</code>, etc, but we cannot create a <code class="codehilite">Queue</code> of <code class="codehilite">int</code> or a <code class="codehilite">Queue</code> of <code class="codehilite">boolean</code>.  We can only pass in a class name to the type parameter <code class="codehilite">E</code>, not a primitive type.  So, to create a queue of integers, we cannot use <code class="codehilite">Queue&lt;int&gt;</code> -- we have to use <code class="codehilite">Queue&lt;Integer&gt;</code>.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Queue&lt;Integer&gt; iq = new Queue&lt;Integer&gt;(10);
-cq.enqueue(4);
-cq.enqueue(8);
-cq.enqueue(15);
-</pre></div>
-</td></tr></table>
-
+<p>Note that <code class="codehilite">enqueue</code> expects an <code class="codehilite">Integer</code> object, but we pass in an <code class="codehilite">int</code>.  This would cause the <code class="codehilite">int</code> variable to automatically be boxed (i.e., be wrapped in Integer object) and put onto the call stack of <code class="codehilite">enqueue</code>.  </p>
 <div class="admonition note">
 <p class="admonition-title">Type Erasure</p>
 <p>The reason why Java compiler does not allow generic class with primitive types, is that internally, the compiler uses <em>type erasure</em> to implement generic class.  Type erasure just means that during compile time, the compiler replaces the type parameter with the most general type.  In the example given in <a href="../lec4/index.html">Lecture 4</a>, <code class="codehilite">E</code> in <code class="codehilite">Queue&lt;E&gt;</code> is replaced with <code class="codehilite">Object</code>,  The compiler then inserts necessary cast to convert the <code class="codehilite">Object</code> to the type argument (e.g., <code class="codehilite">Circle</code>), exactly like how it is done in the <code class="codehilite">ObjectQueue</code> example, and additional checks to ensure that only objects of given type is used as <code class="codehilite">E</code> (e.g., cannot add <code class="codehilite">Point</code> to <code class="codehilite">Queue&lt;Circle&gt;</code>).  Since primitive types are not subclass <code class="codehilite">Object</code>, replacing <code class="codehilite">E</code> with primitive types would not work with type erasure.</p>
 <p>Note that, as a consequence of type erasure, at runtime, Java has no information about <code class="codehilite">E</code>.</p>
 </div>
-<p>In short, the wrapper class allows us to pass primitive types by references and use primitive types to parameterize a generic class, and we do not have to write code to box and unbox the primitive types.</p>
+<p>In short, wrapper class allows us to use primitive types to parameterize a generic class, and we do not have to write code to box and unbox the primitive types.</p>
 <h3 id="performance-penalty">Performance Penalty</h3>
-<p>If the wrapper class is so great, why not use it all the time and forget about primitive types?  Like:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Integer</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
-<span class="n">Integer</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">;</span>
-<span class="n">Swapper</span><span class="o">.</span><span class="na">swap</span><span class="o">(</span><span class="n">x</span><span class="o">,</span> <span class="n">y</span><span class="o">);</span>
-</pre></div>
-</td></tr></table>
-
+<p>If the wrapper class is so great, why not use it all the time and forget about primitive types?  </p>
 <p>The answer: performance.  Because using an object comes with the cost of allocating memory for the object and collecting of garbage afterwards, it is less efficient than primitive types.  Consider the following two programs:</p>
 <p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
