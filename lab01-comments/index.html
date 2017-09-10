@@ -519,8 +519,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#correctnes-object-references" title="Correctnes: Object References" class="md-nav__link">
-    Correctnes: Object References
+  <a href="#correctness-object-references" title="Correctness: Object References" class="md-nav__link">
+    Correctness: Object References
   </a>
   
 </li>
@@ -709,8 +709,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#correctnes-object-references" title="Correctnes: Object References" class="md-nav__link">
-    Correctnes: Object References
+  <a href="#correctness-object-references" title="Correctness: Object References" class="md-nav__link">
+    Correctness: Object References
   </a>
   
 </li>
@@ -796,13 +796,13 @@
 <p>Here are some common mistakes made, in decreasing order of seriousness.</p>
 <h2 id="most-serious-offences">Most Serious Offences</h2>
 <h3 id="design-breaking-abstraction-barrier">Design: Breaking abstraction barrier</h3>
-<p>Some students took the liberty to change the access modifier of instance fields from <code class="codehilite">private</code> to <code class="codehilite">public</code>.<br />
-By doing, you are violating the fundamental principles of object oriented programming and demonstrating that you do not understand the concept and importance of abstraction barriers and encapsulation.</p>
+<p>Some students took the liberty to change the access modifier of instance fields from <code class="codehilite">private</code> to <code class="codehilite">public</code>.</p>
+<p>In doing so, you are violating the fundamental principles of object oriented programming and demonstrating that you do not understand the concept and importance of abstraction barriers and encapsulation.</p>
 <h3 id="design-getter-setter">Design: Getter / Setter</h3>
 <p>If you use getter or setter in your code when you could have easily move the associated tasks to within the encapsulation, you score a major minus in your lab.  Again, using getter and setter to expose the internals is only slightly better than just changing the members to <code class="codehilite">public</code>.</p>
-<p>There are cases where the use of getters and setters are justified.  For instance, a couple of you use complex equations to determine the center and it involves x and y, instead of using <code class="codehilite">move</code>, <code class="codehilite">angleTo</code>, and <code class="codehilite">distanceTo</code>.  One could argue that these solutions heavily rely on the knowledge of x and y.  </p>
+<p>There are cases where the use of getters and setters are justified.  For instance, a couple of you use complex equations to determine the center and it involves x and y, instead of using <code class="codehilite">move</code>, <code class="codehilite">angleTo</code>, and <code class="codehilite">distanceTo</code>.  One could argue that these solutions heavily rely on the knowledge of x and y.</p>
 <p>For all other uses of x and y in the <code class="codehilite">Circle</code> constructor, such as to calculate gradient, to copy a point, etc, they can all be delegated to the <code class="codehilite">Point</code> class.  Remember, we want the <code class="codehilite">Point</code> class to be the only one who knows the internal representation of a point: whether Euclidean coords or polar coords are used.</p>
-<p>E.g., 
+<p>E.g.,
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span><span class="o">(</span><span class="n">q</span><span class="o">.</span><span class="na">getX</span><span class="o">(),</span> <span class="n">q</span><span class="o">.</span><span class="na">getY</span><span class="o">());</span>
 </pre></div>
 </td></tr></table>
@@ -820,20 +820,20 @@ can be
 </td></tr></table></p>
 <h3 id="design-checking-for-circle-validity">Design: Checking for Circle validity</h3>
 <p>Along the same line of mistakes, some of you do this in <code class="codehilite">MaxDiscCover.java</code>:</p>
-<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">if</span> <span class="o">(</span><span class="n">Double</span><span class="o">.</span><span class="na">isNaN</span><span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">getRadius</span><span class="o">())</span> <span class="o">{</span> <span class="o">..</span> <span class="o">}</span> 
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">if</span> <span class="o">(</span><span class="n">Double</span><span class="o">.</span><span class="na">isNaN</span><span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">getRadius</span><span class="o">())</span> <span class="o">{</span> <span class="o">..</span> <span class="o">}</span>
 </pre></div>
 </td></tr></table>
-or 
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">if</span> <span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">radiusIsNaN</span><span class="o">())</span> <span class="o">{</span> <span class="o">..</span> <span class="o">}</span> 
+or
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">if</span> <span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">radiusIsNaN</span><span class="o">())</span> <span class="o">{</span> <span class="o">..</span> <span class="o">}</span>
 </pre></div>
 </td></tr></table></p>
 <p>Suppose now we change an invalid circle to one that has <code class="codehilite">-1</code> radius, or one that has a boolean <code class="codehilite">isValid</code> flag, then this code wouldn't work or has to be renamed.</p>
-<p>A better way is for <code class="codehilite">Circle</code> to decide itself whether it is valid or not, by providing a method <code class="codehilite">isValid()</code>.  Then, <code class="codehilite">MaxDiscCover.java</code> can just call 
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">if</span> <span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">isValid</span><span class="o">())</span> <span class="o">{</span> <span class="o">..</span> <span class="o">}</span> 
+<p>A better way is for <code class="codehilite">Circle</code> to decide itself whether it is valid or not, by providing a method <code class="codehilite">isValid()</code>.  Then, <code class="codehilite">MaxDiscCover.java</code> can just call
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">if</span> <span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">isValid</span><span class="o">())</span> <span class="o">{</span> <span class="o">..</span> <span class="o">}</span>
 </pre></div>
 </td></tr></table>
 If Circle decides to change its implementation later, it is none of <code class="codehilite">MaxDiscCover</code>'s business.</p>
-<h3 id="correctnes-object-references">Correctnes: Object References</h3>
+<h3 id="correctness-object-references">Correctness: Object References</h3>
 <p>A few students did the following in <code class="codehilite">Circle</code> constructor:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -851,25 +851,41 @@ If Circle decides to change its implementation later, it is none of <code class=
 
 <p>Remember from the figures drawn in class that <code class="codehilite">m</code> and <code class="codehilite">p</code> are just references to objects.  Now, you are pointing <code class="codehilite">m</code> and <code class="codehilite">p</code> to the same object.  When you move <code class="codehilite">m</code>, <code class="codehilite">p</code> is moved as well, and as a result, one input point from the <code class="codehilite">points[]</code> array gets moved.</p>
 <h3 id="performance-double-loops">Performance: Double Loops</h3>
-<p>Some of you did this in <code class="codehilite">solve()</code></p>
+<p>Some of you did this in <code class="codehilite">solve()</code>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="o">(</span><span class="n">Point</span> <span class="n">p</span><span class="o">:</span> <span class="n">points</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">for</span> <span class="o">(</span><span class="n">Point</span> <span class="n">q</span><span class="o">:</span> <span class="n">points</span><span class="o">)</span> <span class="o">{</span>
-      <span class="o">:</span>
+        <span class="o">:</span>
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table>
 
-<p>What happened is that, now, you loop through each pair of points  twice, (first with, say, <code class="codehilite">p</code> as <code class="codehilite">points[0]</code>, <code class="codehilite">q</code> as <code class="codehilite">points[1]</code>, and later <code class="codehilite">p</code> as <code class="codehilite">points[1]</code>, <code class="codehilite">q</code> as <code class="codehilite">points[0]</code>).  </p>
-<p>For each point, you also tried to construct a circle through two copies of itself, a wasted effort since the resulting circle is invalid.</p>
+<p>What happened is that, now, you loop through each pair of points twice, (first with, say, <code class="codehilite">p</code> as <code class="codehilite">points[0]</code>, <code class="codehilite">q</code> as <code class="codehilite">points[1]</code>, and later <code class="codehilite">p</code> as <code class="codehilite">points[1]</code>, <code class="codehilite">q</code> as <code class="codehilite">points[0]</code>).</p>
+<p>This also meant that for each point, you tried to construct a circle through two copies of itself, a wasted effort since the resulting circle is invalid.</p>
+<p>Here's a better way to iterate through all possible pairs of points:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">points</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">points</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">Point</span> <span class="n">p</span> <span class="o">=</span> <span class="n">points</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="n">Point</span> <span class="n">q</span> <span class="o">=</span> <span class="n">points</span><span class="o">[</span><span class="n">j</span><span class="o">];</span>
+        <span class="o">:</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
 <h3 id="style-indentation">Style: Indentation</h3>
-<p>It is important to keep your code properly and consistently indented.  If you use a source code editor like <code class="codehilite">vim</code> (with <code class="codehilite">autoindent</code> on and <code class="codehilite">smartindent</code> on), then there is no reason
-for you to have crooked indentation.  </p>
-<p>My favourite example of bad idnentation bug: <a href="https://www.synopsys.com/blogs/software-security/understanding-apple-goto-fail-vulnerability-2/">Apple <code class="codehilite">goto fail</code> bug</a></p>
+<p>It is important to keep your code properly and consistently indented.  If you use a source code editor like <code class="codehilite">vim</code> (with <code class="codehilite">autoindent</code> on and <code class="codehilite">smartindent</code> on), then there is no reason for you to have crooked indentation.</p>
+<p>My favourite example of bad indentation bug: <a href="https://www.synopsys.com/blogs/software-security/understanding-apple-goto-fail-vulnerability-2/">Apple <code class="codehilite">goto fail</code> bug</a></p>
 <h3 id="style-naming-convention">Style: Naming Convention</h3>
 <p>Java has a certain naming convention for class names, variable names, method names, constant variables, etc.  Please follow them.  At the beginning of the lab, we ask all of those who attended to follow, but there are still some who does not.</p>
 <p>From Lab 3 onwards, we will enforce indentation and naming style.</p>
@@ -892,24 +908,24 @@ for you to have crooked indentation.  </p>
 <p>I rest my case :)</p>
 <h3 id="style-too-many-nested-blocks">Style: Too Many Nested Blocks</h3>
 <p>In the <code class="codehilite">solve</code> method, some of you have FIVE levels of nested blocks: two double loops to go through each pair of points, one to check for circle validity, another loop to go through all points, one to check for containment.</p>
-<p>These nested blocks make the code long and hard to read.  One of you have to label the <code class="codehilite">{</code> and <code class="codehilite">}</code> to help with bracket matching.  </p>
+<p>These nested blocks make the code long and hard to read.  One of you have to label the <code class="codehilite">{</code> and <code class="codehilite">}</code> to help with bracket matching.</p>
 <p>As a guideline, if you have more than two nested blocks, it is time to think about breaking down the method into smaller / shorter methods.  For instance, for every pair of points, find out how many points are in the two circles that pass throught this pair.</p>
 <p>Shorter methods are easier to read, understand, and debug.  So do your future self a favour.</p>
 <h3 id="style-if-x-true">Style: <code class="codehilite">if (x == true)</code></h3>
 <p><code class="codehilite">x</code> can be a variable or a function. Some of you wrote as <code class="codehilite">if (x == true)</code> in the condition, some wrote it as <code class="codehilite">if (x)</code>.</p>
 <p><code class="codehilite">if (x)</code> is more succinct, and if you name <code class="codehilite">x</code> properly, it is more readable and understandable than <code class="codehilite">if (x == true)</code>.</p>
-<p>For instance, </p>
+<p>For instance,</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">isValid</span><span class="o">())</span> <span class="o">{..}</span>
 </pre></div>
 </td></tr></table>
 
 <p>is perfectly clear that we are checking if the circle is valid.</p>
-<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">isValid</span><span class="o">()</span> <span class="o">==</span> <span class="kc">true</span><span class="o">))</span> <span class="o">{..}</span> 
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">isValid</span><span class="o">()</span> <span class="o">==</span> <span class="kc">true</span><span class="o">))</span> <span class="o">{..}</span>
 </pre></div>
 </td></tr></table>
 is redundant.</p>
 <p>What if we call the function <code class="codehilite">x</code> as something else, say, <code class="codehilite">checkValidity()</code>?  First of all, DON'T.  Second, yes, it is then OK to write:</p>
-<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">checkValidity</span><span class="o">()</span> <span class="o">==</span> <span class="kc">true</span><span class="o">))</span> <span class="o">{..}</span> 
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="o">(</span><span class="n">circle</span><span class="o">.</span><span class="na">checkValidity</span><span class="o">()</span> <span class="o">==</span> <span class="kc">true</span><span class="o">))</span> <span class="o">{..}</span>
 </pre></div>
 </td></tr></table>
 but can you tell by reading this line of code, whether <code class="codehilite">true</code> means the circle is valid or not?  So, DON'T.  Keep your code short, english-like, and choose a proper name for your variables and methods.</p>

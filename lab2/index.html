@@ -831,16 +831,16 @@
 <h2 id="task">Task</h2>
 <p><code class="codehilite">LabTwo.java</code> implements a working discrete event simulator that simulates customers being served by a server.  It is written in procedural style with no encapsulation.  Your task, in this lab, is to rewrite this simulator with OO style, by properly using encapsulation to create abstraction barriers to the various variables and methods.</p>
 <h2 id="grading">Grading</h2>
-<p>This lab contributes 4 marks to your final grade (100 marks).<br />
+<p>This lab contributes 4 marks to your final grade (100 marks).
 You will get 0-3 marks for your design and encapsulation of the classes.
 You will get 1 mark if you code works correctly (but only if you score at least 1 mark for your design and use of encapsulation<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup>)</p>
 <h2 id="discrete-event-simulator">Discrete Event Simulator</h2>
 <p>A discrete event simulator is a software that simulates a system (often modeled after the real world) with events and states.  An event occurs at a particular time, and each event alter the states of the system, and may generate more events.  A discrete event simulator can be used to study many complex real world systems.  The term <em>discrete</em> refers to the fact that, the states remain unchanged between two events, and therefore, the simulator can <em>jump</em> from the time of one event to another, instead of following the clock in real time.  The simulator typically keeps track of some statistics to measure the performance of the system.</p>
 <p>In this lab, we start with simulating a specific situation:</p>
 <ul>
-<li>We have a shop with a <em>server</em> (a person providing service to customer).  </li>
-<li>The server can serve one customer at a time.  </li>
-<li>We assume for now that the server takes constant time to serve a customer.<br />
+<li>We have a shop with a <em>server</em> (a person providing service to customer).</li>
+<li>The server can serve one customer at a time.</li>
+<li>We assume for now that the server takes constant time to serve a customer.
   The time taken to serve is called <em>service time</em>.</li>
 <li>When a customer arrives:<ul>
 <li>if the server is idle (not serving any customer), then the server serves the customer immediately (no waiting).</li>
@@ -849,7 +849,7 @@ You will get 1 mark if you code works correctly (but only if you score at least 
 </ul>
 </li>
 <li>When the server is done serving a customer:<ul>
-<li>the served customer leaves.  </li>
+<li>the served customer leaves.</li>
 <li>if there is another customer waiting, the server starts serving the waiting customer immediately.</li>
 <li>if there is no waiting customer, then server becomes idle again.</li>
 </ul>
@@ -861,7 +861,7 @@ You will get 1 mark if you code works correctly (but only if you score at least 
 <li>How many customers are served?</li>
 <li>How many customers left without being served?</li>
 </ul>
-<p>In your Lab 2, you are given a simple discrete event simulator to answer the questions above.  There are two classes: <code class="codehilite">Simulator</code> and <code class="codehilite">Event</code>.  </p>
+<p>In your Lab 2, you are given a simple discrete event simulator to answer the questions above.  There are two classes: <code class="codehilite">Simulator</code> and <code class="codehilite">Event</code>.</p>
 <h3 id="class-event">Class <code class="codehilite">Event</code></h3>
 <p>The event class is written in procedural style, not unlike a <code class="codehilite">struct</code> in C.  All members are public, and there is no method.  Each <code class="codehilite">Event</code> keeps track of two information: the <code class="codehilite">time</code> the event occurs, and <code class="codehilite">eventType</code>, which signifies what type of events is this.  Instead of using time like 9:45pm, we simply and represent time as a double value.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -883,9 +883,9 @@ You will get 1 mark if you code works correctly (but only if you score at least 
 
 <h3 id="class-simulator">Class <code class="codehilite">Simulator</code></h3>
 <p>The simulator class is again written in procedural style.  All members are public, and there is no method.</p>
-<p>The <code class="codehilite">Simulator</code> class contains two configuration parameters, <code class="codehilite">MAX_NUMBER_OF_EVENTS</code> indicates the maximum number of events that the simulator can store at one time; <code class="codehilite">SERVICE_TIME</code> indicates the time the server takes to serve a customer. 
+<p>The <code class="codehilite">Simulator</code> class contains two configuration parameters, <code class="codehilite">MAX_NUMBER_OF_EVENTS</code> indicates the maximum number of events that the simulator can store at one time; <code class="codehilite">SERVICE_TIME</code> indicates the time the server takes to serve a customer.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="kd">public</span> <span class="kt">int</span> <span class="n">MAX_NUMBER_OF_EVENTS</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span> <span class="c1">// Maximum number of events </span>
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="kd">public</span> <span class="kt">int</span> <span class="n">MAX_NUMBER_OF_EVENTS</span> <span class="o">=</span> <span class="mi">100</span><span class="o">;</span> <span class="c1">// Maximum number of events</span>
     <span class="kd">public</span> <span class="kt">double</span> <span class="n">SERVICE_TIME</span> <span class="o">=</span> <span class="mf">1.0</span><span class="o">;</span> <span class="c1">// Time spent serving a customer</span>
 </pre></div>
 </td></tr></table></p>
@@ -895,10 +895,10 @@ You will get 1 mark if you code works correctly (but only if you score at least 
     <span class="kd">public</span> <span class="kt">int</span> <span class="n">numOfEvents</span><span class="o">;</span> <span class="c1">// The number of events in the event array.</span>
 </pre></div>
 </td></tr></table></p>
-<p>The simulator needs to keep track of three states: </p>
+<p>The simulator needs to keep track of three states:</p>
 <ul>
 <li>is a customer being served?</li>
-<li>is a customer waiting? </li>
+<li>is a customer waiting?</li>
 <li>if a customer is waiting, when did he start waiting?</li>
 </ul>
 <p>These states are represented as:</p>
@@ -974,9 +974,9 @@ This method will return <code class="codehilite">true</code> if the event is sch
 </ul>
 <p>You should read through <code class="codehilite">LabTwo.java</code> and clarify if you are not sure about any part of the given code.</p>
 <h3 id="input-arrival-time">Input: Arrival Time</h3>
-<p>The input consists of a sequence of double values, each is the arrival time of a customer (in any order).  We can read from standard input (if no command line argument is given) 
+<p>The input consists of a sequence of double values, each is the arrival time of a customer (in any order).  We can read from standard input (if no command line argument is given)
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>java LabTwo 
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>java LabTwo
 java LabTwo  &lt; TESTDATA1.txt
 </pre></div>
 </td></tr></table>
@@ -986,7 +986,7 @@ or read from a given filename
 </td></tr></table></p>
 <p>Given an input, the output might not be deterministric, since if two events occur at exactly the same time, we break the ties arbitarily.  For this reason, we will only test your code with input where no two events occur at exactly the same time.</p>
 <h2 id="your-task">Your Task</h2>
-<p>The given <code class="codehilite">LabTwo.java</code> is written in C style, no minimal encapsulation.  As you read through the code, you should appreciate how messy and difficult to understand the code is.  </p>
+<p>The given <code class="codehilite">LabTwo.java</code> is written in C style, no minimal encapsulation.  As you read through the code, you should appreciate how messy and difficult to understand the code is.</p>
 <p>Your mission, in Lab 2, is to rewrite the code using encapsulation, applying OO paradigm, properly maintain the abstraction barrier when the objects interact.  Here are some rules:</p>
 <ul>
 <li>You can add as many classes as you like.  Each class must be in its own <code class="codehilite"><span class="na">.java</span></code> file</li>
@@ -1009,7 +1009,7 @@ java LabTwo &lt; TESTDATA1.txt
 <p>You are exposed to three new Java syntax/class in this Lab:</p>
 <ul>
 <li>Nested classes: In the code given to you, we define <code class="codehilite">Simulator</code> and <code class="codehilite">Event</code> within the class <code class="codehilite">LabTwo</code>.  This is called <em>nested class</em> in Java.  Usually, this is useful if we need to create a class that is only useful to another class.  We can group logically relevant classes together.</li>
-<li><code class="codehilite">assert</code> keyword: <code class="codehilite">assert</code> works like in C and Python.  You use <code class="codehilite">assert</code> to check for conditions that has to be true in your code.  If an assertion fails, the program will bail, informing you what went wrong.  This is useful to catch bugs quickly.</li>
+<li><code class="codehilite">assert</code> keyword: <code class="codehilite">assert</code> works like in C and Python.  You use <code class="codehilite">assert</code> to check for conditions that has to be true in your code.  If an assertion fails, the program will bail, informing you what went wrong.  This is useful to catch bugs quickly.  Use this by passing a <code class="codehilite">-ea</code> (enable assertions) flag when running a Java program e.g. <code class="codehilite">java -ea LabTwo TESTDATA1.txt</code></li>
 <li><a href="http://docs.oracle.com/javase/8/docs/api/?java/io/FileReader.html"><code class="codehilite">FileReader</code></a>: a useful class for reading a stream of characters from a file.</li>
 </ul>
 <div class="footnote">
