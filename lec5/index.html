@@ -864,9 +864,12 @@ vs.
 </pre></div>
 </td></tr></table></p>
 <p>The second one is 2 times faster!  Due to autoboxing and unboxing, the cost of creating objects become hidden and often forgotten.</p>
+<p>All primitive wrapper class objects are immutable.<br />
+What this means is that once you create an object, it cannot be changed.  Thus, everytime <code class="codehilite">sum</code> in the example above is updated, a new object gets created!</p>
 <h2 id="string-and-stringbuilder">String and StringBuilder</h2>
 <p>Another place with hidden cost for object creation and allocation is when dealing with <code class="codehilite">String</code>.</p>
-<p>A <code class="codehilite">String</code> object is <em>immutable</em>.  What this means is that once you create a <code class="codehilite">String</code> object, it cannot be changed.  When we do:
+<p>A <code class="codehilite">String</code> object is also <em>immutable</em>.<br />
+When we do:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">words</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
@@ -891,8 +894,8 @@ A new <code class="codehilite">String</code> object is created everytime we conc
 <p>One common mistake when comparing strings and numbers is to do the following:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span><span class="o">;</span>
-<span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span><span class="o">;</span>
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">);</span>
 <span class="k">if</span> <span class="o">(</span><span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
 </pre></div>
 </td></tr></table>
@@ -912,19 +915,25 @@ A new <code class="codehilite">String</code> object is created everytime we conc
 </pre></div>
 </td></tr></table>
 
-<div class="admonition note">
-<p class="admonition-title">Integer Cache</p>
 <p>If you try:
-    <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+        <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Integer</span> <span class="n">i1</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
 <span class="n">Integer</span> <span class="n">i2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span>
 <span class="k">if</span> <span class="o">(</span><span class="n">i1</span> <span class="o">==</span> <span class="n">i2</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
 </pre></div>
 </td></tr></table>
-    and it might return <code class="codehilite">true</code>!  This behaviour is caused by some autoboxing optimization in the Integer class so that it does not create too many objects for frequently requested values.  It is called <code class="codehilite">Integer caching</code>.  If another <code class="codehilite">Integer</code> object with the same value has been autoboxed before, JVM just returns that object instead of returning a new one.
-    Do not rely on Integer caching for proper comparisons of <code class="codehilite">==</code>.  Use <code class="codehilite">equals()</code>, always.</p>
-</div>
+It might return <code class="codehilite">true</code>!  This behaviour is caused by some autoboxing optimization in the Integer class so that it does not create too many objects for frequently requested values.  It is called <code class="codehilite">Integer caching</code>.  If another <code class="codehilite">Integer</code> object with the same value has been autoboxed before, JVM just returns that object instead of returning a new one.
+        Do not rely on Integer caching for proper comparisons of <code class="codehilite">==</code>.  Use <code class="codehilite">equals()</code>, always.</p>
+<p>Similarly, if you try:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">String</span> <span class="n">s1</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span><span class="o">;</span>
+<span class="n">String</span> <span class="n">s2</span> <span class="o">=</span> <span class="s">&quot;hello&quot;</span><span class="o">;</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="o">)</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span> 
+</pre></div>
+</td></tr></table>
+Java always returns <code class="codehilite">true</code>.  This is because, the Java <code class="codehilite">String</code> class internally maintain a pool of <em>interned string</em> objects for all string literals and expression, as an optimization.  </p>
 <h2 id="java-collections">Java Collections</h2>
 <p>Now, we turn our attention to the Java Collection Framework.  Java provides a rich set of classes for managing and manipulating data.  They efficiently implement many useful data structures (hash tables, red black trees, etc.) and algorithms (sorting, searching, etc.) so that we no longer have to.  As computer scientists, it is still very important for us to know how these data structures and algorithms can be implemented, how to prove some behaviors (such as running time) and their correctness, how certain trade offs are made, etc. They are so important that we have two modules dedicated to them: CS2040 and CS3230 in the core CS curriculum.</p>
 <p>For CS2030, however, we focus on how to use them.</p>
@@ -1083,8 +1092,8 @@ It is the caller resonsibility to pass in the right type, otherwise, an <code cl
 <li>Use <code class="codehilite">ArrayList</code> if you have a collection of elements with possibly duplicates and order is important, and retriving a specific location is more important than removing elements from the list.</li>
 <li>Use <code class="codehilite">LinkedList</code> if you have a collection of elements with possibly duplicates and order is important, retriving a specific location is less important than removing elements from the list.</li>
 </ul>
-<p>Further, if you want to check if a given object is contained in the list, then <code class="codehilite">ArrayList</code> and <code class="codehilite">LinkedList</code> are not good candidates.</p>
-<p>You should understand why after CS2040.</p>
+<p>You should understand the reasons above after CS2040.</p>
+<p>Further, if you want to check if a given object is contained in the list, then <code class="codehilite">ArrayList</code> and <code class="codehilite">LinkedList</code> are not good candidates.  <code class="codehilite">HashSet</code>, on the other hand, can quickly check if an item is already contained in the set.  There is unfortunately no standard collection class that supports fast <code class="codehilite">contain</code> and allow duplicates.  Maybe CS2040, you can build you own collection class :)</p>
 <div class="footnote">
 <hr />
 <ol>
