@@ -58,6 +58,14 @@
     
 
     
+    <url>
+     <loc>/style/index.html</loc>
+     <lastmod>2017-09-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
         
     <url>
      <loc>/lec1/index.html</loc>
@@ -145,6 +153,12 @@
         
     <url>
      <loc>/jdk/index.html</loc>
+     <lastmod>2017-09-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/javadoc/index.html</loc>
      <lastmod>2017-09-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
