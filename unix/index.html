@@ -491,6 +491,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lab3/index.html" title="3. Question" class="md-nav__link">
+      3. Question
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -935,8 +947,7 @@ lab01/
 </ul>
 <h3 id="file-commands">File commands</h3>
 <ul>
-<li>
-<p><code class="codehilite">cp</code>:  CoPy files
+<li><code class="codehilite">cp</code>:  CoPy files
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>happytan@cs2030-i:~/lab01[xxx]$ cp ~cs2030/lab01/Circle.java .
@@ -944,18 +955,23 @@ happytan@cs2030-i:~/lab01[xxx]$ ls
 Circle.java
 </pre></div>
 </td></tr></table>
-The command above copy the files Circle.java from the HOME of user <code class="codehilite">cs2030</code>, under directory <code class="codehilite">lab01</code>, to the current directory.</p>
-</li>
-<li>
-<p><code class="codehilite">mv</code>: MoVe files from one directory to another; can also be used to rename files.
+The command above copy the files Circle.java from the HOME of user <code class="codehilite">cs2030</code>, under directory <code class="codehilite">lab01</code>, to the current directory.</li>
+</ul>
+<p>If you want to copy the whole directory, use <code class="codehilite">-r</code> flag, where <code class="codehilite">r</code> stands for recursive copy.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>happytan@cs2030-i:~/lab01[xxx]$ cp -r ~cs2030/lab01 .
+</pre></div>
+</td></tr></table>
+
+<p>The directory <code class="codehilite">lab01</code> and everything under it will be copied.</p>
+<ul>
+<li><code class="codehilite">mv</code>: MoVe files from one directory to another; can also be used to rename files.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>happytan@cs2030-i:~/lab01[xxx]$ mv Circle.java Test.java
 happytan@cs2030-i:~/lab01[xxx]$ ls
 Test.java
 </pre></div>
-</td></tr></table></p>
-</li>
+</td></tr></table></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Filename completion</p>
@@ -1036,6 +1052,7 @@ In <code class="codehilite">less</code>, use <code class="codehilite">&lt;space&
 </pre></div>
 </td></tr></table>
 
+<p><code class="codehilite">scp</code> supports <code class="codehilite">-r</code> (recursive copy) as well.</p>
 <h3 id="setting-up-ssh-keys">Setting up SSH Keys</h3>
 <p>Once you are comfortable with UNIX, you can set up a pair of public/private keys for authentication.  </p>
 <p>You can use
