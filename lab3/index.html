@@ -906,10 +906,11 @@
 Mathematically, the inter-arrival time can be generated with <span>\(-\ln(U)/\lambda\)</span>, where <span>\(U\)</span> is a random variable between 0 and 1<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">2</a></sup>.</p>
 <ul>
 <li>Every time an arrival event is processed, it generates another arrival event and schedule it.</li>
-<li>The next arrival event generated will have a timestamp of <span>\(T\)</span> + now, where <span>\(T\)</span> is generated with the Java expression: 
+<li>If there are still more customer to simulator, we generate the next arrival event with a timestamp of <span>\(T\)</span> + now, where <span>\(T\)</span> is generated with the Java expression: 
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="o">-</span><span class="n">Math</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">rng</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">())</span> <span class="o">/</span> <span class="n">lambda</span>
 </pre></div>
 </td></tr></table></li>
+<li>When we first starts the simulator, we need to generate the first arrival event with timestamp <span>\(T\)</span>, generated with the same expression as above.</li>
 </ul>
 <p>You can adapt the expression above to suit your program.</p>
 <h3 id="service-time">Service Time</h3>
@@ -957,7 +958,7 @@ ooiwt@cs2030-i:~/lab03&gt; java LabThree &lt; TESTDATA5.txt | tail -1
 <h2 id="your-task">Your Task</h2>
 <p>Your mission, in Lab 3, is update your solution in Lab 2 to:
 - follow the style guideline
-- add <code class="codehilite">javadoc</code> comments code
+- add <code class="codehilite">javadoc</code> comments to code (<code class="codehilite">javadoc</code> should not produce any warning)
 - use <code class="codehilite">PriorityQueue&lt;E&gt;</code> to manage the events
 - use randomly generated service time and arrival time, specified by a new input file format
 - improve your existing encapsulations, create new encapsultions, etc. if necessary</p>
