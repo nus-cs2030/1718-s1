@@ -845,7 +845,9 @@
 <li>be familiar with <a href="../javadoc/index.html"><code class="codehilite">javadoc</code></a> syntax and comfortable with documenting the code with <code class="codehilite">javadoc</code> </li>
 <li>be familiar with generating <code class="codehilite">javadoc</code> documentation </li>
 <li>be comfortable reading a Java Collection Framework documentation and use one of the class provided</li>
+<li>appreciate the usefulness of Java Collection Framework by seeing how much shorter and cleaner the resulting code</li>
 <li>be familiar with random number generation in <code class="codehilite">java.lang.Math</code></li>
+<li>be exposed to the concept of pseudo random number generator and seeds</li>
 </ul>
 <h2 id="setup">Setup</h2>
 <p>There is no new skeleton code provided.  You are to build from your Lab 3 solution based on your Lab 2.  To setup Lab 3, do the following.  </p>
@@ -895,7 +897,7 @@
 
 <p>We can then call <code class="codehilite">rng.nextDouble()</code> repeatedly to generate random numbers between 0 and 1.</p>
 <p>In the demo below, we see that creating a <code class="codehilite">Random</code> object with the same seed of 2 towards the end leads to the same sequence of random doubles being generated.</p>
-<script type="text/javascript" src="https://asciinema.org/a/137459.js" id="asciicast-137459" async></script>
+<script type="text/javascript" src="https://asciinema.org/a/137475.js" id="asciicast-137475" async></script>
 
 <p>Using a fixed seed is important for testing, since the execution of the program will be deterministic, even when random numbers are involved.</p>
 <h3 id="arrival-time">Arrival Time</h3>
@@ -905,7 +907,7 @@ Mathematically, the inter-arrival time can be generated with <span>\(-\ln(U)/\la
 <ul>
 <li>Every time an arrival event is processed, it generates another arrival event and schedule it.</li>
 <li>The next arrival event generated will have a timestamp of <span>\(T\)</span> + now, where <span>\(T\)</span> is generated with the Java expression: 
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="o">-</span><span class="n">Math</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">rng</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">())/</span><span class="n">lambda</span><span class="o">;</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="o">-</span><span class="n">Math</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">rng</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">())</span> <span class="o">/</span> <span class="n">lambda</span>
 </pre></div>
 </td></tr></table></li>
 </ul>
@@ -915,7 +917,7 @@ Mathematically, the inter-arrival time can be generated with <span>\(-\ln(U)/\la
 <ul>
 <li>Every time a customer is being served, we generate a "done" event and schedule it (just like we did it in Lab 2).</li>
 <li>The "done" event generated will have a timestampt of <span>\(T\)</span> + now, where <span>\(T\)</span> is <em>no longer constant <code class="codehilite">SERVICE_TIME</code></em>, but instead is generated with the Java expression:
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>   <span class="o">-</span><span class="n">Math</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">rng</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">())/</span><span class="n">mu</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>   <span class="o">-</span><span class="n">Math</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">rng</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">())</span> <span class="o">/</span> <span class="n">mu</span>
 </pre></div>
 </td></tr></table></li>
 </ul>
