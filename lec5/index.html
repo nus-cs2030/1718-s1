@@ -476,6 +476,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sample-code" title="Sample Code" class="md-nav__link">
+    Sample Code
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -809,6 +816,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sample-code" title="Sample Code" class="md-nav__link">
+    Sample Code
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1130,6 +1144,124 @@ It is the caller resonsibility to pass in the right type, otherwise, an <code cl
 </ul>
 <p>You should understand the reasons above after CS2040.</p>
 <p>Further, if you want to check if a given object is contained in the list, then <code class="codehilite">ArrayList</code> and <code class="codehilite">LinkedList</code> are not good candidates.  <code class="codehilite">HashSet</code>, on the other hand, can quickly check if an item is already contained in the set.  There is unfortunately no standard collection class that supports fast <code class="codehilite">contain</code> and allow duplicates.  Maybe CS2040, you can build you own collection class :)</p>
+<h2 id="sample-code">Sample Code</h2>
+<p>Requested by some students, I am dumping the code I used in class here.  They are badly written code (not following style guidelines, no comments, etc) edited live in class to demonstrate the concepts -- not meant to be a model of how code should be written.  Here they are:</p>
+<p>The following code was used to demonstrate the overhead of using wrapper class unnecessary.
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">Dable</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// Double sum = 0.0;</span>
+    <span class="kt">double</span> <span class="n">sum</span> <span class="o">=</span> <span class="mf">0.0</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">Integer</span><span class="o">.</span><span class="na">MAX_VALUE</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span>
+    <span class="o">{</span>
+          <span class="n">sum</span> <span class="o">+=</span> <span class="n">i</span><span class="o">;</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></p>
+<p>The following code was used to demonstrate sorting of an <code class="codehilite">ArrayList</code>.
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">NameComparator</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">String</span> <span class="n">s1</span><span class="o">,</span> <span class="n">String</span> <span class="n">s2</span><span class="o">)</span> <span class="o">{</span>
+    <span class="c1">// return (s1.compareTo(s2));</span>
+    <span class="c1">// return (s2.compareTo(s1));</span>
+    <span class="k">return</span> <span class="o">(</span><span class="n">s2</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">-</span> <span class="n">s1</span><span class="o">.</span><span class="na">length</span><span class="o">());</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">SortedList</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;();</span>
+
+    <span class="n">names</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&quot;Joffrey&quot;</span><span class="o">);</span>
+    <span class="n">names</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">&quot;Cersei&quot;</span><span class="o">);</span>
+    <span class="n">names</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">&quot;Meryn&quot;</span><span class="o">);</span>
+    <span class="n">names</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">&quot;Walder&quot;</span><span class="o">);</span>
+    <span class="n">names</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="s">&quot;Gregor&quot;</span><span class="o">);</span>
+    <span class="n">names</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="s">&quot;Sandor&quot;</span><span class="o">);</span>
+
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Initial List&quot;</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">i</span><span class="o">:</span> <span class="n">names</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="n">names</span><span class="o">.</span><span class="na">sort</span><span class="o">(</span><span class="k">new</span> <span class="n">NameComparator</span><span class="o">());</span>
+
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Sorted List&quot;</span><span class="o">);</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">String</span> <span class="n">i</span><span class="o">:</span> <span class="n">names</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">i</span><span class="o">);</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></p>
+<p>The following was used to demonstrate <code class="codehilite">HashMap</code>.
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
+
+<span class="kd">class</span> <span class="nc">Population</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">population</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span><span class="n">Integer</span><span class="o">&gt;();</span>
+    <span class="n">population</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;Oldtown&quot;</span><span class="o">,</span><span class="mi">500000</span><span class="o">);</span>
+    <span class="n">population</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;Kings Landing&quot;</span><span class="o">,</span><span class="mi">500000</span><span class="o">);</span>
+    <span class="n">population</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;Lannisport&quot;</span><span class="o">,</span><span class="mi">300000</span><span class="o">);</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">population</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;Lannisport&quot;</span><span class="o">));</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></p>
 <div class="footnote">
 <hr />
 <ol>
