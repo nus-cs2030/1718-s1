@@ -881,7 +881,7 @@
 </ul>
 <h2 id="priority-queuing">Priority Queuing</h2>
 <p>The first change you need to do in this assignment is to use one of the Java Collection classes to manage the events.  In <code class="codehilite">LabTwo.java</code>, we keep all the events in an array, and scanned through it to find the event with the smallest (i.e., earliest) timestamp.  This is not efficient, since scanning through all the events takes time that increases linearly with the number of events<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">1</a></sup>.  </p>
-<p>Java Collection provides a class that is perfect for our use: <a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html"><code class="codehilite">PriorityQueue&lt;E&gt;</code></a>.  A <code class="codehilite">PriorityQueue</code> keeps a collection of elements, the elements are given certain priority.  Elements can be added with <code class="codehilite">[add(E e)](https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#add-E-)</code> method.  To retrieve and remove the elements with highest priority, we use the <code class="codehilite">[poll()](https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#poll--)</code> method, which returns an object of type <code class="codehilite">E</code>, or <code class="codehilite">null</code> is the queue is empty.</p>
+<p>Java Collection provides a class that is perfect for our use: <a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html"><code class="codehilite">PriorityQueue&lt;E&gt;</code></a>.  A <code class="codehilite">PriorityQueue</code> keeps a collection of elements, the elements are given certain priority.  Elements can be added with <code class="codehilite">[add(E e)]</code>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#add-E-">https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#add-E-</a>) method.  To retrieve and remove the elements with highest priority, we use the <code class="codehilite">[poll()]</code>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#poll--">https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#poll--</a>) method, which returns an object of type <code class="codehilite">E</code>, or <code class="codehilite">null</code> is the queue is empty.</p>
 <p>In our case, the event with the smallest timestamp have the highest priority.  To tell the <code class="codehilite">PriorityQueue&lt;E&gt;</code> class how to order the events so that smaller timestamp has higher priority, we use the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#PriorityQueue-java.util.Comparator-"><code class="codehilite">PriorityQueue&lt;E&gt;</code> constructor</a> that takes in a <code class="codehilite">Comparator</code> object, just like we see in <a href="../lec5/index.html">Lecture 5</a>[^3].</p>
 <p>If you design is right, you should only change the code in four places: (i) initialize list of events, (ii) schedule an event, (iii) get the next event, (iv) checking if there is still an event.</p>
 <p>(Hint: You should be able to implement a <code class="codehilite">Comparator</code> without getter <code class="codehilite">getTime()</code>)</p>
@@ -956,21 +956,21 @@ ooiwt@cs2030-i:~/lab03&gt; java LabThree &lt; TESTDATA5.txt | tail -1
 </td></tr></table>
 
 <h2 id="your-task">Your Task</h2>
-<p>Your mission, in Lab 3, is update your solution in Lab 2 to:
-- follow the style guideline
-- add <code class="codehilite">javadoc</code> comments to code (<code class="codehilite">javadoc</code> should not produce any warning)
-- use <code class="codehilite">PriorityQueue&lt;E&gt;</code> to manage the events
-- use randomly generated service time and arrival time, specified by a new input file format
-- improve your existing encapsulations, create new encapsultions, etc. if necessary</p>
+<p>Your mission, in Lab 3, is update your solution in Lab 2 to:</p>
 <ul>
-<li>The <code class="codehilite">main</code> method should remain in a class named <code class="codehilite">LabThree</code>.  We must be able to run your code with:
+<li>follow the style guideline</li>
+<li>add <code class="codehilite">javadoc</code> comments to code (<code class="codehilite">javadoc</code> should not produce any warning)</li>
+<li>use <code class="codehilite">PriorityQueue&lt;E&gt;</code> to manage the events</li>
+<li>use randomly generated service time and arrival time, specified by a new input file format</li>
+<li>improve your existing encapsulations, create new encapsultions, etc. if necessary</li>
+</ul>
+<p>The <code class="codehilite">main</code> method should remain in a class named <code class="codehilite">LabThree</code>.  We must be able to run your code with:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>javac *.java
 java LabThree &lt; TESTDATA1.txt
 </pre></div>
-</td></tr></table></li>
-<li>You must not change the formatting of the <em>last line</em> of output (<code class="codehilite">System.out.printf(&quot;%.3f %d %d&quot;, ..&quot;)</code>).  We rely on it to check for correctness of your logic.</li>
-</ul>
+</td></tr></table></p>
+<p>You must not change the formatting of the <em>last line</em> of output (<code class="codehilite">System.out.printf(&quot;%.3f %d %d&quot;, ..&quot;)</code>).  We rely on it to check for correctness of your logic.</p>
 <h2 id="submission">Submission</h2>
 <p>When you are ready to submit your lab, on <code class="codehilite">cs2030-i</code>, run the script
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>~cs2030/submit03
