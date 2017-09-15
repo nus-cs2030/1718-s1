@@ -1049,6 +1049,76 @@
             "location": "/unix/index.html#setting-up-ssh-keys",
             "text": "Once you are comfortable with UNIX, you can set up a pair of public/private keys for authentication.    You can use 1 ssh-keygen -t rsa   to generate a pair of keys on your local computer.  Keep the private key  id_rsa  on your local machine in the hidden  ~/.ssh  directory, and copy the public key  id_rsa.pub  to your home directory on VM  cs2030-i .  On  cs2030-i , run 1 cat id_rsa.pub >> ~/.ssh/authorized_keys   Make sure that the permission for  .ssh  both on local machine and on VM is set to  700  and the files  id_rsa  on local machine and  authorized_keys  on remote machine is set to  600 .  Once setup, you need not enter your password every time you run  ssh  or  scp .        I run  fish  on my macOS, as you might have noticed during the in-class demos.  You can use any shell you like, if you know what you are doing.  Otherwise,  bash  is a popular one.\u00a0 \u21a9    My personal opinion is that, you should really master one of these two time-tested source code editor if you want a career in software development.\u00a0 \u21a9",
             "title": "Setting up SSH Keys"
+        },
+        {
+            "location": "/vim/index.html",
+            "text": "Vim Tips\n\n\nI collected below some tips on \nvim\n that I find helpful.\n\n\nConfiguration\n\n\nYou can configure your \nvim\n by putting your configuration options and scripts in the \n~/.vimrc\n file (a hidden file named \n.vimrc\n in your home directory).  This file will be loaded whenever you starts \nvim\n.\n\n\nHelp\n\n\nIn \nvim,\n the command \n:help <topic>\n shows help about a particular topic in \nvim\n.  Example, \n:help backup\n.\n\n\nBackup Files\n\n\nYou can ask \nvim\n to automatically backup files that you edit.  This has been a life saver for me in multiple  occasions.\n\n\nIn your \n~/.vimrc\n file, \n\n\n1\nset backup=on\n\n\n\n\n\n\nwill cause a copy of your file to be save with suffix \n~\n appended to its name everytime you save.\n\n\nI prefer not to clutter my working directory, so I set\n\n\n1\nset backupdir=~/.backup\n\n\n\n\n\n\nand create a directory named \n~/.backup\n to store my backup files.\n\n\nThe settings above are the default in your \ncs2030-i\n account.  So if you made changes to a file that you regreted on \ncs2030-i\n, or if accidentally deleted a file, you can check under \n~/.backup\n to see if the backup can save you.\n\n\nUndo\n\n\nSince we are on the topic of correcting mistakes, \nu\n in command mode undo your changes.  Prefix it with a number \n\\(n\\)\n to undo \n\\(n\\)\n times.  If you regreted your undo, \n<CTRL-R>\n will redo.\n\n\nSyntax Highlighting\n\n\nIf for some reasons, syntax highlighting is not on by default, add this to your \n~/.vimrc\n:\n\n\n1\nsyntax on\n\n\n\n\n\n\nRuler and Numbers\n\n\nIf you prefer to show the line number you are on and the column number you are on, adding the commands to \n~/.vimrc\n\n\n1\nset ruler\n\n\n\n\n\n\nwill display the line number and the column number on the lower right corner.  \n\n\nYou can also add\n\n1\nset number\n\n\n\n\n\nto label each line with a line number.\n\n\nJumping to a Line\n\n\nIf the compiler tells you there is an error on Line \n\\(x\\)\n, you can issue \n:<x>\n to jump to Line \n\\(x\\)\n.  For instance, \n:40\n will go to Line 40.\n\n\nShell Command\n\n\nIf you need to issue a shell command quickly, you don't have to exit \nvim\n, run the command, and launch \nvim\n again.  You can use \n!\n, \n\n\n1\n:!<command>\n\n\n\n\n\n\nwill issue the command to shell.  E.g.,\n\n\n1\n:!ls\n\n\n\n\n\n\nYou can use this to compile your current file, without exiting \nvim\n.\n\n\n1\n:!javac %\n\n\n\n\n\n\nAbbreviation\n\n\nYou can use the command \nab\n to abbreviate frequently typed commands.  E.g., in your \n~/.vimrc\n, \n\n\n1\nab Sop System.out.println(\"\n\n\n\n\n\n\nNow, when you type \nSop\n, it will be expanded into \nSystem.out.println(\"\n\n\nAuto-Completion\n\n\nYou can \n<CTRL-P>\n to auto-complete.  By default, the auto-complete dictionary is based on text in your current editing buffers.  This is a very useful keystroke saver for long function and variable names.\n\n\nAuto-Indent the Whole File\n\n\nYou can \ngg=G\n in command mode to auto-indent the whole file.  \ngg\n is the command to go to the beginning of the file.  \n=\n is the command to indent.  \nG\n is the command to go to the end of the file.\n\n\nSwapping Lines\n\n\nSometimes you want to swap the order of two lines of code, in command mode, \nddp\n will do the trick.  \ndd\n deletes the current line, \np\n paste it after the current line, in effect swapping the order of the two lines.",
+            "title": "Vim"
+        },
+        {
+            "location": "/vim/index.html#vim-tips",
+            "text": "I collected below some tips on  vim  that I find helpful.",
+            "title": "Vim Tips"
+        },
+        {
+            "location": "/vim/index.html#configuration",
+            "text": "You can configure your  vim  by putting your configuration options and scripts in the  ~/.vimrc  file (a hidden file named  .vimrc  in your home directory).  This file will be loaded whenever you starts  vim .",
+            "title": "Configuration"
+        },
+        {
+            "location": "/vim/index.html#help",
+            "text": "In  vim,  the command  :help <topic>  shows help about a particular topic in  vim .  Example,  :help backup .",
+            "title": "Help"
+        },
+        {
+            "location": "/vim/index.html#backup-files",
+            "text": "You can ask  vim  to automatically backup files that you edit.  This has been a life saver for me in multiple  occasions.  In your  ~/.vimrc  file,   1 set backup=on   will cause a copy of your file to be save with suffix  ~  appended to its name everytime you save.  I prefer not to clutter my working directory, so I set  1 set backupdir=~/.backup   and create a directory named  ~/.backup  to store my backup files.  The settings above are the default in your  cs2030-i  account.  So if you made changes to a file that you regreted on  cs2030-i , or if accidentally deleted a file, you can check under  ~/.backup  to see if the backup can save you.",
+            "title": "Backup Files"
+        },
+        {
+            "location": "/vim/index.html#undo",
+            "text": "Since we are on the topic of correcting mistakes,  u  in command mode undo your changes.  Prefix it with a number  \\(n\\)  to undo  \\(n\\)  times.  If you regreted your undo,  <CTRL-R>  will redo.",
+            "title": "Undo"
+        },
+        {
+            "location": "/vim/index.html#syntax-highlighting",
+            "text": "If for some reasons, syntax highlighting is not on by default, add this to your  ~/.vimrc :  1 syntax on",
+            "title": "Syntax Highlighting"
+        },
+        {
+            "location": "/vim/index.html#ruler-and-numbers",
+            "text": "If you prefer to show the line number you are on and the column number you are on, adding the commands to  ~/.vimrc  1 set ruler   will display the line number and the column number on the lower right corner.    You can also add 1 set number   to label each line with a line number.",
+            "title": "Ruler and Numbers"
+        },
+        {
+            "location": "/vim/index.html#jumping-to-a-line",
+            "text": "If the compiler tells you there is an error on Line  \\(x\\) , you can issue  :<x>  to jump to Line  \\(x\\) .  For instance,  :40  will go to Line 40.",
+            "title": "Jumping to a Line"
+        },
+        {
+            "location": "/vim/index.html#shell-command",
+            "text": "If you need to issue a shell command quickly, you don't have to exit  vim , run the command, and launch  vim  again.  You can use  ! ,   1 :!<command>   will issue the command to shell.  E.g.,  1 :!ls   You can use this to compile your current file, without exiting  vim .  1 :!javac %",
+            "title": "Shell Command"
+        },
+        {
+            "location": "/vim/index.html#abbreviation",
+            "text": "You can use the command  ab  to abbreviate frequently typed commands.  E.g., in your  ~/.vimrc ,   1 ab Sop System.out.println(\"   Now, when you type  Sop , it will be expanded into  System.out.println(\"",
+            "title": "Abbreviation"
+        },
+        {
+            "location": "/vim/index.html#auto-completion",
+            "text": "You can  <CTRL-P>  to auto-complete.  By default, the auto-complete dictionary is based on text in your current editing buffers.  This is a very useful keystroke saver for long function and variable names.",
+            "title": "Auto-Completion"
+        },
+        {
+            "location": "/vim/index.html#auto-indent-the-whole-file",
+            "text": "You can  gg=G  in command mode to auto-indent the whole file.   gg  is the command to go to the beginning of the file.   =  is the command to indent.   G  is the command to go to the end of the file.",
+            "title": "Auto-Indent the Whole File"
+        },
+        {
+            "location": "/vim/index.html#swapping-lines",
+            "text": "Sometimes you want to swap the order of two lines of code, in command mode,  ddp  will do the trick.   dd  deletes the current line,  p  paste it after the current line, in effect swapping the order of the two lines.",
+            "title": "Swapping Lines"
         }
     ]
 }

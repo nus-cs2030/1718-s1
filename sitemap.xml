@@ -175,6 +175,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/vim/index.html</loc>
+     <lastmod>2017-09-15</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>
