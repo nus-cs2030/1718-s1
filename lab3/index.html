@@ -841,26 +841,26 @@
 <h2 id="learning-objectives">Learning Objectives</h2>
 <p>After completing this lab, students should:</p>
 <ul>
-<li>be familiar with the <a href="../style/index.html">CS2030 Java Coding Style</a> and comfortable in following them </li>
-<li>be familiar with <a href="../javadoc/index.html"><code class="codehilite">javadoc</code></a> syntax and comfortable with documenting the code with <code class="codehilite">javadoc</code> </li>
-<li>be familiar with generating <code class="codehilite">javadoc</code> documentation </li>
-<li>be comfortable reading a Java Collection Framework documentation and use one of the class provided</li>
-<li>appreciate the usefulness of Java Collection Framework by seeing how much shorter and cleaner the resulting code</li>
+<li>be familiar with the <a href="../style/index.html">CS2030 Java Coding Style</a> and comfortable in following them</li>
+<li>be familiar with <a href="../javadoc/index.html"><code class="codehilite">javadoc</code> syntax</a> and comfortable with documenting the code with <code class="codehilite">javadoc</code></li>
+<li>be familiar with generating <code class="codehilite">javadoc</code> documentation</li>
+<li>be comfortable reading a Java Collection Framework documentation and use one of the classes provided</li>
+<li>appreciate the usefulness of Java Collection Framework by seeing how much shorter and cleaner the resulting code is</li>
 <li>be familiar with random number generation in <code class="codehilite">java.lang.Math</code></li>
 <li>be exposed to the concept of pseudo random number generator and seeds</li>
 </ul>
 <h2 id="setup">Setup</h2>
-<p>There is no new skeleton code provided.  You are to build from your Lab 3 solution based on your Lab 2.  To setup Lab 3, do the following.  </p>
+<p>There is no new skeleton code provided.  You are to build from your Lab 3 solution based on your Lab 2.  To setup Lab 3, do the following.</p>
 <ul>
 <li>Login to <code class="codehilite">cs2030-i</code></li>
-<li>Copy <code class="codehilite">~/lab02</code> to <code class="codehilite">~/lab03</code> </li>
+<li>Copy <code class="codehilite">~/lab02</code> to <code class="codehilite">~/lab03</code></li>
 <li>Rename <code class="codehilite">LabTwo.java</code> to <code class="codehilite">LabThree.java</code></li>
 <li>Rename the class <code class="codehilite">LabTwo</code> to <code class="codehilite">LabThree</code></li>
 <li>Copy the test data (<code class="codehilite">TESTDATA1.txt</code> .. <code class="codehilite">TESTDATA5.txt</code>) from <code class="codehilite">~cs2030/lab03</code> to <code class="codehilite">~/lab03</code></li>
 </ul>
 <p>If you are still not familiar with how to do the above, please revisit the <a href="../unix/index.html">UNIX</a> guide.</p>
 <h2 id="task">Task</h2>
-<p>For Lab 3, you will be asked to make two small change to the code:</p>
+<p>For Lab 3, you will be asked to make two small changes to the code:</p>
 <ul>
 <li>Make the arrival time and service time random</li>
 <li>Use <code class="codehilite">PriorityQueue&lt;Event&gt;</code> instead of <code class="codehilite">Event[]</code> to schedule the event.</li>
@@ -869,7 +869,7 @@
 <p>In addition, you should edit your code so that:</p>
 <ul>
 <li>it follows the <a href="../style/index.html">CS2030 Coding Style</a></li>
-<li>it is clearly documented with <a href="../javadoc/index.html"><code class="codehilite">javadoc</code></a></li>
+<li>it is clearly documented with <a href="../javadoc/index.html"><code class="codehilite">javadoc</code> comments</a></li>
 </ul>
 <h2 id="grading">Grading</h2>
 <p>This lab contributes another 4 marks to your final grade (100 marks).</p>
@@ -880,16 +880,16 @@
 <li>1 mark for correctness</li>
 </ul>
 <h2 id="priority-queuing">Priority Queuing</h2>
-<p>The first change you need to do in this assignment is to use one of the Java Collection classes to manage the events.  In <code class="codehilite">LabTwo.java</code>, we keep all the events in an array, and scanned through it to find the event with the smallest (i.e., earliest) timestamp.  This is not efficient, since scanning through all the events takes time that increases linearly with the number of events<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">1</a></sup>.  </p>
-<p>Java Collection provides a class that is perfect for our use: <a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html"><code class="codehilite">PriorityQueue&lt;E&gt;</code></a>.  A <code class="codehilite">PriorityQueue</code> keeps a collection of elements, the elements are given certain priority.  Elements can be added with <code class="codehilite">[add(E e)]</code>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#add-E-">https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#add-E-</a>) method.  To retrieve and remove the elements with highest priority, we use the <code class="codehilite">[poll()]</code>(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#poll--">https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#poll--</a>) method, which returns an object of type <code class="codehilite">E</code>, or <code class="codehilite">null</code> is the queue is empty.</p>
-<p>In our case, the event with the smallest timestamp have the highest priority.  To tell the <code class="codehilite">PriorityQueue&lt;E&gt;</code> class how to order the events so that smaller timestamp has higher priority, we use the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#PriorityQueue-java.util.Comparator-"><code class="codehilite">PriorityQueue&lt;E&gt;</code> constructor</a> that takes in a <code class="codehilite">Comparator</code> object, just like we see in <a href="../lec5/index.html">Lecture 5</a>[^3].</p>
+<p>The first change you need to do in this assignment is to use one of the Java Collection classes to manage the events.  In <code class="codehilite">LabTwo.java</code>, we kept all the events in an array, and scanned through it to find the event with the smallest (i.e., earliest) timestamp.  This is not efficient, since scanning through all the events takes time that increases linearly with the number of events<sup id="fnref:2"><a class="footnote-ref" href="#fn:2" rel="footnote">1</a></sup>.</p>
+<p>Java Collection provides a class that is perfect for our use: <a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html"><code class="codehilite">PriorityQueue&lt;E&gt;</code></a>.  A <code class="codehilite">PriorityQueue</code> keeps a collection of elements, the elements are given certain priority.  Elements can be added with <a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#add-E-"><code class="codehilite">add(E e)</code></a> method.  To retrieve and remove the elements with highest priority, we use the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#poll--"><code class="codehilite">poll()</code></a> method, which returns an object of type <code class="codehilite">E</code>, or <code class="codehilite">null</code> is the queue is empty.</p>
+<p>In our case, the event with the smallest timestamp has the highest priority.  To tell the <code class="codehilite">PriorityQueue&lt;E&gt;</code> class how to order the events so that smaller timestamp has higher priority, we use the <a href="https://docs.oracle.com/javase/8/docs/api/java/util/PriorityQueue.html#PriorityQueue-java.util.Comparator-"><code class="codehilite">PriorityQueue&lt;E&gt;</code> constructor</a> that takes in a <code class="codehilite">Comparator</code> object, just like we see in <a href="../lec5/index.html">Lecture 5</a>.</p>
 <p>If you design is right, you should only change the code in four places: (i) initialize list of events, (ii) schedule an event, (iii) get the next event, (iv) checking if there is still an event.</p>
 <p>(Hint: You should be able to implement a <code class="codehilite">Comparator</code> without getter <code class="codehilite">getTime()</code>)</p>
-<p>You should implement this change first, since you can do a sanity check of your correctness against the result of Lab 2 using the test data <em>from</em> Lab 2.</p>
+<p><strong>You should implement this change first</strong>, since you can do a sanity check of your correctness against the result of Lab 2 using the test data <em>from</em> Lab 2.</p>
 <h2 id="randomized-arrival-and-service-time">Randomized Arrival and Service Time</h2>
-<p>Next, we are going to change how the arrival time and service time is specified, so that we can easily simulate different settings (e.g., a more efficient server with faster service time, more arrivals during weekends, etc).  </p>
+<p>Next, we are going to change how the arrival time and service time is specified, so that we can easily simulate different settings (e.g., a more efficient server with faster service time, more arrivals during weekends, etc).</p>
 <h3 id="random">Random</h3>
-<p>First, an introduction to random number generation.  A random number generator is an entity that spews up one random number after another.  We, however, cannot generate a truly random number algorithmically.  We can only generate a <em>pseudo</em> random number.  A pseudo random number generator can be initialized with a <em>seed</em>.  A pseudo random number generator, when initialized with the same <em>seed</em>, always produces the same sequence of (seemingly random) numbers.  </p>
+<p>First, an introduction to random number generation.  A random number generator is an entity that spews up one random number after another.  We, however, cannot generate a truly random number algorithmically.  We can only generate a <em>pseudo</em> random number.  A pseudo random number generator can be initialized with a <em>seed</em>.  A pseudo random number generator, when initialized with the same <em>seed</em>, always produces the same sequence of (seemingly random) numbers.</p>
 <p>Java provides a class <code class="codehilite">java.util.Random</code> that encapsulates a pseudo random number generator.  We can create a random number generator with a seed:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Random</span> <span class="n">rng</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Random</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
 </pre></div>
@@ -901,23 +901,23 @@
 
 <p>Using a fixed seed is important for testing, since the execution of the program will be deterministic, even when random numbers are involved.</p>
 <h3 id="arrival-time">Arrival Time</h3>
-<p>In Lab 2, the arrival time is given in an input text file.  This approach is less flexible and requires another program to generate the input file.  Further, the original code creates <em>all</em> the arrival events before the simulation starts, and therefore limits the total number of arrivals to the size of the initial array <code class="codehilite">events</code>.</p>
-<p>We are going to improve this part of the program, by generating the arrival one after another.  To generate this, we need to generate a <em>random inter-arrival time</em>.  The inter-arrival time is usually modeled as a exponential random variable, characterized by a single parameter <span>\(\lambda\)</span> (<code class="codehilite">lambda</code>), known as <em>arrival rate</em>. 
-Mathematically, the inter-arrival time can be generated with <span>\(-\ln(U)/\lambda\)</span>, where <span>\(U\)</span> is a random variable between 0 and 1<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">2</a></sup>.</p>
+<p>In Lab 2, the arrival time is given in the input text file.  This approach is less flexible and requires another program to generate the input file.  Further, the original code creates <em>all</em> the arrival events before the simulation starts, and therefore limits the total number of arrivals to the size of the initial array <code class="codehilite">events</code>.</p>
+<p>We are going to improve this part of the program, by generating the arrival one after another.  To do this, we need to generate a <em>random inter-arrival time</em>.  The inter-arrival time is usually modeled as a exponential random variable, characterized by a single parameter <span>\(\lambda\)</span> (<code class="codehilite">lambda</code>), known as <em>arrival rate</em>.</p>
+<p>Mathematically, the inter-arrival time can be generated with <span>\(-\ln(U)/\lambda\)</span>, where <span>\(U\)</span> is a random variable between 0 and 1<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">2</a></sup>.</p>
 <ul>
 <li>Every time an arrival event is processed, it generates another arrival event and schedule it.</li>
-<li>If there are still more customer to simulator, we generate the next arrival event with a timestamp of <span>\(T\)</span> + now, where <span>\(T\)</span> is generated with the Java expression: 
+<li>If there are still more customer to simulator, we generate the next arrival event with a timestamp of <span>\(T\)</span> + now, where <span>\(T\)</span> is generated with the Java expression:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="o">-</span><span class="n">Math</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">rng</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">())</span> <span class="o">/</span> <span class="n">lambda</span>
 </pre></div>
 </td></tr></table></li>
-<li>When we first starts the simulator, we need to generate the first arrival event with timestamp <span>\(T\)</span>, generated with the same expression as above.</li>
+<li>When we first start the simulator, we need to generate the first arrival event with timestamp <span>\(T\)</span>, generated with the same expression as above.</li>
 </ul>
 <p>You can adapt the expression above to suit your program.</p>
 <h3 id="service-time">Service Time</h3>
 <p>In Lab 2, the service time is constant, which is not always realistic. We are going to model the service time as a exponential random variable, characterized with a single parameter, <em>service rate</em> <span>\(\mu\)</span> (<code class="codehilite">mu</code>).  We can generate the service time with the expression <span>\(-\ln(U)/\mu\)</span>, where <span>\(U\)</span> is a random variable between 0 and 1.</p>
 <ul>
 <li>Every time a customer is being served, we generate a "done" event and schedule it (just like we did it in Lab 2).</li>
-<li>The "done" event generated will have a timestampt of <span>\(T\)</span> + now, where <span>\(T\)</span> is <em>no longer constant <code class="codehilite">SERVICE_TIME</code></em>, but instead is generated with the Java expression:
+<li>The "done" event generated will have a timestamp of <span>\(T\)</span> + now, where <span>\(T\)</span> is <em>no longer constant <code class="codehilite">SERVICE_TIME</code></em>, but instead is generated with the Java expression:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>   <span class="o">-</span><span class="n">Math</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">rng</span><span class="o">.</span><span class="na">nextDouble</span><span class="o">())</span> <span class="o">/</span> <span class="n">mu</span>
 </pre></div>
 </td></tr></table></li>
@@ -930,7 +930,7 @@ Mathematically, the inter-arrival time can be generated with <span>\(-\ln(U)/\la
 <li>The first line is a <code class="codehilite">int</code> value, indicating the seed to the simulator</li>
 <li>The second line is a <code class="codehilite">double</code> value, indicating the service rate <span>\(\mu\)</span></li>
 <li>The third line is a <code class="codehilite">double</code> value, indicating the arrival rate <span>\(\lambda\)</span></li>
-<li>The forth line is a <code class="codehilite">int</code> value, indicating the total number of customers to simulate</li>
+<li>The fourth line is a <code class="codehilite">int</code> value, indicating the total number of customers to simulate</li>
 </ul>
 <p>We give you five test inputs: <code class="codehilite">TESTDATA1.txt</code> to <code class="codehilite">TESTDATA5.txt</code>.  The output we get with these inputs are:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -970,7 +970,11 @@ ooiwt@cs2030-i:~/lab03&gt; java LabThree &lt; TESTDATA5.txt | tail -1
 java LabThree &lt; TESTDATA1.txt
 </pre></div>
 </td></tr></table></p>
-<p>You must not change the formatting of the <em>last line</em> of output (<code class="codehilite">System.out.printf(&quot;%.3f %d %d&quot;, ..&quot;)</code>).  We rely on it to check for correctness of your logic.</p>
+<p>You also must not change the formatting of the <em>last line</em> of output:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="s">&quot;%.3f %d %d&quot;</span><span class="o">,</span> <span class="o">..</span><span class="err">&quot;</span><span class="o">)</span>
+</pre></div>
+</td></tr></table></p>
+<p>We rely on it to check for correctness of your logic.</p>
 <h2 id="submission">Submission</h2>
 <p>When you are ready to submit your lab, on <code class="codehilite">cs2030-i</code>, run the script
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>~cs2030/submit03
