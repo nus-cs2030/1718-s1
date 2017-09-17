@@ -492,6 +492,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lec6/index.html" title="6. Nested Classes, Enums" class="md-nav__link">
+      6. Nested Classes, Enums
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -861,7 +873,6 @@
 <li>Understand more about generics: type erasure, generic methods, wildcard types, bounded wild card types.</li>
 <li>Familiar with Java collection frameworks: <code class="codehilite">Set</code>, <code class="codehilite">List</code>, <code class="codehilite">Map</code> and their concrete class <code class="codehilite">HashSet</code>, <code class="codehilite">LinkedList</code>, <code class="codehilite">ArrayList</code>, and <code class="codehilite">HashMap</code>.</li>
 <li>Aware of the other classes in Java Collection and is comfortable to look them up by reading the Java documentation.</li>
-<li>Understand the need to override <code class="codehilite">hashCode</code> every time <code class="codehilite">equals</code> is overriden.</li>
 <li>Understand there are differences between the collection classes and know when to use which one</li>
 </ul>
 <h2 id="wrapper-classes">Wrapper Classes</h2>
@@ -1139,13 +1150,6 @@ It is the caller resonsibility to pass in the right type, otherwise, an <code cl
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">population</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;Kings Landing&quot;</span><span class="o">);</span>
 </pre></div>
 </td></tr></table></p>
-<p>Internally, to implement <code class="codehilite">put</code>, <code class="codehilite">HashMap</code> calls key's <code class="codehilite">hashCode</code> to return a <code class="codehilite">int</code>, which it uses to determine which "bucket" to store the (key, value) pair.  When <code class="codehilite">get</code>, <code class="codehilite">HashMap</code> again calls <code class="codehilite">hashCode</code> on the given key to determine which bucket, then it looks for the key in the bucket.  This process, called <em>hashing</em>, circumvents the need to look through every pair in the map to find the right key.</p>
-<p>You will learn more about hashing and hash tables in CS2040.</p>
-<p>But, what is important here is that, two keys (two objects, in general) which are the same (<code class="codehilite">equals()</code> returns <code class="codehilite">true</code>), must have the same <code class="codehilite">hashCode()</code>.  Otherwise, <code class="codehilite">HashMap</code> would fail!</p>
-<p>So it is important to ensure that if <code class="codehilite">o1.equals(o2)</code>, then <code class="codehilite">o1.hashCode() == o2.hashCode()</code>.  Note that the reverse does not have to be true -- two objects with the same hash code does not have to be equals.</p>
-<p>This property is also useful for implementing <code class="codehilite">equals()</code>.  For a complex object, comparing every field for equality can be expensive.  If we can compare the hash code first, we could filter out objects with different hash code (since they cannot be equal).  We only need to compare field by field if the hash code is the same.</p>
-<p>Ditto for implementation of <code class="codehilite">HashSet</code> -- to checks if an element to add already exists, <code class="codehilite">HashSet</code> uses hash code, instead of going through all the elements and compare one by one.</p>
-<p>Calculating good hash code is an involved topic, and is best left to the expert (some of you might become expert in this), but for now, we can rely on the static <code class="codehilite">hashCode</code> methods in the <code class="codehilite">Array</code> class to help us.</p>
 <h2 id="which-collection-class">Which Collection Class?</h2>
 <p>Java provides many collection classes, more than what we have time to go through.  It is important to know which one to use to get the best performance out of them.  For the few classes we have seen:</p>
 <ul>
@@ -1318,13 +1322,13 @@ It is the caller resonsibility to pass in the right type, otherwise, an <code cl
           </a>
         
         
-          <a href="../exercise1/index.html" title="1. Circles & Points" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../lec6/index.html" title="6. Nested Classes, Enums" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                1. Circles & Points
+                6. Nested Classes, Enums
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
