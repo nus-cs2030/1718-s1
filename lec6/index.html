@@ -41,6 +41,8 @@
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic">
     
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    
     
   </head>
   
@@ -987,7 +989,7 @@
 12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">boolean</span> <span class="n">descendingOrder</span> <span class="o">=</span> <span class="kc">false</span><span class="o">;</span>
 <span class="kd">class</span> <span class="nc">EventComparator</span> <span class="kd">implements</span> <span class="n">Comparator</span><span class="o">&lt;</span><span class="n">Event</span><span class="o">&gt;</span> <span class="o">{</span>
   <span class="kd">public</span> <span class="kt">int</span> <span class="nf">compare</span><span class="o">(</span><span class="n">Event</span> <span class="n">e1</span><span class="o">,</span> <span class="n">Event</span> <span class="n">e2</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">reverseOrder</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">descendingOrder</span><span class="o">)</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">e2</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">e1</span><span class="o">);</span>
     <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
         <span class="k">return</span> <span class="n">e1</span><span class="o">.</span><span class="na">compareTo</span><span class="o">(</span><span class="n">e2</span><span class="o">);</span>
