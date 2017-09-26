@@ -154,6 +154,12 @@
     </url>
         
     <url>
+     <loc>/lab02-comments/index.html</loc>
+     <lastmod>2017-09-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/lab3/index.html</loc>
      <lastmod>2017-09-27</lastmod>
      <changefreq>daily</changefreq>
