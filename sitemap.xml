@@ -10,11 +10,25 @@
     
 
     
+        
     <url>
      <loc>/about/index.html</loc>
      <lastmod>2017-09-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    <url>
+     <loc>/prereqs/index.html</loc>
+     <lastmod>2017-09-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/policies/index.html</loc>
+     <lastmod>2017-09-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
@@ -27,23 +41,7 @@
 
     
     <url>
-     <loc>/prereqs/index.html</loc>
-     <lastmod>2017-09-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
      <loc>/readings/index.html</loc>
-     <lastmod>2017-09-27</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/policies/index.html</loc>
      <lastmod>2017-09-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -60,6 +58,14 @@
     
     <url>
      <loc>/style/index.html</loc>
+     <lastmod>2017-09-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/midterm/index.html</loc>
      <lastmod>2017-09-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
