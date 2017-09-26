@@ -714,6 +714,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#syntax-and-style-checker" title="Syntax and Style Checker" class="md-nav__link">
+    Syntax and Style Checker
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -839,6 +846,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#syntax-and-style-checker" title="Syntax and Style Checker" class="md-nav__link">
+    Syntax and Style Checker
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -930,6 +944,38 @@
 <p>Sometimes you want to swap the order of two lines of code, in command mode, <code class="codehilite">ddp</code> will do the trick.  <code class="codehilite">dd</code> deletes the current line, <code class="codehilite">p</code> paste it after the current line, in effect swapping the order of the two lines.</p>
 <h2 id="goto-file">Goto File</h2>
 <p>Place your cursor on the name of a class (e.g., <code class="codehilite">Event</code>), then in command mode, issue the <code class="codehilite">gf</code> command (goto file).  <code class="codehilite">vim</code> will open <code class="codehilite">Event.java</code>.  You can set the <code class="codehilite">path</code> to load files from directories other than the current directory.   "Ctrl-^" will get out and back to the previous file.</p>
+<h2 id="syntax-and-style-checker">Syntax and Style Checker</h2>
+<p>I use <code class="codehilite">syntastic</code> to check for style and syntax whenever I save a file.  <a href="https://github.com/vim-syntastic/syntastic"><code class="codehilite">syntastic</code></a> is a <code class="codehilite">vim</code> plugin. </p>
+<p>My <code class="codehilite"><span class="na">.vimrc</span></code> configuration file contains the following:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>&quot;For syntastic
+set laststatus=2
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_java_checkers = [ &quot;checkstyle&quot;, &quot;javac&quot; ]
+let g:syntastic_java_checkstyle_classpath = &quot;~cs2030/bin/checkstyle-8.2-all.jar&quot;
+let g:syntastic_java_checkstyle_conf_file = &quot;~cs2030/bin/cs2030_checks.xml&quot;
+</pre></div>
+</td></tr></table>
+
+<p>The last two lines refer to <a href="http://checkstyle.sourceforge.net"><code class="codehilite">checkstyle</code></a> tool and its configuration file available from <code class="codehilite">~cs2030/bin</code> on the host <code class="codehilite">cs2030-i.comp.nus.edu.sg</code>.</p>
                 
                   
                 
