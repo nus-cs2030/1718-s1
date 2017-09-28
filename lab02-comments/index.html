@@ -868,7 +868,7 @@ Test Case #5: 0.405 76 24
 <p>Many students used getter methods to "ask" an object for information, handled some logic, and then used setter methods to update the fields of that object. While this is better than making those fields <code class="codehilite">public</code> altogether, this often leads to a poorly-defined abstraction barrier. It is almost all the time better to "tell" your object to do something instead.</p>
 <div class="admonition note">
 <p class="admonition-title">The Ruby programming language</p>
-<p>The code in the second link is written in Ruby, another object-oriented language like Java, except that it is dynamically-typed. Even though it's a different language, you should be able to understand the code well enough to appreciate the examples in the article.</p>
+<p>The code in the second link is written in Ruby, another object-oriented language like Java, except that it is dynamically-typed. Even though it's a different language, it should be easy enough to understand for you to appreciate the examples in the article.</p>
 </div>
 <h3 id="i-still-dont-understand">"I still don't understand!"</h3>
 <p>Here's a code snippet from the <code class="codehilite">Simulator</code> class of a 3 mark submission. Compare this with the original method we provided. This is a very good example of what a well-abstracted program looks like, and hopefully it helps to illustrate the concepts mentioned above.</p>
@@ -911,25 +911,25 @@ Test Case #5: 0.405 76 24
 <p><strong>Use constructors to directly instantiate Event and Simulator objects.</strong> You need to tell the class what to do when someone does <code class="codehilite">new ClassName()</code>.</p>
 </li>
 <li>
-<p><strong>The expected initial state of an object should always be defined in the constructor.</strong> Don't pass in those initial values as arguments. Otherwise, someone can possibly instantiate an object that has a wrong starting state. Ideally, you want to guarantee that every object contains valid values right from the moment it gets created.</p>
+<p><strong>The expected initial state of an object should always be defined in the constructor. Don't pass in those initial values as arguments.</strong> Otherwise, someone can possibly instantiate an object that has a wrong starting state. Some students had a <code class="codehilite">Simulator</code> constructor that took in 7 arguments. This violates encapsulation because <code class="codehilite">LabTwo</code> now needs to know that <code class="codehilite">Simulator</code> has fields such as <code class="codehilite">customerWaiting</code> and <code class="codehilite">customerBeingServed</code>, and worse, set them to <code class="codehilite">false</code> on <code class="codehilite">Simulator</code>'s behalf. You should try to guarantee that every object contains valid values right from the moment it gets created.</p>
 </li>
 <li>
-<p><strong>Also don't provide a "default constructor" that sets dummy values.</strong> For example, some students had an <code class="codehilite">Event()</code> constructor that takes in no arguments and sets <code class="codehilite">time</code> and <code class="codehilite">eventType</code> to 0. Can you see how this might go wrong? Don't give yourself (and other people) an option to do things that will lead to unexpected mistakes down the road.</p>
+<p><strong>Also don't provide a "default constructor" that sets dummy values.</strong> For example, some students had an extra <code class="codehilite">Event</code> constructor that took in no arguments and set <code class="codehilite">time</code> and <code class="codehilite">eventType</code> to 0. Can you see how this might go wrong? Don't give yourself (and other people) an option to do things that will lead to unexpected mistakes down the road.</p>
 </li>
 <li>
-<p>Some students implemented a <code class="codehilite">public Event getEventAt(int index)</code> method in the <code class="codehilite">Simulator</code>. This clearly breaks the abstraction barrier, because external classes should never have direct access to the ordering of <code class="codehilite">Event</code>s and how they are stored inside <code class="codehilite">Simulator</code>.</p>
+<p><strong>Some students implemented a <code class="codehilite">public Event getEventAt(int index)</code> method in the <code class="codehilite">Simulator</code>.</strong> This clearly breaks the abstraction barrier, because external classes should never have direct access to the ordering of <code class="codehilite">Event</code>s and how they are stored inside <code class="codehilite">Simulator</code>.</p>
 </li>
 <li>
-<p>A few students misunderstood the meaning of encapsulation. If a method deals with <code class="codehilite">Event</code> objects or has the word "event" in its name, that doesn't mean it should belong inside the <code class="codehilite">Event</code> class.</p>
+<p><strong>A few students misunderstood the meaning of encapsulation.</strong> If a method deals with <code class="codehilite">Event</code> objects or has the word "event" in its name, that doesn't mean it should belong inside the <code class="codehilite">Event</code> class.</p>
 </li>
 <li>
-<p>Another example of separating concerns is to shift <code class="codehilite">printStats()</code> into the <code class="codehilite">run()</code> method of your <code class="codehilite">Simulator</code>. <code class="codehilite">LabTwo</code> doesn't need to know that <code class="codehilite">Simulator</code> prints out its stats when it finishes running. Instead, <code class="codehilite">Simulator</code> maintains ownership and control over that behavior. Notice that after you do this, you no longer need to define getters such as <code class="codehilite">sim.getAverageWaitingTime()</code>.</p>
+<p><strong>Another way to improve your design is to shift <code class="codehilite">printStats()</code> into the <code class="codehilite">run()</code> method of your <code class="codehilite">Simulator</code>.</strong> <code class="codehilite">LabTwo</code> doesn't need to know that <code class="codehilite">Simulator</code> prints stats when it finishes running. Instead, <code class="codehilite">Simulator</code> maintains ownership and control over that behavior. In a 3 mark submission with well-separated concerns, the <code class="codehilite">Simulator</code> would fetch stats such as <code class="codehilite">totalNumOfCustomersServed</code> from the <code class="codehilite">Server</code> class.</p>
 </li>
 <li>
-<p><strong>Don't define constants in more than one place.</strong> You should only have one source of truth.</p>
+<p><strong>Constants should be declared <em>and assigned</em> at one go, with the proper modifiers.</strong> Here's how you should do it: <code class="codehilite">private static final MY_CONSTANT = 123</code>. Changing <code class="codehilite">private</code> to <code class="codehilite">public</code> is perfectly acceptable if many classes need access to that constant (e.g. <code class="codehilite">Event.CUSTOMER_ARRIVE</code>). If a "constant" might have a different value depending on arguments that you pass in, then it's not a constant anymore, is it?</p>
 </li>
 <li>
-<p><strong>Constants should be declared <em>and assigned</em> at one go, with the proper modifiers.</strong> Here's how you should do it: <code class="codehilite">private static final MY_CONSTANT = 123;</code>. Changing <code class="codehilite">private</code> to <code class="codehilite">public</code> is perfectly acceptable if many classes need access to that constant (e.g. <code class="codehilite">Event.CUSTOMER_ARRIVE</code>). If a "constant" might have a different value depending on arguments that you pass in, then it's not a constant anymore, is it?</p>
+<p><strong>Don't define constants in more than one place.</strong> You should only have one source of truth. To achieve this, some students created a <code class="codehilite">Constants</code> class and put all their constants in there, but the correct way would be to put them in their appropriate classes. Do also note that not all constants need to be <code class="codehilite">public</code> (e.g. <code class="codehilite">MAX_NUMBER_OF_EVENTS</code> should be encapsulated in <code class="codehilite">Simulator</code>).</p>
 </li>
 <li>
 <p><strong>Avoid nesting classes.</strong> There are very few situations where nested classes are acceptable.</p>
@@ -938,13 +938,10 @@ Test Case #5: 0.405 76 24
 <p><strong>Methods for internal use only should all be <code class="codehilite">private</code>.</strong> For that matter, all fields and methods should either be <code class="codehilite">public</code> or <code class="codehilite">private</code>. Don't be lazy and skimp on the access modifier - so many students left <code class="codehilite">createScanner()</code> exposed to classes outside of <code class="codehilite">LabTwo</code>. The only time you might need to think about other levels of access control is when you're dealing with subclasses.</p>
 </li>
 <li>
-<p>It's not strictly required but it's a good practice to <strong>use <code class="codehilite">this</code> to refer to fields</strong> so that you distinguish them from other variables or arguments.</p>
+<p>It's not strictly required but it's a good practice to <strong>use <code class="codehilite">this</code> to refer to fields</strong> so that you distinguish them from other variables or arguments. Methods in the same class, however, should just be called directly without <code class="codehilite">this</code>. Same for static fields in the same class.</p>
 </li>
 <li>
-<p>Methods in the same class, however, should just be called directly without <code class="codehilite">this</code>. Same for static fields in the same class.</p>
-</li>
-<li>
-<p>When you're accessing a static method or field from outside the class, always reference the class rather than the instance. For example, do <code class="codehilite">Event.CUSTOMER_ARRIVE</code> and not <code class="codehilite">e.CUSTOMER_ARRIVE</code>.</p>
+<p>When you're accessing a static method or field from outside the class, <strong>always reference the class rather than the instance</strong>. For example, do <code class="codehilite">Event.CUSTOMER_ARRIVE</code> and not <code class="codehilite">e.CUSTOMER_ARRIVE</code>.</p>
 </li>
 <li>
 <p><strong>Simplicity is underrated.</strong> Always prefer to structure your code in the simplest way possible. Writing simple code is actually very difficult and takes a lot of conscious effort.</p>
