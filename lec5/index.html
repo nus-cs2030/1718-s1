@@ -710,6 +710,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lab5/index.html" title="5. Question" class="md-nav__link">
+      5. Question
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1139,18 +1151,18 @@ It is the caller resonsibility to pass in the right type, otherwise, an <code cl
 <h2 id="set-and-list">Set and List</h2>
 <p>The <code class="codehilite">Set&lt;E&gt;</code> <code class="codehilite">List&lt;E&gt;</code> interfaces extend the <code class="codehilite">Collection&lt;E&gt;</code> class.  <code class="codehilite">Set&lt;E&gt;</code> is meant for implementing a collection of objects that does not allow duplicates (but still does not care about order of elements), while <code class="codehilite">List&lt;E&gt;</code> is for implementing a collection of objects that allow duplicates, but the order of elements matters.</p>
 <p>Mathematically, a <code class="codehilite">Collection&lt;E&gt;</code> is used to implement a bag, <code class="codehilite">Set&lt;E&gt;</code>, a set, and <code class="codehilite">List&lt;E&gt;</code>, a sequence.</p>
-<p>THe <code class="codehilite">List&lt;E&gt;</code> interface has additional methods for adding and removing elements.  <code class="codehilite">add(e)</code> by default would just add to the end of the list.  <code class="codehilite">add(i, e)</code> inserts <code class="codehilite">e</code> to position <code class="codehilite">i</code>.  <code class="codehilite">get(i)</code> returns the element at position <code class="codehilite">i</code>, <code class="codehilite">remove(i)</code> removes the elements at position <code class="codehilite">i</code>; <code class="codehilite">set(i,e)</code> replace the <code class="codehilite">i</code>-th element with <code class="codehilite">e</code>.</p>
+<p>The <code class="codehilite">List&lt;E&gt;</code> interface has additional methods for adding and removing elements.  <code class="codehilite">add(e)</code> by default would just add to the end of the list.  <code class="codehilite">add(i, e)</code> inserts <code class="codehilite">e</code> to position <code class="codehilite">i</code>.  <code class="codehilite">get(i)</code> returns the element at position <code class="codehilite">i</code>, <code class="codehilite">remove(i)</code> removes the elements at position <code class="codehilite">i</code>; <code class="codehilite">set(i,e)</code> replace the <code class="codehilite">i</code>-th element with <code class="codehilite">e</code>.</p>
 <p>Useful classes in Java collection that implements <code class="codehilite">List&lt;E&gt;</code> includes <code class="codehilite">ArrayList</code> and <code class="codehilite">LinkedList</code>, and useful classhes that implements <code class="codehilite">Set&lt;E&gt;</code> includes <code class="codehilite">HashSet</code>.</p>
 <p>Let's see some examples:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">aryaList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
-<span class="n">aryaList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Cersei&quot;</span><span class="o">);</span>
-<span class="n">aryaList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Joffrey&quot;</span><span class="o">);</span>
-<span class="n">aryaList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&quot;Gregor&quot;</span><span class="o">);</span>
-<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">aryaList</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">List</span><span class="o">&lt;</span><span class="n">String</span><span class="o">&gt;</span> <span class="n">names</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+<span class="n">names</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Cersei&quot;</span><span class="o">);</span>
+<span class="n">names</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;Joffrey&quot;</span><span class="o">);</span>
+<span class="n">names</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="s">&quot;Gregor&quot;</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">names</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
 </pre></div>
 </td></tr></table>
 
