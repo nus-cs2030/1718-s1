@@ -247,8 +247,23 @@
         },
         {
             "location": "/midterm/index.html",
-            "text": "Midterm Info Sheet\n\n\nImportant Information\n\n\n\n\nDate: October 2, 2017\n\n\nTime: 1000 - 1120\n\n\nVenue: LT19\n\n\n\n\nPlease arrive at least 5 minutes earlier and wait outside LT19 besides the canteen.\n\n\nScope\n\n\n\n\nEverything taught during Week 1 - Week 6\n\n\nLab 1 - Lab 3\n\n\n\n\nOpen Book\n\n\nThis is an open book midterm.  You can bring in books and notes.  They can be printed or hand written.  No digital materials (laptop, tablet, etc.).  Any Java API needed will be provided to you.\n\n\nOffice Hours\n\n\nKenneth and I will be holding special office hours before the midterm:\n\n\n\n\n\n\n\n\nWho\n\n\nDate\n\n\nTime\n\n\nVenue\n\n\n\n\n\n\n\n\n\n\n\n\nWei Tsang\n\n\nSep 28 (Thu)\n\n\n2-5pm\n\n\nAS6 #05-14\n\n\n\n\n\n\n\n\nKenneth\n\n\nSep 29 (Fri)\n\n\n2-5pm\n\n\nDR6 (COM2 #02-12)",
+            "text": "Midterm\n\n\nQuestions and Solutions\n\n\nHere is \na copy of the question paper with annotated solutions\n\n\nMark Distribution\n\n\n\n\nMidterm Info Sheet\n\n\nImportant Information\n\n\n\n\nDate: October 2, 2017\n\n\nTime: 1000 - 1120\n\n\nVenue: LT19\n\n\n\n\nPlease arrive at least 5 minutes earlier and wait outside LT19 besides the canteen.\n\n\nScope\n\n\n\n\nEverything taught during Week 1 - Week 6\n\n\nLab 1 - Lab 3\n\n\n\n\nOpen Book\n\n\nThis is an open book midterm.  You can bring in books and notes.  They can be printed or hand written.  No digital materials (laptop, tablet, etc.).  Any Java API needed will be provided to you.\n\n\nOffice Hours\n\n\nKenneth and I will be holding special office hours before the midterm:\n\n\n\n\n\n\n\n\nWho\n\n\nDate\n\n\nTime\n\n\nVenue\n\n\n\n\n\n\n\n\n\n\n\n\nWei Tsang\n\n\nSep 28 (Thu)\n\n\n2-5pm\n\n\nAS6 #05-14\n\n\n\n\n\n\n\n\nKenneth\n\n\nSep 29 (Fri)\n\n\n2-5pm\n\n\nDR6 (COM2 #02-12)",
             "title": "Midterm"
+        },
+        {
+            "location": "/midterm/index.html#midterm",
+            "text": "",
+            "title": "Midterm"
+        },
+        {
+            "location": "/midterm/index.html#questions-and-solutions",
+            "text": "Here is  a copy of the question paper with annotated solutions",
+            "title": "Questions and Solutions"
+        },
+        {
+            "location": "/midterm/index.html#mark-distribution",
+            "text": "",
+            "title": "Mark Distribution"
         },
         {
             "location": "/midterm/index.html#midterm-info-sheet",
