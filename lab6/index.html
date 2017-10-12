@@ -1111,7 +1111,7 @@ LambdaList&lt;Integer&gt; strList = new LambdaList&lt;&gt;(&quot;raw&quot;, &quo
 <p>How is returning an <code class="codehilite">Optional</code> useful?  For instance, you can do the following:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">serverList</span><span class="o">.</span><span class="na">findFirst</span><span class="o">(</span><span class="n">s</span> <span class="o">-&gt;</span> <span class="n">s</span><span class="o">.</span><span class="na">isIdle</span><span class="o">())</span>
-          <span class="o">.</span><span class="na">orElse</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">shop</span><span class="o">.</span><span class="na">getRandomServer</span><span class="o">());</span>
+          <span class="o">.</span><span class="na">orElse</span><span class="o">(</span><span class="n">shop</span><span class="o">.</span><span class="na">getRandomServer</span><span class="o">());</span>
 </pre></div>
 </td></tr></table></p>
 <h3 id="7-peek">7. <code class="codehilite">peek</code></h3>
