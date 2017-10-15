@@ -1123,12 +1123,12 @@ Note that a SAM interface can be mulitple methods, but only one can be abstract 
 
 <span class="kd">@FunctionalInterface</span>
 <span class="kr">interface</span> <span class="nx">JoinQueueStrategy</span> <span class="p">{</span>
-  <span class="k">void</span> <span class="nx">joinQueue</span><span class="p">(</span><span class="nx">CustomerQueue</span> <span class="nx">queue</span><span class="p">);</span>
+  <span class="k">void</span> <span class="nx">joinQueue</span><span class="p">(</span><span class="nx">CustomerQueue</span> <span class="nx">queue</span><span class="p">,</span> <span class="nx">Customer</span> <span class="nx">c</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </td></tr></table></p>
 <p>Now, we can avoid three <code class="codehilite">Customer</code> subclasses.  We just need to instantiate a new <code class="codehilite">Customer</code> with different strategies:</p>
-<p>We can set <code class="codehilite">FindQueueStrategy</code> to either <code class="codehilite">shop -&gt; shop.getShortestQueue()</code> or <code class="codehilite">shop -&gt; shop.getRandomQueue()</code> and set the JoinQueueStrategy to either <code class="codehilite">q -&gt; q.addToBack(customer)</code> or <code class="codehilite">q -&gt; q.addToFront(customer)</code>.</p>
+<p>We can set <code class="codehilite">FindQueueStrategy</code> to either <code class="codehilite">shop -&gt; shop.getShortestQueue()</code> or <code class="codehilite">shop -&gt; shop.getRandomQueue()</code> and set the JoinQueueStrategy to either <code class="codehilite">(q, customer) -&gt; q.addToBack(customer)</code> or <code class="codehilite">(q, customer) -&gt; q.addToFront(customer)</code>.</p>
 <h3 id="lambda-as-closure">Lambda as Closure</h3>
 <p>Just like a local class an anonymous classes, a lambda can capture the variables of the enclosing scope.  For instance, if you do not wish to generate the service time of a customer at the time of arrival, you can pass in a <code class="codehilite">Supplier</code> to <code class="codehilite">Customer</code> instead:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Customer c = new Customer(() -&gt; -Math.log(rng.nextDouble())/rate);
