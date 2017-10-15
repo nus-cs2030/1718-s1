@@ -1279,10 +1279,12 @@ We can then delay the execution of the expensive function until it is absolutely
 <li><em><code class="codehilite">limit</code></em> takes in an <code class="codehilite">int</code> <span>\(n\)</span> and return a stream containing the first <span>\(n\)</span> elements of the stream;</li>
 <li><em><code class="codehilite">takeWhile</code></em> takes in a predicate and return a stream containing the elements of the stream, until the predicate becomes false.  The resulting stream might still be infinite if the predicate never becomes false.</li>
 </ul>
-<p>Here are more useful terminal operations:
-- <em><code class="codehilite">noneMatch</code></em> return true if none of the elements pass the given predicate.
-- <em><code class="codehilite">allMatch</code></em> return true if every element passes the given predicate.
-- <em><code class="codehilite">anyMatch</code></em> return true if no elements passes the given predicate.</p>
+<p>Here are more useful terminal operations:</p>
+<ul>
+<li><em><code class="codehilite">noneMatch</code></em> return true if none of the elements pass the given predicate.</li>
+<li><em><code class="codehilite">allMatch</code></em> return true if every element passes the given predicate.</li>
+<li><em><code class="codehilite">anyMatch</code></em> return true if no elements passes the given predicate.</li>
+</ul>
 <h3 id="example-1-is-this-a-prime">Example 1: Is this a prime?</h3>
 <p>Consider the method below, which checks if a given <code class="codehilite">int</code> is a prime:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -1351,8 +1353,8 @@ We can then delay the execution of the expensive function until it is absolutely
 3
 4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">IntStream</span><span class="o">.</span><span class="na">iterate</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="o">)</span>
     <span class="o">.</span><span class="na">filter</span><span class="o">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">isPrime</span><span class="o">(</span><span class="n">x</span><span class="o">))</span>
-    <span class="o">.</span><span class="na">limit</span><span class="o">(</span><span class="mi">500</span><span class="o">)</span>
-    <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+      <span class="o">.</span><span class="na">limit</span><span class="o">(</span><span class="mi">500</span><span class="o">)</span>
+      <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
 </pre></div>
 </td></tr></table></p>
 <p>Notice how each of the four components matches neatly with one operation on stream!  </p>
