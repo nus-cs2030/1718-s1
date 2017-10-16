@@ -759,24 +759,32 @@
 <p>Solve each of this problem using Java 9 streams.  We will discuss the solutions at the beginning of Lab 7.</p>
 <ol>
 <li>
-<p>a. Write a method <code class="codehilite">factors</code> with signature <code class="codehilite">LongStream factors(long x)</code> that takes in an <code class="codehilite">long x</code> and return an <code class="codehilite">LongStream</code> consisting of the factors of <code class="codehilite">x</code>.  For instance, factors(6) should return the stream 1, 2, 3, 6.
-b. Write a method <code class="codehilite">primeFactors</code> with signature <code class="codehilite">LongStream primeFactors(long x)</code> that takes in an <code class="codehilite">long x</code> and return an <code class="codehilite">LongStream</code> consisting of the prime factors of <code class="codehilite">x</code> (a prime factor is a factor that is a prime number, excluding 1).  For instance, prime factors of 6 is 2 and 3.
-c. Write a method <code class="codehilite">omega</code> with signature <code class="codehilite">LongStream omega(int n)</code> that takes in an <code class="codehilite">int n</code> and return a <code class="codehilite">LongStream</code> containing the first <span>\(n\)</span> <a href="https://oeis.org/A001221">omega numbers</a>.  The <span>\(i\)</span>-th omega number is the number of distinct prime factors for the number <span>\(i\)</span>.  The first 10 omega numbers are 0, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1.</p>
+<ul>
+<li>
+<p>Write a method <code class="codehilite">factors</code> with signature <code class="codehilite">LongStream factors(long x)</code> that takes in an <code class="codehilite">long x</code> and return an <code class="codehilite">LongStream</code> consisting of the factors of <code class="codehilite">x</code>.  For instance, factors(6) should return the stream 1, 2, 3, 6.</p>
+</li>
+<li>
+<p>Write a method <code class="codehilite">primeFactors</code> with signature <code class="codehilite">LongStream primeFactors(long x)</code> that takes in an <code class="codehilite">long x</code> and return an <code class="codehilite">LongStream</code> consisting of the prime factors of <code class="codehilite">x</code> (a prime factor is a factor that is a prime number, excluding 1).  For instance, prime factors of 6 is 2 and 3.</p>
+</li>
+<li>
+<p>Write a method <code class="codehilite">omega</code> with signature <code class="codehilite">LongStream omega(int n)</code> that takes in an <code class="codehilite">int n</code> and return a <code class="codehilite">LongStream</code> containing the first <span>\(n\)</span> <a href="https://oeis.org/A001221">omega numbers</a>.  The <span>\(i\)</span>-th omega number is the number of distinct prime factors for the number <span>\(i\)</span>.  The first 10 omega numbers are 0, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1.</p>
+</li>
+</ul>
 </li>
 <li>
 <p>Write a method <code class="codehilite">product</code> that takes in two <code class="codehilite">List</code> objects <code class="codehilite">list1</code> and <code class="codehilite">list2</code>, and produce a <code class="codehilite">Stream</code> containing elements combining each element from <code class="codehilite">list1</code> with every element from <code class="codehilite">list2</code> using a given <code class="codehilite">BiFunction</code>.</p>
-</li>
-</ol>
 <p>For instance,</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
 <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
 <span class="n">Collections</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
 <span class="n">Collections</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
-<span class="n">join</span><span class="o">(</span><span class="n">list1</span><span class="o">,</span> <span class="n">list2</span><span class="o">,</span> <span class="o">(</span><span class="n">str1</span><span class="o">,</span> <span class="n">str2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">str1</span> <span class="o">+</span> <span class="n">str2</span><span class="o">).</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
+<span class="n">join</span><span class="o">(</span><span class="n">list1</span><span class="o">,</span> <span class="n">list2</span><span class="o">,</span> <span class="o">(</span><span class="n">str1</span><span class="o">,</span> <span class="n">str2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">str1</span> <span class="o">+</span> <span class="n">str2</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
 </pre></div>
 </td></tr></table>
 
@@ -799,11 +807,15 @@ c. Write a method <code class="codehilite">omega</code> with signature <code cla
 </pre></div>
 </td></tr></table></p>
 <p>The signature for join is
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">,</span><span class="n">U</span><span class="o">,</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">Stream</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="nf">join</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list1</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">list2</span><span class="o">,</span> <span class="n">BiFunction</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">,</span> <span class="o">?</span> <span class="kd">super</span> <span class="n">U</span><span class="o">,</span> <span class="n">R</span><span class="o">&gt;</span> <span class="n">f</span><span class="o">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">,</span><span class="n">U</span><span class="o">,</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">Stream</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="nf">join</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list1</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">list2</span><span class="o">,</span> 
+      <span class="n">BiFunction</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">,</span> <span class="o">?</span> <span class="kd">super</span> <span class="n">U</span><span class="o">,</span> <span class="n">R</span><span class="o">&gt;</span> <span class="n">f</span><span class="o">)</span>
 </pre></div>
 </td></tr></table></p>
-<ol>
-<li>Write a method that returns the first <span>\(n\)</span> Fibonacci numbers as a <code class="codehilite">Stream</code>.  For instance, the first 10 Fibonacci numbers are 1, 1, 2, 3, 5, 8, 13, 21, 34, 55.  It would be useful to write a new <code class="codehilite">Pair&lt;T, U&gt;</code> class that keeps two items around in the stream.  You may also want to use the <code class="codehilite">BigInteger</code> class to avoid overflow.</li>
+</li>
+<li>
+<p>Write a method that returns the first <span>\(n\)</span> Fibonacci numbers as a <code class="codehilite">Stream</code>.  For instance, the first 10 Fibonacci numbers are 1, 1, 2, 3, 5, 8, 13, 21, 34, 55.  It would be useful to write a new <code class="codehilite">Pair&lt;T, U&gt;</code> class that keeps two items around in the stream.  You may also want to use the <code class="codehilite">BigInteger</code> class to avoid overflow.</p>
+</li>
 </ol>
                 
                   
