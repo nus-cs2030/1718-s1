@@ -1205,16 +1205,58 @@ We can then delay the execution of the expensive function until it is absolutely
   <span class="n">InfiniteList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">tail</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
   <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
     <span class="n">T</span> <span class="n">next</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">head</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
-    <span class="n">list</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">tail</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">predicate</span><span class="o">.</span><span class="na">test</span><span class="o">(</span><span class="n">next</span><span class="o">))</span> <span class="o">{</span>
       <span class="k">return</span> <span class="n">next</span><span class="o">;</span>
     <span class="o">}</span>
+    <span class="n">list</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">tail</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
   <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
 </td></tr></table>
 
+<div class="admonition note">
+<p class="admonition-title">Simpler code</p>
+<p>The code shown in the lecture above could be simplified to:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="n">T</span> <span class="nf">findFirst</span><span class="o">(</span><span class="n">Predicate</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">predicate</span><span class="o">)</span> <span class="o">{</span>
+  <span class="n">InfiniteList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="k">this</span><span class="o">;</span>
+  <span class="k">while</span> <span class="o">(</span><span class="kc">true</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">T</span> <span class="n">next</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">head</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">predicate</span><span class="o">.</span><span class="na">test</span><span class="o">(</span><span class="n">next</span><span class="o">))</span> <span class="o">{</span>
+      <span class="k">return</span> <span class="n">next</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="n">list</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">tail</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table></p>
+</div>
 <p>In the method above, we repeatedly invoke the supplier, until we find an element that matches the predicate.  This way, we never had to generate every element in the list just to find the first element that matches.</p>
+<div class="admonition note">
+<p class="admonition-title">iterate</p>
+<p>In class, I also showed the <code class="codehilite">iterate</code> method to generate a list:
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">InfiniteList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">iterate</span><span class="o">(</span><span class="n">T</span> <span class="n">init</span><span class="o">,</span> <span class="n">Function</span><span class="o">&lt;</span><span class="n">T</span><span class="o">,</span> <span class="n">T</span><span class="o">&gt;</span> <span class="n">next</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">InfiniteList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;(</span>
+        <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">init</span><span class="o">,</span> 
+        <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">InfiniteList</span><span class="o">.</span><span class="na">iterate</span><span class="o">(</span><span class="n">next</span><span class="o">.</span><span class="na">apply</span><span class="o">(</span><span class="n">init</span><span class="o">),</span> <span class="n">next</span><span class="o">)</span>
+      <span class="o">);</span>
+  <span class="o">}</span>
+</pre></div>
+</td></tr></table></p>
+</div>
 <h2 id="stream">Stream</h2>
 <p>Such a list, possibly infinite, that is lazily evaluated on demand is also known as a <em>stream</em>.  Java 8 provides a set of useful and powerful methods on streams, allowing programmers to manipulate data very easily.  Java 9 adds a couple of useful methods, <code class="codehilite">takeWhile</code> and <code class="codehilite">dropWhile</code>, which is also invaluable.  To take full advantage of streams, we will be using Java 9, not Java 8 for the rest of this class.  </p>
 <h3 id="stream-operations">Stream operations</h3>
@@ -1245,20 +1287,20 @@ We can then delay the execution of the expensive function until it is absolutely
 </td></tr></table>
 
 <p>We can create a stream of strings using the static <code class="codehilite">of</code> method from <code class="codehilite">Stream</code>:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&quot;live&quot;</span><span class="o">,</span> <span class="s">&quot;long&quot;</span><span class="o">,</span> <span class="s">&quot;and&quot;</span><span class="o">,</span> <span class="s">&quot;prosper&quot;</span><span class="o">)</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&quot;live&quot;</span><span class="o">,</span> <span class="s">&quot;long&quot;</span><span class="o">,</span> <span class="s">&quot;and&quot;</span><span class="o">,</span> <span class="s">&quot;prosper&quot;</span><span class="o">)</span>
 </pre></div>
 </td></tr></table>
 
 <p>If we chain the two together, using <code class="codehilite">map</code>, however, we will produce a stream of stream of <code class="codehilite">Integer</code>.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&quot;live&quot;</span><span class="o">,</span> <span class="s">&quot;long&quot;</span><span class="o">,</span> <span class="s">&quot;and&quot;</span><span class="o">,</span> <span class="s">&quot;prosper&quot;</span><span class="o">)</span>
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Steam</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&quot;live&quot;</span><span class="o">,</span> <span class="s">&quot;long&quot;</span><span class="o">,</span> <span class="s">&quot;and&quot;</span><span class="o">,</span> <span class="s">&quot;prosper&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">map</span><span class="o">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="na">chars</span><span class="o">().</span><span class="na">boxed</span><span class="o">())</span>
 </pre></div>
 </td></tr></table>
 
 <p>To produce a stream of <code class="codehilite">Integer</code>s, we use <code class="codehilite">flatMap()</code>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">String</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&quot;live&quot;</span><span class="o">,</span> <span class="s">&quot;long&quot;</span><span class="o">,</span> <span class="s">&quot;and&quot;</span><span class="o">,</span> <span class="s">&quot;prosper&quot;</span><span class="o">)</span>
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Stream</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="s">&quot;live&quot;</span><span class="o">,</span> <span class="s">&quot;long&quot;</span><span class="o">,</span> <span class="s">&quot;and&quot;</span><span class="o">,</span> <span class="s">&quot;prosper&quot;</span><span class="o">)</span>
     <span class="o">.</span><span class="na">flatMap</span><span class="o">(</span><span class="n">x</span> <span class="o">-&gt;</span> <span class="n">x</span><span class="o">.</span><span class="na">chars</span><span class="o">().</span><span class="na">boxed</span><span class="o">())</span>
 </pre></div>
 </td></tr></table>

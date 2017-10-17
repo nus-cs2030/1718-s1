@@ -772,7 +772,7 @@
 </ul>
 </li>
 <li>
-<p>Write a method <code class="codehilite">product</code> that takes in two <code class="codehilite">List</code> objects <code class="codehilite">list1</code> and <code class="codehilite">list2</code>, and produce a <code class="codehilite">Stream</code> containing elements combining each element from <code class="codehilite">list1</code> with every element from <code class="codehilite">list2</code> using a given <code class="codehilite">BiFunction</code>.</p>
+<p>Write a method <code class="codehilite">product</code> that takes in two <code class="codehilite">List</code> objects <code class="codehilite">list1</code> and <code class="codehilite">list2</code>, and produce a <code class="codehilite">Stream</code> containing elements combining each element from <code class="codehilite">list1</code> with every element from <code class="codehilite">list2</code> using a given <code class="codehilite">BiFunction</code>.  This operation is similar to a Cartesian product.</p>
 <p>For instance,</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -781,14 +781,14 @@
 5
 6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
 <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">list2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-<span class="n">Collections</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">s1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
-<span class="n">Collections</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">s2</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
-<span class="n">join</span><span class="o">(</span><span class="n">list1</span><span class="o">,</span> <span class="n">list2</span><span class="o">,</span> <span class="o">(</span><span class="n">str1</span><span class="o">,</span> <span class="n">str2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">str1</span> <span class="o">+</span> <span class="n">str2</span><span class="o">)</span>
+<span class="n">Collections</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">list1</span><span class="o">,</span> <span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+<span class="n">Collections</span><span class="o">.</span><span class="na">addAll</span><span class="o">(</span><span class="n">list2</span><span class="o">,</span> <span class="mi">10</span><span class="o">,</span> <span class="mi">20</span><span class="o">);</span>
+<span class="n">product</span><span class="o">(</span><span class="n">list1</span><span class="o">,</span> <span class="n">list2</span><span class="o">,</span> <span class="o">(</span><span class="n">str1</span><span class="o">,</span> <span class="n">str2</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="n">str1</span> <span class="o">+</span> <span class="n">str2</span><span class="o">)</span>
     <span class="o">.</span><span class="na">forEach</span><span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">::</span><span class="n">println</span><span class="o">);</span>
 </pre></div>
 </td></tr></table>
 
-<p>Would print
+<p>gives the output:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -806,15 +806,15 @@
 24
 </pre></div>
 </td></tr></table></p>
-<p>The signature for join is
+<p>The signature for <code class="codehilite">product</code> is
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">,</span><span class="n">U</span><span class="o">,</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">Stream</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="nf">join</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list1</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">list2</span><span class="o">,</span> 
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>  <span class="kd">public</span> <span class="kd">static</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">,</span><span class="n">U</span><span class="o">,</span><span class="n">R</span><span class="o">&gt;</span> <span class="n">Stream</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="nf">product</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">list1</span><span class="o">,</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="n">list2</span><span class="o">,</span> 
       <span class="n">BiFunction</span><span class="o">&lt;?</span> <span class="kd">super</span> <span class="n">T</span><span class="o">,</span> <span class="o">?</span> <span class="kd">super</span> <span class="n">U</span><span class="o">,</span> <span class="n">R</span><span class="o">&gt;</span> <span class="n">f</span><span class="o">)</span>
 </pre></div>
 </td></tr></table></p>
 </li>
 <li>
-<p>Write a method that returns the first <span>\(n\)</span> Fibonacci numbers as a <code class="codehilite">Stream</code>.  For instance, the first 10 Fibonacci numbers are 1, 1, 2, 3, 5, 8, 13, 21, 34, 55.  It would be useful to write a new <code class="codehilite">Pair&lt;T, U&gt;</code> class that keeps two items around in the stream.  You may also want to use the <code class="codehilite">BigInteger</code> class to avoid overflow.</p>
+<p>Write a method that returns the first <span>\(n\)</span> Fibonacci numbers as a <code class="codehilite">Stream&lt;BigInteger&gt;</code>.  For instance, the first 10 Fibonacci numbers are 1, 1, 2, 3, 5, 8, 13, 21, 34, 55.  It would be useful to write a new <code class="codehilite">Pair&lt;T, U&gt;</code> class that keeps two items around in the stream.  We use the <code class="codehilite">BigInteger</code> class to avoid overflow.</p>
 </li>
 </ol>
                 
