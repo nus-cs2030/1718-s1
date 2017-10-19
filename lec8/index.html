@@ -1381,6 +1381,10 @@ We can then delay the execution of the expensive function until it is absolutely
 <span class="o">}</span>
 </pre></div>
 </td></tr></table></p>
+<div class="admonition warning">
+<p class="admonition-title">Bug</p>
+<p>There is a bug in the earlier code where the code showed <code class="codehilite">IntStream.range(2,x-1)</code>.  <code class="codehilite">range(m,n)</code> returns a stream from <code class="codehilite">m</code> to <code class="codehilite">n-1</code>.</p>
+</div>
 <p><code class="codehilite">IntStream</code> is a special <code class="codehilite">Stream</code> for primitive type <code class="codehilite">int</code>, the <code class="codehilite">range</code> method generates a stream of <code class="codehilite">int</code> in a given range (inclusive)</p>
 <p>What if we want to print out the first 500 prime numbers, starting from 2?  Normally, we would do the following:
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
