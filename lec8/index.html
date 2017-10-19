@@ -1186,8 +1186,8 @@ We can then delay the execution of the expensive function until it is absolutely
   <span class="kd">private</span> <span class="n">Supplier</span><span class="o">&lt;</span><span class="n">InfiniteList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span> <span class="n">tail</span><span class="o">;</span>
 
   <span class="kd">public</span> <span class="kd">static</span> <span class="n">InfiniteList</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">generate</span><span class="o">(</span><span class="n">Supplier</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">supply</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">head</span> <span class="o">=</span> <span class="n">supply</span><span class="o">;</span>
-    <span class="n">tail</span> <span class="o">=</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">InfiniteList</span><span class="o">.</span><span class="na">generate</span><span class="o">(</span><span class="n">supply</span><span class="o">);</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">InfiniteList</span><span class="o">(</span><span class="n">supply</span><span class="o">,</span>
+      <span class="o">()</span> <span class="o">-&gt;</span> <span class="n">InfiniteList</span><span class="o">.</span><span class="na">generate</span><span class="o">(</span><span class="n">supply</span><span class="o">));</span>
   <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
