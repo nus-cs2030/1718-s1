@@ -16,7 +16,7 @@
     
     
       
-        <title>4. Exceptions - CS2030 Programming Methodology II</title>
+        <title>6. Functors, Collectors - CS2030 Programming Methodology II</title>
       
     
     
@@ -85,7 +85,7 @@
                 </span>
               
             
-            4. Exceptions
+            6. Functors, Collectors
           
         </span>
       </div>
@@ -511,20 +511,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-    <a href="index.html" title="4. Exceptions" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../exercise4/index.html" title="4. Exceptions" class="md-nav__link">
       4. Exceptions
     </a>
-    
   </li>
 
         
@@ -544,11 +535,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../exercise6/index.html" title="6. Functors, Collectors" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="index.html" title="6. Functors, Collectors" class="md-nav__link md-nav__link--active">
       6. Functors, Collectors
     </a>
+    
   </li>
 
         
@@ -788,12 +788,29 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/nus-cs2030/1718-s1/edit/master/docs/exercise4.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
+                  <a href="https://github.com/nus-cs2030/1718-s1/edit/master/docs/exercise6.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="exercise-4">Exercise 4</h1>
-<p>In your lab 1, we assume that the input file is always in the correct format.</p>
-<p>Now, change <code class="codehilite">MaxDiscCover</code> so that the <code class="codehilite">readPoints()</code> method no longer assume this.  You should use exceptions to handles the possible errors when reading the points from <code class="codehilite">System.in</code>.</p>
+                <h1 id="exercise-6">Exercise 6</h1>
+<p>This is an ungraded exercise.</p>
+<ol>
+<li>
+<p>Implement the <code class="codehilite">map</code> method of <code class="codehilite">Optional</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kr">public</span><span class="o">&lt;</span><span class="nx">U</span><span class="o">&gt;</span> <span class="nx">Optional</span><span class="o">&lt;</span><span class="nx">U</span><span class="o">&gt;</span> <span class="nx">map</span><span class="p">(</span><span class="nb">Function</span><span class="cp">&lt;?</span> <span class="nx">super</span> <span class="nx">T</span><span class="p">,</span> <span class="o">?</span> <span class="k">extends</span> <span class="nx">U</span><span class="o">&gt;</span> <span class="nx">mapper</span><span class="p">)</span> <span class="p">{</span>
+     <span class="o">:</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>Convince yourself it is a functor.</p>
+</li>
+<li>
+<p>Implement a collector that takes in a stream of doubles and return the average value. </p>
+<p>Show the supplier, accumulator, combiner, and finisher methods.</p>
+</li>
+</ol>
                 
                   
                 
@@ -812,7 +829,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../exercise3/index.html" title="3. PaintedSquare Revisited" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../exercise5/index.html" title="5. Streams" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -821,19 +838,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                3. PaintedSquare Revisited
+                5. Streams
               </span>
             </div>
           </a>
         
         
-          <a href="../exercise5/index.html" title="5. Streams" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../lab1/index.html" title="1. Question" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                5. Streams
+                1. Question
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
