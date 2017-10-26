@@ -722,6 +722,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#provided-classes" title="Provided Classes" class="md-nav__link">
+    Provided Classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#busstop" title="BusStop" class="md-nav__link">
+    BusStop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#busservice" title="BusService" class="md-nav__link">
+    BusService
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tasks" title="Tasks" class="md-nav__link">
     Tasks
   </a>
@@ -877,6 +904,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#provided-classes" title="Provided Classes" class="md-nav__link">
+    Provided Classes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#busstop" title="BusStop" class="md-nav__link">
+    BusStop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#busservice" title="BusService" class="md-nav__link">
+    BusService
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tasks" title="Tasks" class="md-nav__link">
     Tasks
   </a>
@@ -941,10 +995,16 @@
 <li>follows the <a href="../style/index.html">CS2030 Coding Style</a></li>
 <li>clearly documented with <a href="../javadoc/index.html"><code class="codehilite">javadoc</code></a> (this has been done for you, for free!)</li>
 </ul>
+<h2 id="provided-classes">Provided Classes</h2>
+<h3 id="busstop">BusStop</h3>
+<p>A <code class="codehilite">BusStop</code> encapsulates information about a bus stop.  It has an <code class="codehilite">id</code> (e.g., "16181"), a location (longtitude and latitude -- irrelevant for this lab), and a human-friendly name (e.g., "Computer Ctr").  </p>
+<p>A <code class="codehilite">BusStop</code> also has a collection of <code class="codehilite">BusService</code> objects that serve the <code class="codehilite">BusStop</code>.  Your tasks involve populating and processing this collection.  To do so, you can call <code class="codehilite">addBusService</code> to add a bus service to the collection and call <code class="codehilite">getBusServices</code> to retrieve the collection of bus services as a stream.</p>
+<h3 id="busservice">BusService</h3>
+<p>A <code class="codehilite">BusService</code> encapsulates information about a bus service.  Each bus service has a string <code class="codehilite">id</code> (e.g, "96") and a collection of <code class="codehilite">BusStop</code> objects, corresponding to the bus stops served by the given bus service.  Your tasks involve populating and processing this collection.  To do so, you can call <code class="codehilite">addBusStop</code> to add a bus stop, and <code class="codehilite">getBusStops</code> to retrieve the collection of bus stops as a stream.</p>
 <h2 id="tasks">Tasks</h2>
 <ul>
 <li>
-<p><code class="codehilite">readBusStopsAndServices</code>: Complete this method which takes in a filename, reads line by line, and enters the relationship of which bus service serves which bus stop to the hash maps <code class="codehilite">busStops</code> and <code class="codehilite">busServices</code>.  The hash maps are of the class <code class="codehilite">HashMapO</code> which wraps about Java <code class="codehilite">HashMap</code> -- <code class="codehilite">HashMapO</code> supports <code class="codehilite">Optional</code> return type <code class="codehilite">get</code> and <code class="codehilite">Stream</code> return type in <code class="codehilite">entries</code>.</p>
+<p><code class="codehilite">readBusStopsAndServices</code>: Complete this method, which takes in a filename, reads line by line, and enters the relationship of which bus service serves which bus stop to the hash maps <code class="codehilite">busStops</code> and <code class="codehilite">busServices</code>.  The hash maps are of the class <code class="codehilite">HashMapO</code> which wraps about Java <code class="codehilite">HashMap</code> -- <code class="codehilite">HashMapO</code> supports <code class="codehilite">Optional</code> return type <code class="codehilite">get</code> and <code class="codehilite">Stream</code> return type in <code class="codehilite">entries</code>.</p>
 </li>
 <li>
 <p><code class="codehilite">averageNumberOfBusesPerStop</code> and <code class="codehilite">averageNumberOfStopsPerBus</code>. These two code are similar.  You should use <code class="codehilite">Collectors.averagingDouble</code> to implement them.</p>
