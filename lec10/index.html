@@ -1440,7 +1440,7 @@ sequentially:
 
 <h3 id="collectors">Collectors</h3>
 <p>To wrap up, we will revisit the <code class="codehilite">Collector</code> class.  Recall that <code class="codehilite">collect</code> is a mutable version of <code class="codehilite">reduce</code> on <code class="codehilite">Stream</code>.  Being mutable, parallelizing it is tricky.  Luckily, we only need to provide hints to the Collector class, which will optimize the implementation for us.  The hint is given as part of the <code class="codehilite">characteristics()</code> method (the last method that we did not cover last week).</p>
-<p>The <code class="codehilite">characteristic()</code> method returns a <code class="codehilite">Set</code> that contains a combination of three enums:</p>
+<p>The <code class="codehilite">characteristics()</code> method returns a <code class="codehilite">Set</code> that contains a combination of three enums:</p>
 <ul>
 <li><code class="codehilite">CONCURRENT</code> to indicate that the container that the supplier created can support accumulator function being called concurrently from multiple threads,</li>
 <li><code class="codehilite">IDENTITY_FINISH</code> to indicate the the finisher function is the identity function, and can be skipped.</li>
