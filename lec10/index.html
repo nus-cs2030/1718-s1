@@ -1414,6 +1414,7 @@ sequentially:
 </pre></div>
 </td></tr></table>
 
+<p>The task above recursively search for an element in the left half and right half of the array.  Note that this is similar to, but is NOT binary search.  Binary search of course just search in either the left or the right side, depending on the middle value, and is not parallel.</p>
 <h3 id="forkjoinpool-overhead">ForkJoinPool overhead</h3>
 <p>In the example above, you can see that creating subtasks incur some overhead (new task objects, copying of parameters into objects, etc).  In the <code class="codehilite">isPrime</code> example above, the task is trivial (checking <code class="codehilite">n % x == 0</code>), and so, by parallelizing it, we are actually creating more work for Java to do!  It is much more efficient if we simply check for <code class="codehilite">n % x == 0</code> sequentially.</p>
 <p>The moral of the story is, parallelization is worthwhile if the task is complex enough that the benefit of parallelization outweighs the overhead.  While we discuss this in the context of parallel streams, this principle holds for all parallel and concurrent programs.</p>
