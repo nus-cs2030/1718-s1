@@ -1017,6 +1017,14 @@ elements <span>\(c_{ij}\)</span> in <span>\(C\)</span> is given by: <span>\(c_{i
 </td></tr></table>
 
 <p>Your solution should get similar or better speed up on <code class="codehilite">sunfire</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Tips</p>
+<p>Here are some tips:</p>
+<ul>
+<li>Try with small matrices first.  Make sure the code is correct before you go for the larger matrices.</li>
+<li>You shouldn't run out of heap memory space for the huge matrices above.  But if you algorithm requires more memory, you can run <code class="codehilite">java</code> with argument <code class="codehilite">-Xmx&lt;size&gt;</code> to incrase the heap memory.  For example, <code class="codehilite">java -Xmx256m LabNine 100 100 100</code> will run <code class="codehilite">LabNine</code> with heap size of 256 MB.</li>
+</ul>
+</div>
 <h2 id="grading">Grading</h2>
 <p>This lab contributes another 4 marks to your final grade (100 marks).  </p>
 <p>You get:</p>
