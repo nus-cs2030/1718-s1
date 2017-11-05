@@ -470,8 +470,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         11. Asynchronous Programming
@@ -484,8 +482,6 @@
       
 <nav class="md-nav md-nav--secondary">
   
-  
-    
   
   
     <label class="md-nav__title" for="toc">Table of contents</label>
@@ -898,8 +894,6 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -976,8 +970,9 @@
                   <a href="https://github.com/nus-cs2030/1718-s1/edit/master/docs/lec11.md" title="Edit this page" class="md-icon md-content__icon">edit</a>
                 
                 
-                <h1 id="lecture-11">Lecture 11</h1>
-<h2 id="learning-objectives">Learning Objectives</h2>
+                  <h1>11. Asynchronous Programming</h1>
+                
+                <h2 id="learning-objectives">Learning Objectives</h2>
 <p>After this lecture, students should:</p>
 <ul>
 <li>familiar with the concept of asynchronous method calls and be able to use it effectively</li>
@@ -1026,7 +1021,7 @@
 </td></tr></table>
 
 <p>So, while the task is running, we can print out a series of "."s to feedback to the users to indicate that it is running.</p>
-<p><code class="codehilite">Thread.sleep(1000)</code> cause the current running thread to sleep for 1s.  It might throw an <code class="codehilite">InterruptedException</code>, if the user interrupts the program (by Control-C).  To complete thet snippet, we should catch the exception and cancel the task. </p>
+<p><code class="codehilite">Thread.sleep(1000)</code> cause the current running thread to sleep for 1s.  It might throw an <code class="codehilite">InterruptedException</code>, if the user interrupts the program (by Control-C).  To complete the snippet, we should catch the exception and cancel the task. </p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1123,7 +1118,7 @@
 </td></tr></table>
 
 <p>You can see that the code gets out of hand quickly, and this is only if we have one asynchronous call!</p>
-<p>What we need is have a way to specify a <em>callback</em>.  A callback is basically a method that will be executed when a certain event happens.  In this case, we need to sepecify a callback when an asynchronous task is complete.  This way, we can just call an asynchronous task, specify what to do when the task is completed, and forget about it.  We do not need to check again and again if the task is done.</p>
+<p>What we need is have a way to specify a <em>callback</em>.  A callback is basically a method that will be executed when a certain event happens.  In this case, we need to specify a callback when an asynchronous task is complete.  This way, we can just call an asynchronous task, specify what to do when the task is completed, and forget about it.  We do not need to check again and again if the task is done.</p>
 <p>Java 8 introduces the class <code class="codehilite">CompletableFuture</code>, which implements the <code class="codehilite">Future</code> interface, and allows us to specify an asynchronous task, and an action to perform when the task completes.</p>
 <p>To create a <code class="codehilite">CompletableFuture</code> object, we can call one of its static method.  For instance, <code class="codehilite">supplyAsync</code> takes in a <code class="codehilite">Supplier</code>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">CompletableFuture</span><span class="o">&lt;</span><span class="n">Matrix</span><span class="o">&gt;</span> <span class="n">future</span> <span class="o">=</span> <span class="n">CompletableFuture</span><span class="o">.</span><span class="na">supplyAsync</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">m1</span><span class="o">.</span><span class="na">multiply</span><span class="o">(</span><span class="n">m2</span><span class="o">));</span>
@@ -1169,7 +1164,7 @@
 </ul>
 <p>All the methods above return a <code class="codehilite">CompletableFuture</code>.</p>
 <p>BTW, <code class="codehilite">CompletableFuture</code> is a monad too!  The <code class="codehilite">thenCompose</code> method is analougous to the <code class="codehilite">flatMap</code> method of <code class="codehilite">Stream</code> and <code class="codehilite">Optional</code>. </p>
-<p>This also means that <code class="codehilite">CompletableFuture</code> satisfesy the monad laws, one of which is that there is a method to wrap a value around with a <code class="codehilite">CompletableFuture</code>.  We call this the <code class="codehilite">of</code> method in the context of <code class="codehilite">Stream</code> and <code class="codehilite">Optional</code>, but in <code class="codehilite">CompletableFuture</code>, it is called <code class="codehilite">completedFuture</code>.</p>
+<p>This also means that <code class="codehilite">CompletableFuture</code> satisfies the monad laws, one of which is that there is a method to wrap a value around with a <code class="codehilite">CompletableFuture</code>.  We call this the <code class="codehilite">of</code> method in the context of <code class="codehilite">Stream</code> and <code class="codehilite">Optional</code>, but in <code class="codehilite">CompletableFuture</code>, it is called <code class="codehilite">completedFuture</code>.</p>
 <p>Being a functor and a monad, <code class="codehilite">CompletableFuture</code> objects can be chained together, just like <code class="codehilite">Stream</code> and <code class="codehilite">Optional</code>.  We can write code like this:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1222,7 +1217,7 @@
 </ul>
 <p>The <a href="http://www.codebulb.ch/2015/07/completablefuture-clean-callbacks-with-java-8s-promises-part-4.html#api">table</a> by Nicolas Hofstetter neatly summarizes all the methods available.  As you can see, the API is quite extensive (bloated?).</p>
 <h3 id="handling-exceptions">Handling Exceptions</h3>
-<p>Handling exceptions is non-trivial for asynchronous methods.  Remember that, in synchronous method calls, the exceptions are repeatedly thrown to the caller up the call stack, until someone catches the exception.  For asynchrnous calls, it is not so obvious.  For instance, should we put a catch around <code class="codehilite">fork()</code> or around <code class="codehilite">join()</code>?  A <code class="codehilite">ForkJoinTask</code> doesn't handle exception with catch, but instead requires us to check for <code class="codehilite">isCompletedAbnormally</code> and then call <code class="codehilite">getException</code> to get the exception thrown.</p>
+<p>Handling exceptions is non-trivial for asynchronous methods.  Remember that, in synchronous method calls, the exceptions are repeatedly thrown to the caller up the call stack, until someone catches the exception.  For asynchronous calls, it is not so obvious.  For instance, should we put a catch around <code class="codehilite">fork()</code> or around <code class="codehilite">join()</code>?  A <code class="codehilite">ForkJoinTask</code> doesn't handle exception with catch, but instead requires us to check for <code class="codehilite">isCompletedAbnormally</code> and then call <code class="codehilite">getException</code> to get the exception thrown.</p>
 <p>As <code class="codehilite">CompletableFuture</code> allows chaining, it provides a cleaner way to pass exceptions from one call to the next.  The terminal operation <code class="codehilite">whenComplete</code> takes in a <code class="codehilite">BiConsumer</code> as parameter -- the first argument to the <code class="codehilite">BiConsumer</code> is the result from previous chain (or <code class="codehilite">null</code> if exception thrown); the second argument is an exception (null if completes normally).</p>
 <p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
