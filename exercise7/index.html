@@ -634,6 +634,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#question-6-bad-practices" title="Question 6: Bad Practices" class="md-nav__link">
+    Question 6: Bad Practices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-7-ask-dont-tell" title="Question 7: Ask, Don't Tell" class="md-nav__link">
+    Question 7: Ask, Don't Tell
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -955,6 +969,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#question-6-bad-practices" title="Question 6: Bad Practices" class="md-nav__link">
+    Question 6: Bad Practices
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#question-7-ask-dont-tell" title="Question 7: Ask, Don't Tell" class="md-nav__link">
+    Question 7: Ask, Don't Tell
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1029,6 +1057,179 @@ interleave(list1, list2).limit(6).toArray(); // returns [1, 2, 1, 2, 1, 2]
 </td></tr></table>
 
 <p>We can be assured that the expressions above are the same because stream is a functor.  Why?  Explain by indicating which law ensures the behavior above is true.</p>
+<h2 id="question-6-bad-practices">Question 6: Bad Practices</h2>
+<p>Each of the following code illusrates a very bad programming practice.  For each, comments on why it is bad.</p>
+<p>(a) "Pokemon Catch" </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    <span class="k">try</span> <span class="o">{</span>
+        <span class="n">doSomething</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+
+    <span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>(b) Switching between strings</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>   <span class="k">switch</span><span class="o">(</span><span class="n">customer</span><span class="o">.</span><span class="na">getType</span><span class="o">())</span> <span class="o">{</span>
+     <span class="k">case</span> <span class="s">&quot;Kiasu&quot;</span><span class="o">:</span> 
+       <span class="n">joinQueueKiasu</span><span class="o">();</span>
+     <span class="k">case</span> <span class="s">&quot;Pioneer&quot;</span><span class="o">:</span> 
+       <span class="n">joinQueuePioneer</span><span class="o">();</span>
+     <span class="k">default</span><span class="o">:</span>
+       <span class="n">joinQueueRegular</span><span class="o">();</span>
+   <span class="o">}</span> 
+</pre></div>
+</td></tr></table>
+
+<p>&copy; </p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">getCustomerType</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">if</span> <span class="o">(</span><span class="n">customer</span><span class="o">.</span><span class="na">isPioneer</span><span class="o">())</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">PioneerCustomerException</span><span class="o">();</span>
+  <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">customer</span><span class="o">.</span><span class="na">isKiasu</span><span class="o">())</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="n">KiasuCustomerException</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+
+  <span class="o">:</span>
+  <span class="o">:</span>
+
+<span class="k">try</span> <span class="o">{</span>
+  <span class="n">getCustomerType</span><span class="o">();</span>
+  <span class="n">joinQueueRegular</span><span class="o">();</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">PioneerCustomerException</span><span class="o">())</span> <span class="o">{</span>
+  <span class="n">joinQueuePioneer</span><span class="o">();</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">KiasuCustomerException</span><span class="o">())</span> <span class="o">{</span>
+  <span class="n">joinQueueKiasu</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<p>(d)</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">// customers, servers, queues are arrays of Customer, </span>
+<span class="c1">// Server, and Queue respectively.</span>
+<span class="n">Customer</span><span class="o">[]</span> <span class="n">customers</span><span class="o">;</span>
+<span class="n">Server</span><span class="o">[]</span> <span class="n">servers</span><span class="o">;</span>
+<span class="n">Queue</span><span class="o">[]</span> <span class="n">queues</span><span class="o">;</span>
+  <span class="o">:</span>
+  <span class="o">:</span>
+
+<span class="kt">void</span> <span class="nf">handleCustomer</span><span class="o">(</span><span class="kt">int</span> <span class="n">q</span><span class="o">,</span> <span class="kt">int</span> <span class="n">s</span><span class="o">,</span> <span class="kt">int</span> <span class="n">c</span><span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// if servers[s] is busy, add customers[c] into queues[q]</span>
+  <span class="c1">// otherwise servers[s] serves customers[c]</span>
+    <span class="o">:</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="question-7-ask-dont-tell">Question 7: Ask, Don't Tell</h2>
+<p>Suggest how we can improve the design of the classes below.  Only relevant part of the code are shown for brevity.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kd">class</span> <span class="nc">LabSubmission</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="n">Student</span> <span class="n">s</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">marks</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="n">Student</span> <span class="nf">getStudent</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">s</span><span class="o">;</span>
+  <span class="o">}</span>
+
+  <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getMarks</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">marks</span><span class="o">;</span>
+  <span class="o">}</span>
+
+    <span class="o">:</span>
+    <span class="o">:</span>
+<span class="o">}</span>
+
+<span class="kd">class</span> <span class="nc">Gradebook</span> <span class="o">{</span>
+  <span class="n">List</span><span class="o">&lt;</span><span class="n">LabSubmission</span><span class="o">&gt;</span> <span class="n">submissions</span><span class="o">;</span>
+
+  <span class="kt">void</span> <span class="nf">print</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="n">LabSubmission</span> <span class="n">s</span> <span class="o">:</span> <span class="n">submissions</span><span class="o">)</span> <span class="o">{</span>
+      <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getMarks</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getStudent</span><span class="o">(),</span> <span class="s">&quot;A&quot;</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getMarks</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getStudent</span><span class="o">(),</span> <span class="s">&quot;B&quot;</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getMarks</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getStudent</span><span class="o">(),</span> <span class="s">&quot;C&quot;</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">printf</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">getStudent</span><span class="o">(),</span> <span class="s">&quot;D&quot;</span><span class="o">);</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</td></tr></table>
                 
                   
                 
