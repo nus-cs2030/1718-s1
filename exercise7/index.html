@@ -1124,9 +1124,9 @@ interleave(list1, list2).limit(6).toArray(); // returns [1, 2, 1, 2, 1, 2]
 <span class="k">try</span> <span class="o">{</span>
   <span class="n">getCustomerType</span><span class="o">();</span>
   <span class="n">joinQueueRegular</span><span class="o">();</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">PioneerCustomerException</span><span class="o">())</span> <span class="o">{</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">PioneerCustomerException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
   <span class="n">joinQueuePioneer</span><span class="o">();</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">KiasuCustomerException</span><span class="o">())</span> <span class="o">{</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">KiasuCustomerException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
   <span class="n">joinQueueKiasu</span><span class="o">();</span>
 <span class="o">}</span>
 </pre></div>
