@@ -1,6 +1,6 @@
 # Lab 7
 
-Submission deadline: 2359, Sunday, October 21, 2017.
+Submission deadline: 2359, Sunday, October 22, 2017.
 
 ## Prerequisites
 

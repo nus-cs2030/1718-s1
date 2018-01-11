@@ -158,17 +158,17 @@ You can compare your output with the following tables[^6]:
 
 [^6]: Your code might still be correct if it is slightly out of range -- try a different seed and see.  If it gets consistently out of range, or is way out of range, then double check your logic.
 
-TEST | Average Waiting Time |
------|----------------------|
-1    | 3.4 - 4.4            |
-2    | 2.7 - 3.7            |
-3	 | 3.3 - 4.3            |
-4    | 3.1 - 4.2            |
-5    | <s>2.2 - 3.0</s>&nbsp;&nbsp;2.6 - 3.6 |
-6    | <s>0.7 - 1.2</s>&nbsp;&nbsp;1.6 - 2.4 |
-7    | <s>0.9 - 1.5</s>&nbsp;&nbsp;2.0 - 2.9 |
-8    | <s>1.4 - 2.3</s>&nbsp;&nbsp;2.6 - 3.8 |
-9    | <s>7 - 13</s>&nbsp;&nbsp;10 - 16      |
+TEST | Average Waiting Time | Customers | Switching | Break |
+-----|----------------------|-----------|-----------|-------|
+1    | 3.4 - 4.4            | Only typical customers | Negligable | No |
+2    | 2.7 - 3.7            | Only kiasu customers | Negligable | No |
+3	 | 3.3 - 4.3            | Only pioneers | Negligable | No |
+4    | 3.1 - 4.2            | Equal mix | Negligable | No |
+5    | <s>2.2 - 3.0</s>&nbsp;&nbsp;2.6 - 3.6 | Equal mix | Some | No |
+6    | <s>0.7 - 1.2</s>&nbsp;&nbsp;1.6 - 2.4 | Equal mix | Frequent | No |
+7    | <s>0.9 - 1.5</s>&nbsp;&nbsp;2.0 - 2.9 | Equal mix | Frequent | Half of the time, short break |
+8    | <s>1.4 - 2.3</s>&nbsp;&nbsp;2.6 - 3.8 | Equal mix | Frequent | Always, short break |
+9    | <s>7 - 13</s>&nbsp;&nbsp;10 - 16      | Equal mix | Frequent | Always, long break |
 
 ## Grading
 

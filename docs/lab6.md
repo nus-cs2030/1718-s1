@@ -1,6 +1,6 @@
 # Lab 6
 
-Submission deadline: 2359, Sunday, October 14, 2017.
+Submission deadline: 2359, Sunday, October 15, 2017.
 
 ## Prerequisites
 
