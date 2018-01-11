@@ -48,7 +48,7 @@ x -> y -> z -> f(x,y,z)
 
 where `x`, `y`, `z` are of some type `T` and `f` returns a value of type `R`.
 
-(a) What is the type of type of the lambda expression above?
+(a) What is the type of the lambda expression above?
 
 (b) Suppose that the lambda expression above is assigned to a variable `exp`.  Given three variables `x`, `y`, and `z`, show how you can evaluate the lambda expression with `x`, `y`, `z` to obtain `f(x,y,z)`.
 
@@ -73,4 +73,113 @@ or
 stream.map(i -> bar(foo(i)))
 ```
 
-We can be assure that the expressions above are the same because stream is a functor.  Why?  Explain by indicating which law ensures the behavior above is true.
+We can be assured that the expressions above are the same because stream is a functor.  Why?  Explain by indicating which law ensures the behavior above is true.
+
+## Question 6: Bad Practices
+
+Each of the following code illusrates a very bad programming practice.  For each, comments on why it is bad.
+
+(a) "Pokemon Catch" 
+
+```Java
+	try {
+		doSomething();
+	} catch (Exception e) {
+
+	}
+```
+
+(b) Switching between strings
+
+```Java
+   switch(customer.getType()) {
+	 case "Kiasu": 
+	   joinQueueKiasu();
+	 case "Pioneer": 
+	   joinQueuePioneer();
+     default:
+	   joinQueueRegular();
+   } 
+```
+	   
+(c) 
+
+```Java
+void getCustomerType() {
+  if (customer.isPioneer()) {
+    throw new PioneerCustomerException();
+  } else if (customer.isKiasu()) {
+    throw new KiasuCustomerException();
+  }
+}
+
+  :
+  :
+
+try {
+  getCustomerType();
+  joinQueueRegular();
+} catch (PioneerCustomerException e) {
+  joinQueuePioneer();
+} catch (KiasuCustomerException e) {
+  joinQueueKiasu();
+}
+```
+
+(d)
+
+```Java
+// customers, servers, queues are arrays of Customer, 
+// Server, and Queue respectively.
+Customer[] customers;
+Server[] servers;
+Queue[] queues;
+  :
+  :
+
+void handleCustomer(int q, int s, int c) {
+  // if servers[s] is busy, add customers[c] into queues[q]
+  // otherwise servers[s] serves customers[c]
+    :
+}
+```
+
+## Question 7: Ask, Don't Tell
+
+Suggest how we can improve the design of the classes below.  Only relevant part of the code are shown for brevity.
+
+```Java
+class LabSubmission {
+  private Student s;
+  private int marks;
+  
+  public Student getStudent() {
+	return s;
+  }
+
+  public int getMarks() {
+	return marks;
+  }
+
+    :
+	:
+}
+
+class Gradebook {
+  List<LabSubmission> submissions;
+
+  void print() {
+	for (LabSubmission s : submissions) {
+	  if (s.getMarks() > 3) {
+        System.out.printf(s.getStudent() + " A");
+	  } else if (s.getMarks() > 2) {
+        System.out.printf(s.getStudent() + " B");
+	  } else if (s.getMarks() > 1) {
+        System.out.printf(s.getStudent() + " C");
+	  } else {
+        System.out.printf(s.getStudent() + " D");
+	  }
+	}
+  }
+}
+```
