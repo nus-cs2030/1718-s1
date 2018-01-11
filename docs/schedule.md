@@ -14,5 +14,5 @@ Week | Date       | Topics | Resources |
 9    | 2017-10-16 | 8. Lambdas and Stream | [Notes](lec8.md) . [Slides](https://www.comp.nus.edu.sg/~cs2030/1718-s1/cs2030-lec8.pdf) . [Video](https://vimeo.com/238864721) 
 10   | 2017-10-23 | 9. Functors, Monads, Collections | [Notes](lec9.md) . [Slides](https://www.comp.nus.edu.sg/~cs2030/1718-s1/cs2030-lec9.pdf) . [Video](https://vimeo.com/240577618) |
 11   | 2017-10-30 | 10. Parallel Streams | [Notes](lec10.md) . [Slides](https://www.comp.nus.edu.sg/~cs2030/1718-s1/cs2030-lec10.pdf) . [Video](https://vimeo.com/240834038) |
-12   | 2017-11-06 | 11. Asynchronous Programming | [Notes](lec11.md)  |
-13   | 2017-11-13 | 12. Recap | [Notes](lec12.md) |
+12   | 2017-11-06 | 11. Asynchronous Programming | [Notes](lec11.md) . [Slides](https://www.comp.nus.edu.sg/~cs2030/1718-s1/cs2030-lec11.pdf) . No Video  |
+13   | 2017-11-13 | 12. Recap | [Notes](lec12.md) . [Slides](https://www.comp.nus.edu.sg/~cs2030/1718-s1/cs2030-lec12.pdf) . [Video](https://vimeo.com/243274140) |
